@@ -2,7 +2,7 @@
 local devicons = {'nvim-tree/nvim-web-devicons',}
 
 -- LSP
-local lspconfig = {'neovim/nvim-lspconfig', opts={}}
+local lspconfig = {'neovim/nvim-lspconfig'}
 local mason = {'williamboman/mason.nvim', opts={}}
 local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
 
@@ -41,5 +41,5 @@ local lualine = {
     event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig}
 
