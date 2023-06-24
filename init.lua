@@ -20,7 +20,9 @@ require("lazy").setup(plugins_file)
 -- Settings
 vim.opt.background = "dark" -- set this to dark or light
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 0
+vim.opt.shiftwidth=4
+vim.opt.softtabstop = 4
+vim.opt.autoindent = true
 vim.opt.expandtab = false
 
 vim.opt.termguicolors = true

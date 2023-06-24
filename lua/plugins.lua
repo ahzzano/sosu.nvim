@@ -6,6 +6,12 @@ local lspconfig = {'neovim/nvim-lspconfig'}
 local mason = {'williamboman/mason.nvim', opts={}}
 local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
 
+-- Code Completion
+local nvim_cmp = {'hrsh7th/nvim-cmp'}
+local luasnip = {'L3MON4D3/LuaSnip'}
+local luasnip_nvimcmp = {'saadparwaiz1/cmp_luasnip'}
+local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
+
 -- Syntax Highlighting
 local treesitter = {
 	'nvim-treesitter/nvim-treesitter', opts={}
@@ -41,5 +47,5 @@ local lualine = {
     event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp}
 
