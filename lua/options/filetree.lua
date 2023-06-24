@@ -5,10 +5,10 @@ end
 
 nvim_tree.setup({
 		actions = {
-				change_dir = {
-						enable=false
-				}
-		}
+			change_dir = {
+				enable=false
+			}
+		},
 })
 
 local function is_modified_buffer_open(buffers)

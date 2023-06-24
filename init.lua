@@ -17,11 +17,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(plugins_file)
 
+-- General Settings
+
+local tabwidth = 4
+
 -- Settings
 vim.opt.background = "dark" -- set this to dark or light
-vim.opt.tabstop = 4
-vim.opt.shiftwidth=4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = tabwidth
+vim.opt.shiftwidth= tabwidth
+vim.opt.softtabstop = tabwidth
 vim.opt.autoindent = true
 vim.opt.expandtab = false
 
@@ -30,6 +34,7 @@ vim.opt.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.opt.laststatus = 3
 
 vim.cmd("colorscheme oxocarbon")
 

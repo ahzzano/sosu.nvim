@@ -35,15 +35,11 @@ local autopairs =  {
 }
 
 -- Theme
-local oxocarbon = { 
-	"nyoom-engineering/oxocarbon.nvim"
-}
+local oxocarbon = { "nyoom-engineering/oxocarbon.nvim"}
 
 -- Statusline
 local lualine = {
-'nvim-lualine/lualine.nvim', opts={
-	icons_enabled=true
-    },
+	'nvim-lualine/lualine.nvim', 
     event = "VeryLazy"
 }
 
