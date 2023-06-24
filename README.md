@@ -2,11 +2,21 @@
 my personal nvim config
 
 ## Plugins
-- LSPConfig
-- Treesitter
-- Autopairs
-- Lualine
-- Mason
+- lspconfig
+- treesitter
+- autopairs
+- lualine
+- mason
+- mason-lspconfig
+- nvim-cmp
+- luasnip
+- cmp_luasnip
+- cmp-nvim-lsp
+- toggleterm
+- bufferline
+- nvim tree
+- telescope
+
 
 ## Themes
 - Oxocarbon.nvim
