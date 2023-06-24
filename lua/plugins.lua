@@ -1,7 +1,10 @@
+-- Essentials
+local devicons = {
+	'nvim-tree/nvim-web-devicons',
+}
 -- LSP
-
 local lspconfig = {
-		'neovim/nvim-lspconfig'
+	'neovim/nvim-lspconfig'
 }
 
 -- Syntax Highlighting
@@ -12,16 +15,24 @@ local treesitter = {
 
 -- Autopairs
 local autopairs =  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
+	'windwp/nvim-autopairs',
+	event = "InsertEnter",
+	opts = {} -- this is equalent to setup({}) function
 }
 
 -- Theme
-
 local oxocarbon = { 
-    "nyoom-engineering/oxocarbon.nvim"
+	"nyoom-engineering/oxocarbon.nvim"
 }
 
-return {autopairs, oxocarbon, treesitter}
+-- Statusline
+local lualine = {
+	'nvim-lualine/lualine.nvim', opts={
+        icons_enabled=true
+    },
+    event = "VeryLazy"
+}
+
+
+return {autopairs, oxocarbon, treesitter, lualine, devicons}
 
