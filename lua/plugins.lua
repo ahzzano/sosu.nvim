@@ -12,10 +12,24 @@ local luasnip = {'L3MON4D3/LuaSnip'}
 local luasnip_nvimcmp = {'saadparwaiz1/cmp_luasnip'}
 local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
 
+-- bufferline
+local bufferline = {'akinsho/bufferline.nvim', opts={
+	options = {
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text="NvimTree",
+				separator= false,
+				text_align="left",
+				padding=1
+			}
+		}
+	}
+}}
+
 -- Syntax Highlighting
 local treesitter = {
 	'nvim-treesitter/nvim-treesitter', opts={}
-
 }
 
 -- File Tree
@@ -43,5 +57,5 @@ local lualine = {
     event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline}
 
