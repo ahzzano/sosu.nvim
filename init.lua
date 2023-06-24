@@ -1,5 +1,5 @@
-plugins_file = require('plugins')
 
+plugins_file = require('plugins')
 -- Lazy.nvim settings
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -20,11 +20,16 @@ require("lazy").setup(plugins_file)
 -- Settings
 vim.opt.background = "dark" -- set this to dark or light
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 
 vim.cmd("colorscheme oxocarbon")
 
+
+require('settings')
+require('keymappings')
 
 
 

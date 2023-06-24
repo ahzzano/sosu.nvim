@@ -1,7 +1,6 @@
 -- Essentials
-local devicons = {
-	'nvim-tree/nvim-web-devicons',
-}
+local devicons = {'nvim-tree/nvim-web-devicons',}
+
 -- LSP
 local lspconfig = {'neovim/nvim-lspconfig', opts={}}
 local mason = {'williamboman/mason.nvim', opts={}}
@@ -11,6 +10,15 @@ local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
 local treesitter = {
 	'nvim-treesitter/nvim-treesitter', opts={}
 
+}
+
+-- File Tree
+local nvimtree = {
+  "nvim-tree/nvim-tree.lua",
+  version = "*",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  }
 }
 
 -- Autopairs
@@ -27,12 +35,11 @@ local oxocarbon = {
 
 -- Statusline
 local lualine = {
-	'nvim-lualine/lualine.nvim', opts={
-        icons_enabled=true
+'nvim-lualine/lualine.nvim', opts={
+	icons_enabled=true
     },
     event = "VeryLazy"
 }
 
-
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree}
 
