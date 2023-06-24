@@ -2,10 +2,10 @@
 my personal nvim config
 
 # Plugins
-LSPConfig
-Treesitter
-Autopairs
-Lualine
+- LSPConfig
+- Treesitter
+- Autopairs
+- Lualine
 
 # Themes
 Oxocarbon.nvim
