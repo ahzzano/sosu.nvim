@@ -6,14 +6,14 @@ default_opts = {
 }
 
 require('mason-lspconfig').setup {
-	ensure_installed = {'rust_analyzer', 'tsserver', 'pyright', 'clangd'},
+	ensure_installed = {'rust_analyzer', 'rome', 'pyright', 'clangd'},
 	automatic_installation = false
 }
 
 -- LSP
 lspconfig.clangd.setup(default_opts)
 lspconfig.pyright.setup(default_opts)
-lspconfig.tsserver.setup(default_opts)
+lspconfig.rome.setup(default_opts)
 lspconfig.rust_analyzer.setup(default_opts)
 
 
