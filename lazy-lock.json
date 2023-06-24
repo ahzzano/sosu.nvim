@@ -1,0 +1,6 @@
+{
+  "lazy.nvim": { "branch": "main", "commit": "b7043f2983d7aead78ca902f3f2053907081859a" },
+  "nvim-autopairs": { "branch": "master", "commit": "e8f7dd7a72de3e7b6626c050a802000e69d53ff0" },
+  "nvim-treesitter": { "branch": "master", "commit": "68c619f2e3bbace5d2e885dbe44289dc68d776e5" },
+  "oxocarbon.nvim": { "branch": "main", "commit": "12a7507f1cd5ac6edb890d12268e4444a35956f2" }
+}
