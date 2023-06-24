@@ -6,6 +6,7 @@ my personal nvim config
 - Treesitter
 - Autopairs
 - Lualine
+- Mason
 
 # Themes
-Oxocarbon.nvim
+- Oxocarbon.nvim

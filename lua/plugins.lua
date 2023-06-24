@@ -3,9 +3,9 @@ local devicons = {
 	'nvim-tree/nvim-web-devicons',
 }
 -- LSP
-local lspconfig = {
-	'neovim/nvim-lspconfig'
-}
+local lspconfig = {'neovim/nvim-lspconfig', opts={}}
+local mason = {'williamboman/mason.nvim', opts={}}
+local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
 
 -- Syntax Highlighting
 local treesitter = {
@@ -34,5 +34,5 @@ local lualine = {
 }
 
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config}
 
