@@ -1,5 +1,6 @@
 -- Essentials
 local devicons = {'nvim-tree/nvim-web-devicons',}
+local plenary = {'nvim-lua/plenary.nvim'}
 
 -- LSP
 local lspconfig = {'neovim/nvim-lspconfig'}
@@ -28,9 +29,7 @@ local bufferline = {'akinsho/bufferline.nvim', opts={
 }}
 
 -- Syntax Highlighting
-local treesitter = {
-	'nvim-treesitter/nvim-treesitter', opts={}
-}
+local treesitter = {'nvim-treesitter/nvim-treesitter'}
 
 -- File Tree
 local nvimtree = {
@@ -39,6 +38,14 @@ local nvimtree = {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   }
+}
+
+-- Telescope
+local telescope = {
+	'nvim-telescope/telescope.nvim', 
+	tag = '0.1.1',
+	dependencies = { 'nvim-lua/plenary.nvim' },
+	opts = {}
 }
 
 -- Autopairs
@@ -57,5 +64,5 @@ local lualine = {
     event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope}
 
