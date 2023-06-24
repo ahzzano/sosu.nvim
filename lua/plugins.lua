@@ -73,8 +73,15 @@ local oxocarbon = { "nyoom-engineering/oxocarbon.nvim"}
 -- Statusline
 local lualine = {
 	'nvim-lualine/lualine.nvim', 
-    event = "VeryLazy"
+    	event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm}
+-- Greeter
+local dashboard = {
+	'glepnir/dashboard-nvim',
+	event = 'VimEnter',
+	dependencies = { {'nvim-tree/nvim-web-devicons'}}
+}
+
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard}
 
