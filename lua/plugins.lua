@@ -13,6 +13,18 @@ local luasnip = {'L3MON4D3/LuaSnip'}
 local luasnip_nvimcmp = {'saadparwaiz1/cmp_luasnip'}
 local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
 
+-- Toggle Term
+local toggleterm = {
+	'akinsho/toggleterm.nvim',
+	version = '*',
+	opts = {
+		float_opts = {
+			border = 'curved',
+		},
+		direction = 'float'
+	}
+}
+
 -- bufferline
 local bufferline = {'akinsho/bufferline.nvim', opts={
 	options = {
@@ -64,5 +76,5 @@ local lualine = {
     event = "VeryLazy"
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm}
 
