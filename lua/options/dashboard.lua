@@ -37,6 +37,13 @@ require('dashboard').setup {
 				key = 'f',
 				key_hl = 'group',
 				action = ':Telescope find_files'
+			},
+			{
+				desc = 'Quit',
+				desc_hl = 'string',
+				key = 'q',
+				key_hl = 'group',
+				action = ':q'
 			}
 
 		}
