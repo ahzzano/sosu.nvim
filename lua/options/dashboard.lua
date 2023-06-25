@@ -27,7 +27,7 @@ require('dashboard').setup {
 			{
 				desc = 'Create a buffer',
 				desc_hl = 'string',
-				key = 'c',
+				key = 'o',
 				key_hl = 'group',
 				action = ':e empty buffer'
 			},

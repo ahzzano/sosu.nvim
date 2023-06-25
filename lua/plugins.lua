@@ -2,6 +2,14 @@
 local devicons = {'nvim-tree/nvim-web-devicons',}
 local plenary = {'nvim-lua/plenary.nvim'}
 
+-- Gitsigns
+local gitsigns = {
+	'lewis6991/gitsigns.nvim',
+	opts = {
+
+	}
+}
+
 -- LSP
 local lspconfig = {'neovim/nvim-lspconfig'}
 local mason = {'williamboman/mason.nvim', opts={}}
