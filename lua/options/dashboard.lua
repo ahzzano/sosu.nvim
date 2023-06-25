@@ -2,6 +2,10 @@ require('dashboard').setup {
 	theme = 'doom',
 	config = {
 		header = {
+			[[]],
+			[[]],
+			[[]],
+			[[]]
 [[                                        ]],
 [[                  ;kOl.                 ]],
 [[                 cXMMWx.                ]],
@@ -21,6 +25,11 @@ require('dashboard').setup {
 [[                 :0WMXo.                ]],
 [[                  'x0c                  ]],
 [[                    .                   ]],
+[[]],
+[[]],
+[[]],
+[[]],
+[[]],
 		},
 		center = {
 
