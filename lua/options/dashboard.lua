@@ -5,7 +5,7 @@ require('dashboard').setup {
 			[[]],
 			[[]],
 			[[]],
-			[[]]
+			[[]],
 [[                                        ]],
 [[                  ;kOl.                 ]],
 [[                 cXMMWx.                ]],
