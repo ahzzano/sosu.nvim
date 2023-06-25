@@ -22,6 +22,7 @@ require("lazy").setup(plugins_file)
 local tabwidth = 4
 
 -- Settings
+vim.wo.number = true
 vim.opt.background = "dark" -- set this to dark or light
 vim.opt.tabstop = tabwidth
 vim.opt.shiftwidth= tabwidth
