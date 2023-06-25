@@ -6,7 +6,7 @@ default_opts = {
 }
 
 require('mason-lspconfig').setup {
-	ensure_installed = {'rust_analyzer', 'rome', 'pyright', 'clangd', 'ruby-lsp'},
+	ensure_installed = {'rust_analyzer', 'rome', 'pyright', 'clangd', 'ruby_ls'},
 	automatic_installation = false
 }
 
