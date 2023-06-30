@@ -1,6 +1,35 @@
 
 local cmp = require 'cmp'
 
+local lspkind = require('lspkind')
+local kind_icons = {
+  Text = "",
+  Method = "󱀍",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰇽",
+  Variable = "󰂡",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "󰅲",
+}
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -29,6 +58,15 @@ cmp.setup({
 	}),
 	window = {
 		completion = cmp.config.window.bordered()
+	},
+	formatting = {
+		--fields = {'kind', 'abbr', 'menu'},
+		fields = { "kind", "abbr" },
+		format = function(_, vim_item)
+		  vim_item.kind = " "..kind_icons[vim_item.kind].." " or ""
+		  
+		  return vim_item
+		end,
 	},
 	sources = cmp.config.sources({
 		{name = 'nvim_lsp'},
