@@ -94,5 +94,10 @@ local dashboard = {
 	dependencies = { {'nvim-tree/nvim-web-devicons'}}
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap}
+-- Notifs
+local notifs = {
+	'rcarriga/nvim-notify', opts={}
+}
+
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs}
 

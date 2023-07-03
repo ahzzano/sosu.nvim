@@ -16,7 +16,7 @@ my personal nvim config
 - bufferline
 - nvim tree
 - telescope
-
+- vim-notify
 
 ## Themes
 - Oxocarbon.nvim
