@@ -10,11 +10,13 @@ local gitsigns = {
 	}
 }
 
+-- DAP
+local dap = {'mfussenegger/nvim-dap'}
+
 -- LSP
 local lspconfig = {'neovim/nvim-lspconfig'}
 local mason = {'williamboman/mason.nvim', opts={}}
 local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
-local lspkind = {'onsails/lspkind.nvim'}
 
 -- Code Completion
 local nvim_cmp = {'hrsh7th/nvim-cmp'}
@@ -92,5 +94,5 @@ local dashboard = {
 	dependencies = { {'nvim-tree/nvim-web-devicons'}}
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, lspkind}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap}
 
