@@ -55,9 +55,7 @@ cmp.setup({
 		  end
 		end, {'i', 's'}),
 	}),
-	window = {
-		completion = cmp.config.window.bordered()
-	},
+	
 	formatting = {
 		--fields = {'kind', 'abbr', 'menu'},
 		fields = { "kind", "abbr" },
@@ -71,4 +69,13 @@ cmp.setup({
 		{name = 'nvim_lsp'},
 		{name = 'luasnip'}
 	}, {name='buffer'})
+})
+
+cmp.setup.cmdline(':', {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = 'path' }
+	}, {
+		{ name = 'cmdline' }
+	})
 })
