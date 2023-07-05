@@ -98,20 +98,5 @@ local notifs = {
 	'rcarriga/nvim-notify', opts={}
 }
 
--- Language Specific 
-local rust_tools = {
-	'simrat39/rust-tools.nvim',
-	opts = {
-	  server = {
-		on_attach = function(_, bufnr)
-		  -- Hover actions
-		  vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-		  -- Code action groups
-		  vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-		end,
-		}
-	}
-}
-
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs, rust_tools}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs}
 

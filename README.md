@@ -17,7 +17,6 @@ my personal nvim config
 - nvim tree
 - telescope
 - vim-notify
-- rust-tools
 
 ## Themes
 - Oxocarbon.nvim
