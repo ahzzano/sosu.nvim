@@ -22,6 +22,7 @@ local mason_config = {'williamboman/mason-lspconfig.nvim', opts={}}
 local nvim_cmp = {'hrsh7th/nvim-cmp'}
 local luasnip = {'L3MON4D3/LuaSnip'}
 local luasnip_nvimcmp = {'saadparwaiz1/cmp_luasnip'}
+local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
 
 -- Toggle Term
 local toggleterm = {
@@ -98,5 +99,9 @@ local notifs = {
 	'rcarriga/nvim-notify', opts={}
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs}
+local rust_tools = {
+	'simrat39/rust-tools.nvim'
+}
+
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs, rust_tools}
 
