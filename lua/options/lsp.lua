@@ -16,5 +16,8 @@ lspconfig.pyright.setup(default_opts)
 lspconfig.rome.setup(default_opts)
 lspconfig.rust_analyzer.setup(default_opts)
 lspconfig.ruby_ls.setup(default_opts)
+lspconfig.volar.setup(default_opts)
+lspconfig.gopls.setup(default_opts)
+lspconfig.asm_lsp.setup(default_opts)
 
 
