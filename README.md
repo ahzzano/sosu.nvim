@@ -17,6 +17,7 @@ my personal nvim config
 - nvim tree
 - telescope
 - vim-notify
+- Comment.nvim
 
 ## Themes
 - Oxocarbon.nvim
@@ -26,3 +27,8 @@ my personal nvim config
 - C/C++
 - TypeScript
 - Rust
+- Vue
+- HTML/CSS/JS
+- Go
+- Assembly
+
