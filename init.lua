@@ -31,7 +31,7 @@ vim.opt.tabstop = tabwidth
 vim.opt.shiftwidth= tabwidth
 vim.opt.softtabstop = tabwidth
 vim.opt.autoindent = true
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- Folds
 vim.opt.foldenable = true
