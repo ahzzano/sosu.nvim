@@ -107,5 +107,5 @@ local comments = {
 	'numToStr/Comment.nvim', opts={}
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, toggleterm, dashboard, gitsigns, dap, notifs, rust_tools, comments}
+return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, bufferline, plenary, telescope, dashboard, gitsigns, dap, notifs, rust_tools, comments}
 
