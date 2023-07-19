@@ -47,7 +47,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.laststatus = 3
 
-vim.cmd("colorscheme oxocarbon")
+vim.cmd("colorscheme rose-pine")
 
 
 require('settings')

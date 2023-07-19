@@ -50,7 +50,11 @@ local autopairs =  {
 }
 
 -- Theme
-local oxocarbon = { "nyoom-engineering/oxocarbon.nvim"}
+-- local oxocarbon = { "nyoom-engineering/oxocarbon.nvim"}
+local rose_pine = {'rose-pine/neovim', name='rose-pine', opts={
+    variant='moon',
+    disable_italics=true
+}}
 
 -- Statusline
 local lualine = {
@@ -78,5 +82,5 @@ local comments = {
 	'numToStr/Comment.nvim', opts={}
 }
 
-return {autopairs, oxocarbon, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, notifs, rust_tools, comments}
+return {autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, notifs, rust_tools, comments}
 
