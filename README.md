@@ -9,11 +9,10 @@ my personal nvim config
 - mason
 - mason-lspconfig
 - nvim-cmp
+- autotag
 - luasnip
 - cmp_luasnip
 - cmp-nvim-lsp
-- toggleterm
-- bufferline
 - nvim tree
 - telescope
 - vim-notify
