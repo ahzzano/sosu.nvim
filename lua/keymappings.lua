@@ -4,6 +4,8 @@ local opts = {noremap = true, silent=true}
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
+
 -- General
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
@@ -12,6 +14,9 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('v', 'p', '"_dP"', opts)
 
