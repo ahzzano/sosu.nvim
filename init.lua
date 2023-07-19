@@ -28,7 +28,7 @@ vim.wo.number = true
 vim.opt.background = "dark" -- set this to dark or light
 
 -- vim.opt.filetype = true
-vim.cmd 'filetype plugin on'
+vim.cmd('filetype plugin on')
 
 vim.opt.tabstop = tabwidth
 vim.opt.shiftwidth= tabwidth
