@@ -4,7 +4,11 @@ local opts = {noremap = true, silent=true}
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
+-- Resize
+vim.keymap.set('n', '<C-up>', ':resize -2<CR>', opts)
+vim.keymap.set('n', '<C-down>', ':resize +2<CR>', opts)
+vim.keymap.set('n', '<C-left>', ':vertical resize -2<CR>', opts)
+vim.keymap.set('n', '<C-right>', ':vertical resize +2<CR>', opts)
 
 -- General
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)

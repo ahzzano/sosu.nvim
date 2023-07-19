@@ -49,7 +49,6 @@ vim.opt.laststatus = 3
 
 vim.cmd("colorscheme rose-pine")
 
-
 require('settings')
 require('keymappings')
 
