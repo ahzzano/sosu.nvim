@@ -24,6 +24,7 @@ local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
 
 -- Syntax Highlighting
 local treesitter = {'nvim-treesitter/nvim-treesitter'}
+local autotag = {'windwp/nvim-ts-autotag'}
 
 -- File Tree
 local nvimtree = {
@@ -82,5 +83,5 @@ local comments = {
 	'numToStr/Comment.nvim', opts={}
 }
 
-return {autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, notifs, rust_tools, comments}
+return {autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp, luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, notifs, rust_tools, comments, autotag}
 
