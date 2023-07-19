@@ -19,7 +19,6 @@ vim.opt.termguicolors = true
 
 
 require("lazy").setup(plugins_file)
-
 -- General Settings
 
 local tabwidth = 4
@@ -27,6 +26,10 @@ local tabwidth = 4
 -- Settings
 vim.wo.number = true
 vim.opt.background = "dark" -- set this to dark or light
+
+-- vim.opt.filetype = true
+vim.cmd 'filetype plugin on'
+
 vim.opt.tabstop = tabwidth
 vim.opt.shiftwidth= tabwidth
 vim.opt.softtabstop = tabwidth
@@ -51,5 +54,4 @@ require('settings')
 require('keymappings')
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
-
 
