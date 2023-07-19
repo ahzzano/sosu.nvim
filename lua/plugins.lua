@@ -5,9 +5,7 @@ local plenary = {'nvim-lua/plenary.nvim'}
 -- Gitsigns
 local gitsigns = {
 	'lewis6991/gitsigns.nvim',
-	opts = {
-
-	}
+	opts = {}
 }
 
 -- DAP
@@ -23,18 +21,6 @@ local nvim_cmp = {'hrsh7th/nvim-cmp'}
 local luasnip = {'L3MON4D3/LuaSnip'}
 local luasnip_nvimcmp = {'saadparwaiz1/cmp_luasnip'}
 local cmp_nvim_lsp = {'hrsh7th/cmp-nvim-lsp'}
-
--- Toggle Term
-local toggleterm = {
-	'akinsho/toggleterm.nvim',
-	version = '*',
-	opts = {
-		float_opts = {
-			border = 'curved',
-		},
-		direction = 'float'
-	}
-}
 
 -- Syntax Highlighting
 local treesitter = {'nvim-treesitter/nvim-treesitter'}
