@@ -39,8 +39,7 @@ local nvimtree = {
 local telescope = {
 	'nvim-telescope/telescope.nvim', 
 	tag = '0.1.1',
-	dependencies = { 'nvim-lua/plenary.nvim' },
-	opts = {}
+	dependencies = { 'nvim-lua/plenary.nvim' }
 }
 
 -- Autopairs
