@@ -1,7 +1,35 @@
-require('options/filetree')
-require('options/lsp')
-require('options/codecompletion')
-require('options/statusline')
-require('options/treesitter')
-require('options/dashboard')
-require('options/dap')
+-- General Settings
+
+local tabwidth = 4
+
+-- Settings
+vim.opt.nu = true
+vim.opt.relativenumber =true
+
+vim.opt.background = "dark" -- set this to dark or light
+
+-- vim.opt.filetype = true
+vim.cmd('filetype plugin on')
+
+vim.opt.tabstop = tabwidth
+vim.opt.shiftwidth= tabwidth
+vim.opt.softtabstop = tabwidth
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+
+vim.opt.scrolloff = 8
+
+vim.opt.updatetime = 50
+
+-- Folds
+vim.opt.foldenable = true
+vim.opt.foldlevel = 20
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.laststatus = 3
+
+vim.cmd("colorscheme rose-pine")

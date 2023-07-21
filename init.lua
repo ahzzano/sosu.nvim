@@ -17,39 +17,10 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.opt.termguicolors = true
 
-
 require("lazy").setup(plugins_file)
--- General Settings
-
-local tabwidth = 4
-
--- Settings
-vim.wo.number = true
-vim.opt.background = "dark" -- set this to dark or light
-
--- vim.opt.filetype = true
-vim.cmd('filetype plugin on')
-
-vim.opt.tabstop = tabwidth
-vim.opt.shiftwidth= tabwidth
-vim.opt.softtabstop = tabwidth
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-
--- Folds
-vim.opt.foldenable = true
-vim.opt.foldlevel = 20
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.opt.laststatus = 3
-
-vim.cmd("colorscheme rose-pine")
 
 require('settings')
+require('plugin_settings')
 require('keymappings')
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
