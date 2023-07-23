@@ -30,11 +30,13 @@ vim.keymap.set('v', 'p', '"_dP"', opts)
 -- NvimTree Related
 local api = require "nvim-tree.api"
 
-vim.keymap.set('n', '<C-t>', ':NvimTreeFocus<CR>')
+vim.keymap.set('n', '<C-t>', ':NvimTreeToggle<CR>', opts)
 
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
+vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
+vim.keymap.set('n', '<leader>gs', function() 
+    builtin.grep_string({search= vim.fn.input("Grep Search > ")})
+end, opts)

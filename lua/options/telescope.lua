@@ -10,6 +10,16 @@ require('telescope').setup {
         file_ignore_patterns={
             "%.git/", "%.git\\",
             "%.node%_modules/", "%.node%_modules\\"
+        },
+    },
+    pickers = {
+        find_files = {
+            theme="dropdown",
+            previewer=false
+        },
+        buffers = {
+            theme="dropdown",
+            previewer=false
         }
     },
 
