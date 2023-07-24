@@ -32,6 +32,8 @@ local api = require "nvim-tree.api"
 
 vim.keymap.set('n', '<C-t>', ':NvimTreeToggle<CR>', opts)
 
+vim.keymap.set('n', '<leader>bf', vim.lsp.buf.format, opts)
+
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
