@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local get_servers = require('mason-lspconfig').get_installed_servers
 
 default_opts = {
 	capabilities = capabilities
@@ -10,16 +11,8 @@ require('mason-lspconfig').setup {
 	automatic_installation = false
 }
 
--- LSP
-lspconfig.clangd.setup(default_opts)
-lspconfig.pyright.setup(default_opts)
-lspconfig.rome.setup(default_opts)
-lspconfig.rust_analyzer.setup(default_opts)
-lspconfig.ruby_ls.setup(default_opts)
-lspconfig.volar.setup(default_opts)
-lspconfig.gopls.setup(default_opts)
-lspconfig.asm_lsp.setup(default_opts)
-
-
+for _, server_name in ipairs(get_servers()) do 
+    lspconfig[server_name].setup(default_opts)
+end
 
 
