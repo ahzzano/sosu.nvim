@@ -27,6 +27,12 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set('v', 'p', '"_dP"', opts)
 
+vim.keymap.set("x", "<leader>p", "\"_dP", opts)
+
+vim.keymap.set("n", "<leader>y", "\"+y", opts)
+vim.keymap.set("v", "<leader>y", "\"+y", opts)
+vim.keymap.set("n", "<leader>Y", "\"+y", opts)
+
 -- NvimTree Related
 local api = require "nvim-tree.api"
 

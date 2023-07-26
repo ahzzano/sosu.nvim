@@ -1,19 +1,10 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require('lsp-zero').preset('recommended')
 
 lsp.on_attach(function(_, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 end)
 
-lsp.format_on_save({
-    format_opts = {
-        async = false,
-        timeout_ms = 10000
-    },
-    servers = {
-        ['gofumpt'] = { 'go' },
-        ['clang-format'] = {'c', 'cpp'},
-    }
-})
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 lsp.set_sign_icons({
     error = '✘',

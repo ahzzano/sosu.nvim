@@ -8,9 +8,6 @@ local gitsigns = {
     opts = {}
 }
 
--- DAP
-local dap = { 'mfussenegger/nvim-dap' }
-
 -- LSP
 local lspconfig = { 'neovim/nvim-lspconfig' }
 local mason = { 'williamboman/mason.nvim', opts = {} }
@@ -86,7 +83,10 @@ local tokyo_night = {
     priority = 1000,
     opts = {
         styles = {
-            functions = {}
+            functions = { italic = false },
+            keywords = { italic = false },
+            variables = { italic = false },
+            comments = { italic = false }
         },
     },
 }
@@ -113,5 +113,5 @@ local comments = {
 }
 
 return { autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp,
-    luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, rust_tools, comments, autotag,
+    luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, rust_tools, comments, autotag,
     tokyo_night, lsp_zero }
