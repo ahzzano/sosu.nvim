@@ -47,6 +47,14 @@ require('dashboard').setup {
 				key_hl = 'group',
 				action = ':Telescope find_files'
 			},
+
+			{
+				desc = 'Install LSP',
+				desc_hl = 'string',
+				key = 'm',
+				key_hl = 'group',
+				action = ':Mason'
+			},
 			{
 				desc = 'Quit',
 				desc_hl = 'string',

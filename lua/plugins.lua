@@ -16,6 +16,27 @@ local lspconfig = { 'neovim/nvim-lspconfig' }
 local mason = { 'williamboman/mason.nvim', opts = {} }
 local mason_config = { 'williamboman/mason-lspconfig.nvim', opts = {} }
 
+local lsp_zero = {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = {
+        -- LSP Support
+        { 'neovim/nvim-lspconfig' }, -- Required
+        {                            -- Optional
+            'williamboman/mason.nvim',
+            build = function()
+                pcall(vim.api.nvim_command, 'MasonUpdate')
+            end,
+        },
+        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+        -- Autocompletion
+        { 'hrsh7th/nvim-cmp' },     -- Required
+        { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+        { 'L3MON4D3/LuaSnip' },     -- Required
+    }
+}
+
 -- Code Completion
 local nvim_cmp = { 'hrsh7th/nvim-cmp' }
 local luasnip = { 'L3MON4D3/LuaSnip' }
@@ -63,7 +84,11 @@ local tokyo_night = {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+        styles = {
+            functions = {}
+        },
+    },
 }
 
 -- Statusline
@@ -88,4 +113,5 @@ local comments = {
 }
 
 return { autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp,
-    luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, rust_tools, comments, autotag, tokyo_night }
+    luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, dap, rust_tools, comments, autotag,
+    tokyo_night, lsp_zero }

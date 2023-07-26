@@ -14,11 +14,18 @@ default_opts = {
     end
 }
 
-require('mason-lspconfig').setup {
-    ensure_installed = { 'rust_analyzer', 'rome', 'pyright', 'clangd', 'ruby_ls', 'volar', 'gopls', 'asm_lsp' },
-    automatic_installation = false
-}
+local lsp = require('lsp-zero').preset({})
 
-for _, server in ipairs(get_servers()) do
-    lsp_config[server].setup(default_opts)
-end
+lsp.on_attach(function(client, bufnr)
+    lsp.default_keymaps({ buffer = bufnr })
+    lsp.buffer_autoformat()
+end)
+
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
+
+lsp.setup()
