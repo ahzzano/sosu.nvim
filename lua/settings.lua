@@ -4,7 +4,7 @@ local tabwidth = 4
 
 -- Settings
 vim.opt.nu = true
-vim.opt.relativenumber =true
+vim.opt.relativenumber = true
 
 vim.opt.background = "dark" -- set this to dark or light
 
@@ -12,10 +12,11 @@ vim.opt.background = "dark" -- set this to dark or light
 vim.cmd('filetype plugin on')
 
 vim.opt.tabstop = tabwidth
-vim.opt.shiftwidth= tabwidth
+vim.opt.shiftwidth = tabwidth
 vim.opt.softtabstop = tabwidth
 vim.opt.autoindent = true
 vim.opt.expandtab = true
+vim.opt.smarttab = true
 
 vim.opt.scrolloff = 10
 
@@ -27,9 +28,9 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.opt.laststatus = 3
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme tokyonight-moon")
