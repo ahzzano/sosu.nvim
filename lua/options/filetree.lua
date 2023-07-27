@@ -4,11 +4,16 @@ if not status_ok then
 end
 
 nvim_tree.setup({
-		actions = {
-			change_dir = {
-				enable=false
-			}
-		},
+    actions = {
+        change_dir = {
+            enable = false
+        }
+    },
+    renderer = {
+        indent_markers = {
+            enable = true
+        }
+    }
 })
 
 local function is_modified_buffer_open(buffers)
@@ -32,4 +37,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
-
