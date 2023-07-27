@@ -1,4 +1,5 @@
 local cmp = require 'cmp'
+local cmp_action = require('lsp-zero').cmp_action()
 
 local kind_icons = {
     Text = "",
@@ -35,6 +36,8 @@ cmp.setup({
         end
     },
     mapping = cmp.mapping.preset.insert({
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<Up>'] = cmp.mapping.select_prev_item(select_opts),

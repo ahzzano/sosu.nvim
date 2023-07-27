@@ -36,7 +36,12 @@ local lsp_zero = {
 
 -- Code Completion
 local nvim_cmp = { 'hrsh7th/nvim-cmp' }
-local luasnip = { 'L3MON4D3/LuaSnip' }
+local luasnip = {
+    'L3MON4D3/LuaSnip',
+    dependencies = {
+        "rafamadriz/friendly-snippets"
+    }
+}
 local luasnip_nvimcmp = { 'saadparwaiz1/cmp_luasnip' }
 local cmp_nvim_lsp = { 'hrsh7th/cmp-nvim-lsp' }
 
