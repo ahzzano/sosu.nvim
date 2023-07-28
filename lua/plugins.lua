@@ -1,5 +1,5 @@
 -- Essentials
-local devicons = { 'nvim-tree/nvim-web-devicons', }
+local devicons = { 'nvim-tree/nvim-web-devicons', lazy = true }
 local plenary = { 'nvim-lua/plenary.nvim' }
 
 -- Gitsigns
@@ -47,7 +47,7 @@ local cmp_nvim_lsp = { 'hrsh7th/cmp-nvim-lsp' }
 
 -- Syntax Highlighting
 local treesitter = { 'nvim-treesitter/nvim-treesitter' }
-local autotag = { 'windwp/nvim-ts-autotag' }
+local autotag = { 'windwp/nvim-ts-autotag', lazy = true }
 
 -- File Tree
 local nvimtree = {
