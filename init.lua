@@ -18,8 +18,9 @@ vim.opt.termguicolors = true
 
 require("lazy").setup(plugins_file)
 
-require('settings')
-require('plugin_settings')
+require('config')
+require('pluginconfig')
 require('keymappings')
+require('colors')
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })

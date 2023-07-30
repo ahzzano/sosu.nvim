@@ -20,7 +20,9 @@ require('telescope').setup {
         buffers = {
             theme = "dropdown",
             previewer = false,
-            initial_mode = "normal"
+        },
+        colorscheme = {
+            theme = "dropdown"
         }
     },
 

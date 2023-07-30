@@ -1,6 +1,6 @@
 require('options/filetree')
 require('options/lsp')
-require('options/codecompletion')
+require('options/cmp')
 require('options/statusline')
 require('options/treesitter')
 require('options/dashboard')
