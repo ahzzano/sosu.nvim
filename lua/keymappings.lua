@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>Y", "\"+y", opts)
 -- NvimTree Related
 local api = require "nvim-tree.api"
 
-vim.keymap.set('n', '<C-t>', ':NvimTreeToggle<CR>', opts)
+vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
 
 vim.keymap.set('n', '<leader>bf', vim.lsp.buf.format, opts)
 

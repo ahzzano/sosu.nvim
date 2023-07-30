@@ -1,16 +1,17 @@
 -- LUA LINE
 local opts = {
     icons_enabled = true,
-    disabled_filetypes = {
-        'NVimTree'
-    },
-    disabled_buftypes = { 'NvimTree' },
     options = {
+        disabled_filetypes = {
+            statusline = {
+                "NvimTree"
+            }
+        },
         section_separators = {
-            left='', right=''
+            left = '', right = ''
         },
         component_separators = { left = '', right = '' }
-   }
+    }
 }
 
 require('lualine').setup(opts)
