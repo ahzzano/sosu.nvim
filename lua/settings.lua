@@ -25,12 +25,10 @@ vim.opt.updatetime = 50
 -- Folds
 vim.opt.foldenable = true
 vim.opt.foldlevel = 20
-vim.opt.foldmethod = 'expr'
+vim.opt.foldmethod = 'indent'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
---vim.opt.laststatus = 3
 
 vim.cmd("colorscheme tokyonight-moon")

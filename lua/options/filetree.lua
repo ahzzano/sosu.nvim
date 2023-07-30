@@ -12,7 +12,8 @@ nvim_tree.setup({
     renderer = {
         indent_markers = {
             enable = true
-        }
+        },
+        root_folder_label = false
     }
 })
 
