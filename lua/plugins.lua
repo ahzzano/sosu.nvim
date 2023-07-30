@@ -68,6 +68,7 @@ local telescope = {
 -- Autopairs
 local autopairs = {
     'windwp/nvim-autopairs',
+    lazy = true,
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
 }
@@ -79,7 +80,8 @@ local rose_pine = {
     opts = {
         variant = 'moon',
         disable_italics = true
-    }
+    },
+    priority = 1000
 }
 
 local tokyo_night = {
@@ -94,6 +96,15 @@ local tokyo_night = {
             comments = { italic = false }
         },
     },
+}
+
+local catpuccin = {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+        no_italic = true
+    }
 }
 
 -- Statusline
@@ -117,6 +128,10 @@ local comments = {
     'numToStr/Comment.nvim', opts = {}
 }
 
+local harpoon = {
+
+}
+
 return { autopairs, rose_pine, treesitter, lualine, devicons, mason, mason_config, nvimtree, lspconfig, nvim_cmp,
     luasnip, luasnip_nvimcmp, cmp_nvim_lsp, plenary, telescope, dashboard, gitsigns, rust_tools, comments, autotag,
-    tokyo_night, lsp_zero }
+    tokyo_night, lsp_zero, catpuccin }

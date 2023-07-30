@@ -1,7 +1,10 @@
+local macchiato = require("catppuccin.palettes").get_palette "macchiato"
+
 -- LUA LINE
 local opts = {
     icons_enabled = true,
     options = {
+        theme = 'catppuccin',
         disabled_filetypes = {
             statusline = {
                 "NvimTree"
@@ -14,21 +17,29 @@ local opts = {
         --component_separators = { left = '', right = '' }
     },
     sections = {
+        lualine_a = {
+            {
+                "mode",
+                fmt = function(str)
+                    return "撫子 | " .. str
+                end,
+            }
+        },
         lualine_b = {
+            {
+                'filename',
+            },
             {
                 'filetype',
                 icon_only = true,
-                colored = false,
+                padding = 0,
                 icon = {
-                    align = 'right'
+                    align = 'left'
                 }
-            },
-            {
-                'filename',
             }
         },
-        lualine_c = { 'branch' },
-        lualine_x = { 'location' },
+        lualine_c = { 'location' },
+        lualine_x = { 'branch' },
         lualine_y = { 'diff' },
         lualine_z = { 'progress' }
     }
