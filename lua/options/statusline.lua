@@ -28,14 +28,6 @@ local opts = {
         lualine_b = {
             {
                 'filename',
-            },
-            {
-                'filetype',
-                icon_only = true,
-                padding = 0,
-                icon = {
-                    align = 'left'
-                }
             }
         },
         lualine_c = { 'location' },

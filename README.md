@@ -19,7 +19,7 @@ my personal nvim config
 - Comment.nvim
 
 ## Themes
-- Oxocarbon.nvim
+- Catpuccin
 
 ## Supported Languages
 - Python
