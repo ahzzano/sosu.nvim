@@ -1,9 +1,10 @@
 <h3 align="center"> 
     <img src="https://s4.anilist.co/file/anilistcdn/character/large/b160733-86kSKUGyAczO.jpg", width="125" height="125">
     <p>sosu.nvim</p>
-    <p>This is my personal nvim config</p>
-<h3/>
+</h3>
 
+<p>This is my personal nvim config</p>
+---
 
 <details>
     <summary>Plugins</summary>
