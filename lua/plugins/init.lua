@@ -54,7 +54,7 @@ local plugins = {
     { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
-        'windwp/nvim-ts-autotag', event = "VeryLazy"
+        'windwp/nvim-ts-autotag', event = "InsertEnter"
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -120,8 +120,9 @@ local plugins = {
         'simrat39/rust-tools.nvim', lazy = true
     },
     {
-        'numToStr/Comment.nvim', opts = {},
-    }
+        'numToStr/Comment.nvim', opts = {}, event = "BufEnter", lazy = true
+    },
+    { 'ThePrimeagen/harpoon', lazy = true }
 
 }
 

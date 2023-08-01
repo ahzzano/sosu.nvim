@@ -3,7 +3,7 @@
     <p>sosu.nvim</p>
 </h3>
 
-<p>This is my personal nvim config</p>
+<p align="center">This is my personal nvim config</p>
 
 <details>
     <summary>Plugins</summary>
@@ -30,6 +30,7 @@
         <li>cmp_luasnip</li>
         <li>nvim-autopairs</li>
         <li>lsp-zero.nvim</li>
+        <li>harpoon</li>
     </ul>
 </details>
 
