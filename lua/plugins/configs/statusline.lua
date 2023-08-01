@@ -21,7 +21,7 @@ local opts = {
             {
                 "mode",
                 fmt = function(str)
-                    return "撫子 | " .. str
+                    return str
                 end,
             }
         },

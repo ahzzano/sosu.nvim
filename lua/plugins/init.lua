@@ -12,7 +12,10 @@ local plugins = {
             ensure_installed = {
                 'clangd',
                 'clang-format',
-                'gopls'
+                'gopls',
+                'pyright',
+                'rust_analyzer',
+                'lua_ls'
             }
         },
         lazy = true,
@@ -51,13 +54,7 @@ local plugins = {
     { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
-        'windwp/nvim-ts-autotag',
-        opts = {
-            filetypes = {
-                "html", "xml", "markdown"
-            }
-        },
-        lazy = true
+        'windwp/nvim-ts-autotag', event = "VeryLazy"
     },
     {
         "nvim-tree/nvim-tree.lua",
