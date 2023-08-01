@@ -1,9 +1,9 @@
 <h3 align="center"> 
     <img src="https://s4.anilist.co/file/anilistcdn/character/large/b160733-86kSKUGyAczO.jpg", width="125" height="125">
+    <p>sosu.nvim</p>
+    <p>This is my personal nvim config</p>
 <h3/>
 
-# sosu.nvim
-my personal nvim config
 
 <details>
     <summary>Plugins</summary>
@@ -35,9 +35,11 @@ my personal nvim config
 
 <details>
     <summary>Themes</summary>
-    <li>Catpuccin</li>
-    <li>Rose Pine</li>
-    <li>Tokyo Night</li>
+    <ul>
+        <li>Catpuccin</li>
+        <li>Rose Pine</li>
+        <li>Tokyo Night</li>
+    </ul>
 </details>
 
 ## Supported Languages
