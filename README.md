@@ -4,7 +4,6 @@
 </h3>
 
 <p>This is my personal nvim config</p>
----
 
 <details>
     <summary>Plugins</summary>
