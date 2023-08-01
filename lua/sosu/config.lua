@@ -6,6 +6,7 @@ local tabwidth = 4
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.termguicolors = true
 -- vim.opt.filetype = true
 vim.cmd('filetype plugin on')
 
@@ -16,7 +17,7 @@ vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 12
 
 vim.opt.updatetime = 50
 

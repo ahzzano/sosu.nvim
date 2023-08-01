@@ -1,26 +1,10 @@
-plugins_file = require('plugins')
--- Lazy.nvim settings
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+require('lazy.lazy')
 
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
-        lazypath,
-    })
-end
-vim.opt.rtp:prepend(lazypath)
+require('sosu.config')
+require('sosu.keymappings')
+require('sosu.colors')
 
-vim.opt.termguicolors = true
-
-require("lazy").setup(plugins_file)
-
-require('config')
-require('pluginconfig')
-require('keymappings')
-require('colors')
+require('plugins')
+require('plugins.setup')()
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })

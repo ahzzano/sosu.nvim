@@ -32,21 +32,3 @@ vim.keymap.set("x", "<leader>p", "\"_dP", opts)
 vim.keymap.set("n", "<leader>y", "\"+y", opts)
 vim.keymap.set("v", "<leader>y", "\"+y", opts)
 vim.keymap.set("n", "<leader>Y", "\"+y", opts)
-
-
--- NvimTree Related
-local api = require "nvim-tree.api"
-
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-
-vim.keymap.set('n', '<leader>bf', vim.lsp.buf.format, opts)
-
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
-vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)
-vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
-vim.keymap.set('n', '<leader>gs', function()
-    builtin.grep_string({ search = vim.fn.input("Grep Search > ") })
-end, opts)
-vim.keymap.set("n", "<leader>th", builtin.colorscheme, opts)
