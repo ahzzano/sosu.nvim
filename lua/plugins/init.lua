@@ -9,6 +9,15 @@ local plugins = {
     {
         'williamboman/mason.nvim',
         opts = {
+        },
+        lazy = true,
+        build = function()
+            pcall(vim.api.nvim_command, 'MasonUpdate')
+        end,
+    },
+    { 'hrsh7th/nvim-cmp',                  lazy = true },
+    { 'williamboman/mason-lspconfig.nvim', opts = {
+
             ensure_installed = {
                 'clangd',
                 'clang-format',
@@ -17,14 +26,7 @@ local plugins = {
                 'rust_analyzer',
                 'lua_ls'
             }
-        },
-        lazy = true,
-        build = function()
-            pcall(vim.api.nvim_command, 'MasonUpdate')
-        end,
-    },
-    { 'hrsh7th/nvim-cmp',                  lazy = true },
-    { 'williamboman/mason-lspconfig.nvim', opts = {},  lazy = true },
+    },  lazy = true },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
