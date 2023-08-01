@@ -7,35 +7,37 @@ my personal nvim config
 
 <details>
     <summary>Plugins</summary>
-    - Comment.nvim
-    - gitsigns.nvim
-    - cmp-nvim-lsp
-    - nvim-lspconfig
-    - LuaSnip
-    - lazy.nvim
-    - nvim-ts-autotag
-    - lualine.nvim
-    - friendly-snippets
-    - nvim-cmp
-    - mason-lspconfig.nvim
-    - nvim-tree.lua
-    - dashboard-nvim
-    - nvim-web-devicons
-    - nvim-treesitter
-    - telescope.nvim
-    - mason.nvim
-    - rust-tools.nvim
-    - plenary.nvim
-    - cmp_luasnip
-    - nvim-autopairs
-    - lsp-zero.nvim
+    <ul>
+        <li>Comment.nvim</li>
+        <li>gitsigns.nvim</li>
+        <li>cmp-nvim-lsp</li>
+        <li>nvim-lspconfig</li>
+        <li>LuaSnip</li>
+        <li>lazy.nvim</li>
+        <li>nvim-ts-autotag</li>
+        <li>lualine.nvim</li>
+        <li>friendly-snippets</li>
+        <li>nvim-cmp</li>
+        <li>mason-lspconfig.nvim</li>
+        <li>nvim-tree.lua</li>
+        <li>dashboard-nvim</li>
+        <li>nvim-web-devicons</li>
+        <li>nvim-treesitter</li>
+        <li>telescope.nvim</li>
+        <li>mason.nvim</li>
+        <li>rust-tools.nvim</li>
+        <li>plenary.nvim</li>
+        <li>cmp_luasnip</li>
+        <li>nvim-autopairs</li>
+        <li>lsp-zero.nvim</li>
+    </ul>
 </details>
 
 <details>
     <summary>Themes</summary>
-    - Catpuccin
-    - Rose Pine
-    - Tokyo Night
+    <li>Catpuccin</li>
+    <li>Rose Pine</li>
+    <li>Tokyo Night</li>
 </details>
 
 ## Supported Languages

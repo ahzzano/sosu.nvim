@@ -52,6 +52,11 @@ local plugins = {
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
         'windwp/nvim-ts-autotag',
+        opts = {
+            filetypes = {
+                "html", "xml", "markdown"
+            }
+        },
         lazy = true
     },
     {
