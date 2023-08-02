@@ -128,6 +128,7 @@ local plugins = {
         'numToStr/Comment.nvim', opts = {}, event = "BufEnter", lazy = true
     },
     { 'ThePrimeagen/harpoon', lazy = true },
+    { "folke/neodev.nvim",    opts = {} }
 
 }
 

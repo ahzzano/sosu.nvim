@@ -1,3 +1,5 @@
+require('neodev').setup()
+
 local lsp = require('lsp-zero').preset('recommended')
 
 lsp.on_attach(function(_, bufnr)
