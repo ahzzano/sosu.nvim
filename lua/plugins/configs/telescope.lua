@@ -23,16 +23,20 @@ require('telescope').setup {
         },
         colorscheme = {
             theme = "dropdown"
-        }
+        },
+        git_files = {
+            theme = "dropdown",
+            previewer = false
+        },
     },
 
 }
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
+vim.keymap.set('n', '<leader>pf', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>gf', builtin.git_files, opts)
-vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
+vim.keymap.set('n', '<leader>bf', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>gs', function()
     builtin.grep_string({ search = vim.fn.input("Grep Search > ") })
 end, opts)

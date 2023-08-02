@@ -15,18 +15,21 @@ local plugins = {
             pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
     },
-    { 'hrsh7th/nvim-cmp',                  lazy = true },
-    { 'williamboman/mason-lspconfig.nvim', opts = {
-
+    { 'hrsh7th/nvim-cmp',     lazy = true },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
             ensure_installed = {
                 'clangd',
-                'clang-format',
                 'gopls',
                 'pyright',
                 'rust_analyzer',
-                'lua_ls'
+                'lua_ls',
+                'rome'
             }
-    },  lazy = true },
+        },
+        lazy = true
+    },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -56,7 +59,7 @@ local plugins = {
     { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
-        'windwp/nvim-ts-autotag', event = "InsertEnter"
+        'windwp/nvim-ts-autotag', event = "InsertEnter", lazy = true
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -124,7 +127,7 @@ local plugins = {
     {
         'numToStr/Comment.nvim', opts = {}, event = "BufEnter", lazy = true
     },
-    { 'ThePrimeagen/harpoon', lazy = true }
+    { 'ThePrimeagen/harpoon', lazy = true },
 
 }
 
