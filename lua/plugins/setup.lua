@@ -1,6 +1,5 @@
 function setup()
     require("plugins.configs.lspconfig")
-    require("plugins.configs.cmp")
     require("plugins.configs.dashboard")
     require("plugins.configs.nvimtree")
     require("plugins.configs.statusline")
