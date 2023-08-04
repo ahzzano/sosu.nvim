@@ -1,5 +1,9 @@
 local plugins = {
-    { 'nvim-tree/nvim-web-devicons', opts = {}, lazy = true },
+    {
+        'nvim-tree/nvim-web-devicons',
+        opts = {},
+        lazy = true
+    },
     { 'nvim-lua/plenary.nvim' },
     {
         'lewis6991/gitsigns.nvim',
@@ -35,7 +39,8 @@ local plugins = {
                 'rust_analyzer',
                 'lua_ls',
                 'rome',
-                'tsserver' }
+                'tsserver',
+            }
         },
         lazy = true
     },
@@ -63,7 +68,10 @@ local plugins = {
         opts = {},
         lazy = true
     },
-    { 'saadparwaiz1/cmp_luasnip',        lazy = true },
+    {
+        'saadparwaiz1/cmp_luasnip',
+        lazy = true
+    },
     { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
