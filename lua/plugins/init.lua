@@ -5,7 +5,9 @@ local plugins = {
         'lewis6991/gitsigns.nvim',
         opts = {},
     },
-    { 'neovim/nvim-lspconfig' },
+    {
+        'neovim/nvim-lspconfig',
+    },
     {
         'williamboman/mason.nvim',
         opts = {
@@ -15,7 +17,14 @@ local plugins = {
             pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
     },
-    { 'hrsh7th/nvim-cmp',     lazy = true },
+    {
+        'hrsh7th/nvim-cmp',
+        lazy = true,
+        event = "InsertEnter",
+        dependencies = {
+            { 'L3MON4D3/LuaSnip' },
+        },
+    },
     {
         'williamboman/mason-lspconfig.nvim',
         opts = {
@@ -25,8 +34,8 @@ local plugins = {
                 'pyright',
                 'rust_analyzer',
                 'lua_ls',
-                'rome'
-            }
+                'rome',
+                'tsserver' }
         },
         lazy = true
     },
@@ -44,8 +53,7 @@ local plugins = {
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
-        lazy = true
-
+        lazy = true,
     },
     {
         'L3MON4D3/LuaSnip',
@@ -59,13 +67,21 @@ local plugins = {
     { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
     { 'nvim-treesitter/nvim-treesitter', lazy = true },
     {
-        'windwp/nvim-ts-autotag', event = "InsertEnter", lazy = true
+        'windwp/nvim-ts-autotag',
+        -- event = "InsertEnter",
+        ft = {
+            "html", "markdown", "xml", "typescript", "vue", "jsx"
+        },
+        lazy = true
     },
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
+        },
+        keys = {
+            "<C-n>"
         },
         lazy = true
     },
@@ -122,13 +138,26 @@ local plugins = {
         dependencies = { { 'nvim-tree/nvim-web-devicons' } }
     },
     {
-        'simrat39/rust-tools.nvim', lazy = true
+        'simrat39/rust-tools.nvim',
+        ft = { 'rust' },
+        lazy = true
     },
     {
-        'numToStr/Comment.nvim', opts = {}, event = "BufEnter", lazy = true
+        'numToStr/Comment.nvim',
+        opts = {},
+        event = "InsertEnter",
+        lazy = true
     },
-    { 'ThePrimeagen/harpoon', lazy = true },
-    { "folke/neodev.nvim",    opts = {} }
+    {
+        'ThePrimeagen/harpoon',
+        lazy = true
+    },
+    {
+        "folke/neodev.nvim",
+        ft = { "lua" },
+        opts = {},
+        lazy = true,
+    }
 
 }
 
