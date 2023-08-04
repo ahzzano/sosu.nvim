@@ -147,8 +147,6 @@ local plugins = {
     },
     {
         'simrat39/rust-tools.nvim',
-        ft = { 'rust' },
-        lazy = true
     },
     {
         'numToStr/Comment.nvim',

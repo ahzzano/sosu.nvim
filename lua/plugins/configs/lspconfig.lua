@@ -49,6 +49,7 @@ cmp.setup({
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
     },
 })
+
 local rust_tools = require('rust-tools')
 
 rust_tools.setup({
