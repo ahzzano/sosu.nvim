@@ -1,10 +1,22 @@
 local macchiato = require("catppuccin.palettes").get_palette "macchiato"
+local catppuccin = require "lualine.themes.catppuccin"
+
+for key, value in pairs(catppuccin) do
+    value.z = { bg = macchiato.green, fg = macchiato.surface0 }
+end
+
+local function get_lsp()
+    if next(vim.lsp.get_active_clients()) == nil then
+        return "[No LSP Attached]"
+    end
+    return vim.lsp.get_active_clients()[1].name
+end
 
 -- LUA LINE
 local opts = {
     icons_enabled = true,
     options = {
-        theme = 'catppuccin',
+        theme = catppuccin,
         disabled_filetypes = {
             statusline = {
                 "NvimTree"
@@ -14,7 +26,6 @@ local opts = {
             left = '', right = ''
         },
         component_separators = { left = '', right = '' },
-        --component_separators = { left = '', right = '' }
     },
     sections = {
         lualine_a = {
@@ -31,8 +42,8 @@ local opts = {
             }
         },
         lualine_c = { 'location' },
-        lualine_x = { 'branch' },
-        lualine_y = { 'diff' },
+        lualine_x = { get_lsp },
+        lualine_y = { 'branch', 'diff' },
         lualine_z = { 'progress' }
     }
 }
