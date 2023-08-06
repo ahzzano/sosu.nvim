@@ -18,7 +18,6 @@ local plugins = {
         'williamboman/mason.nvim',
         opts = {
         },
-        lazy = true,
         build = function()
             pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
