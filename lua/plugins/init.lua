@@ -125,15 +125,6 @@ local plugins = {
         opts = {} -- this is equalent to setup({}) function
     },
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        opts = {
-            variant = 'moon',
-            disable_italics = true
-        },
-        priority = 1000
-    },
-    {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
