@@ -8,6 +8,8 @@ local plugins = {
     {
         'lewis6991/gitsigns.nvim',
         opts = {},
+        lazy = true,
+        event = "InsertEnter",
     },
     {
         'neovim/nvim-lspconfig',
@@ -27,7 +29,7 @@ local plugins = {
         event = "InsertEnter",
         dependencies = {
             { 'L3MON4D3/LuaSnip' },
-        },
+        }
     },
     {
         'williamboman/mason-lspconfig.nvim',
@@ -58,6 +60,11 @@ local plugins = {
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
+        config = function(_)
+            require('plugins.configs.lspconfig')
+            require('plugins.configs.cmp')
+        end,
+        event = "InsertEnter",
         lazy = true,
     },
     {
@@ -72,11 +79,17 @@ local plugins = {
         'saadparwaiz1/cmp_luasnip',
         lazy = true
     },
-    { 'hrsh7th/cmp-nvim-lsp',            lazy = true },
-    { 'nvim-treesitter/nvim-treesitter', lazy = true },
+    { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        lazy = true,
+        config = function()
+            require('plugins.configs.treesitter')
+        end,
+        event = "VeryLazy",
+    },
     {
         'windwp/nvim-ts-autotag',
-        -- event = "InsertEnter",
         ft = {
             "html", "markdown", "xml", "typescript", "vue", "jsx"
         },
@@ -91,6 +104,9 @@ local plugins = {
         keys = {
             "<C-n>"
         },
+        config = function()
+            require('plugins.configs.nvimtree')
+        end,
         lazy = true
     },
     {
@@ -137,7 +153,7 @@ local plugins = {
     },
     {
         'nvim-lualine/lualine.nvim',
-        event = "VeryLazy"
+        event = "VeryLazy",
     },
 
     {
@@ -147,22 +163,46 @@ local plugins = {
     },
     {
         'simrat39/rust-tools.nvim',
+        ft = { 'rust' },
+        config = function()
+            local rust_tools = require('rust-tools')
+
+            rust_tools.setup({
+                server = {
+                    on_attach = function(_, bufnr)
+                        vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+                    end
+                }
+            })
+        end,
+        dependencies = {
+            { 'VonHeikemen/lsp-zero.nvim' }
+        }
     },
     {
         'numToStr/Comment.nvim',
-        opts = {},
         event = "InsertEnter",
         lazy = true
     },
     {
         'ThePrimeagen/harpoon',
-        lazy = true
+        lazy = true,
+        event = "VeryLazy"
     },
     {
         "folke/neodev.nvim",
         ft = { "lua" },
         opts = {},
         lazy = true,
+    },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        opts = {},
+        dependencies = {
+            { 'nvim-treesitter/nvim-treesitter' }
+        },
+        lazy = true,
+        event = "InsertEnter"
     }
 
 }

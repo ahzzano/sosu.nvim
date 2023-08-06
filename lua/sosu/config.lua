@@ -31,5 +31,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.laststatus = 0
 
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 --vim.cmd("colorscheme tokyonight-moon")
