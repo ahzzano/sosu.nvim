@@ -1,9 +1,8 @@
-require('neodev').setup()
+if vim.bo.filetype == 'lua' then
+    require('neodev').setup()
+end
 
 local lsp = require('lsp-zero').preset()
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-
 
 lsp.on_attach(function(_, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
@@ -18,6 +17,7 @@ lsp.set_sign_icons({
     hint = '⚑',
     info = '»'
 })
+
 
 lsp.skip_server_setup({ 'rust_analyzer' })
 

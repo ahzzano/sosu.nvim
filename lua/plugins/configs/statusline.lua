@@ -16,7 +16,7 @@ end
 local opts = {
     icons_enabled = true,
     options = {
-        theme = catppuccin,
+        theme = 'auto',
         disabled_filetypes = {
             statusline = {
                 "NvimTree"

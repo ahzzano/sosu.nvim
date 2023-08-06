@@ -13,6 +13,8 @@ local plugins = {
     },
     {
         'neovim/nvim-lspconfig',
+        lazy = true,
+        event = "InsertEnter",
     },
     {
         'williamboman/mason.nvim',
@@ -53,11 +55,10 @@ local plugins = {
             { 'neovim/nvim-lspconfig' },             -- Required
             { 'williamboman/mason.nvim', },
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
+            { 'saadparwaiz1/cmp_luasnip' }
         },
         config = function(_)
             require('plugins.configs.lspconfig')
@@ -78,7 +79,10 @@ local plugins = {
         'saadparwaiz1/cmp_luasnip',
         lazy = true
     },
-    { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+    {
+        'hrsh7th/cmp-nvim-lsp',
+        lazy = true
+    },
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = true,
@@ -151,8 +155,12 @@ local plugins = {
         }
     },
     {
+        'sainnhe/everforest'
+    },
+    {
         'nvim-lualine/lualine.nvim',
         event = "VeryLazy",
+        lazy = true,
     },
 
     {
