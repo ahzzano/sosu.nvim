@@ -1,5 +1,5 @@
 function SetColorscheme(color)
-    color = color or "everforest"
+    color = color or "rose-pine-moon"
     vim.cmd.colorscheme(color)
 end
 
