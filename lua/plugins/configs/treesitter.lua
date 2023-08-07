@@ -4,7 +4,7 @@ require('nvim-treesitter.configs').setup {
     autotag = {
         enable = true,
         filetypes = {
-            "html", "xml", "tsx", "markdown", "lua"
+            "html", "xml", "tsx", "markdown", "lua", "typescript", "vue"
         }
     },
     highlight = {
