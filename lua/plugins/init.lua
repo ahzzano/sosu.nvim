@@ -180,7 +180,10 @@ local plugins = {
     {
         'numToStr/Comment.nvim',
         event = "InsertEnter",
-        lazy = true
+        lazy = false,
+        opts = {
+
+        }
     },
     {
         'ThePrimeagen/harpoon',
