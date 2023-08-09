@@ -122,7 +122,6 @@ local plugins = {
         'windwp/nvim-autopairs',
         lazy = true,
         event = "InsertEnter",
-        opts = {} -- this is equalent to setup({}) function
     },
     {
         "folke/tokyonight.nvim",
@@ -205,15 +204,6 @@ local plugins = {
         lazy = true,
         event = "InsertEnter"
     },
-    {
-        "NeogitOrg/neogit",
-
-        dependencies = {
-            "nvim-lua/plenary.nvim",         -- required
-            "nvim-telescope/telescope.nvim", -- optional
-        },
-        config = true
-    }
 }
 
 return plugins
