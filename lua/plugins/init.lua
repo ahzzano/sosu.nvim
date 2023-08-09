@@ -5,12 +5,16 @@ local plugins = {
         lazy = true
     },
     { 'nvim-lua/plenary.nvim' },
+
     {
         'lewis6991/gitsigns.nvim',
         opts = {},
         lazy = true,
         event = "InsertEnter",
     },
+
+    --#region LSP RELATED
+    -- DO NOT TOUCH
     {
         'neovim/nvim-lspconfig',
         lazy = true,
@@ -83,6 +87,9 @@ local plugins = {
         'hrsh7th/cmp-nvim-lsp',
         lazy = true
     },
+
+    --#endregion
+    --#region TREESITTER
     {
         'nvim-treesitter/nvim-treesitter',
         lazy = true,
@@ -93,9 +100,7 @@ local plugins = {
     },
     {
         'windwp/nvim-ts-autotag',
-        ft = {
-            "html", "markdown", "xml", "typescript", "vue", "jsx"
-        },
+        ft = { "html", "markdown", "xml", "typescript", "vue", "jsx" },
         lazy = true
     },
     {
@@ -112,6 +117,8 @@ local plugins = {
         end,
         lazy = true
     },
+
+    --#endregion
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
@@ -122,19 +129,7 @@ local plugins = {
         'windwp/nvim-autopairs',
         lazy = true,
         event = "InsertEnter",
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            styles = {
-                functions = { italic = false },
-                keywords = { italic = false },
-                variables = { italic = false },
-                comments = { italic = false }
-            },
-        },
+        opts = {}
     },
     {
         "catppuccin/nvim",
@@ -143,9 +138,6 @@ local plugins = {
         opts = {
             no_italic = true
         }
-    },
-    {
-        'sainnhe/everforest'
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -173,16 +165,19 @@ local plugins = {
             })
         end,
         dependencies = {
-            { 'VonHeikemen/lsp-zero.nvim' }
+            { 'VonHeikemen/lsp-zero.nvim' },
+            { 'neovim/nvim-lspconfig' }
         }
+    },
+    {
+        'hrsh7th/cmp-cmdline',
+        lazy = true
     },
     {
         'numToStr/Comment.nvim',
         event = "InsertEnter",
         lazy = false,
-        opts = {
-
-        }
+        config = true
     },
     {
         'ThePrimeagen/harpoon',
@@ -204,6 +199,7 @@ local plugins = {
         lazy = true,
         event = "InsertEnter"
     },
+
 }
 
 return plugins
