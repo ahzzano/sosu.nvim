@@ -11,6 +11,10 @@ local function format(_, vim_item)
 end
 
 cmp.setup({
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
     formatting = {
         fields = { "kind", "abbr" },
         format = format,
@@ -25,5 +29,6 @@ cmp.setup({
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
         ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
 })

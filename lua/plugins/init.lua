@@ -14,7 +14,12 @@ local plugins = {
     {
         'neovim/nvim-lspconfig',
         lazy = true,
-        event = "InsertEnter",
+        event = { 'BufReadPre', 'BufNewFile' },
+
+        config = function(_)
+            require('plugins.configs.lspconfig')
+            require('plugins.configs.cmp')
+        end,
     },
     {
         'williamboman/mason.nvim',
@@ -60,11 +65,6 @@ local plugins = {
             { 'L3MON4D3/LuaSnip' },                  -- Required
             { 'saadparwaiz1/cmp_luasnip' }
         },
-        config = function(_)
-            require('plugins.configs.lspconfig')
-            require('plugins.configs.cmp')
-        end,
-        event = "InsertEnter",
         lazy = true,
     },
     {
@@ -204,8 +204,16 @@ local plugins = {
         },
         lazy = true,
         event = "InsertEnter"
-    }
+    },
+    {
+        "NeogitOrg/neogit",
 
+        dependencies = {
+            "nvim-lua/plenary.nvim",         -- required
+            "nvim-telescope/telescope.nvim", -- optional
+        },
+        config = true
+    }
 }
 
 return plugins
