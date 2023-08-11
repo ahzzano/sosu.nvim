@@ -199,6 +199,14 @@ local plugins = {
         lazy = true,
         event = "InsertEnter"
     },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = true
+    }
 
 }
 
