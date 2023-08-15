@@ -136,7 +136,14 @@ local plugins = {
         name = "catppuccin",
         priority = 1000,
         opts = {
-            no_italic = true
+            no_italic = true,
+            term_colors = true,
+            transparent_background = false,
+            integrations = {
+                neogit = true,
+                harpoon = true,
+                treesitter_context = true
+            }
         }
     },
     {
