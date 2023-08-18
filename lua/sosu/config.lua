@@ -3,6 +3,7 @@
 local tabwidth = 4
 
 -- Settings
+vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -20,6 +21,9 @@ vim.opt.smarttab = true
 vim.opt.scrolloff = 6
 
 vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "120"
+vim.opt.wrap = false
 
 -- Folds
 vim.opt.foldenable = true

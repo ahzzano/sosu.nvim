@@ -149,7 +149,7 @@ local plugins = {
     {
         'nvim-lualine/lualine.nvim',
         event = "VeryLazy",
-        lazy = true,
+        lazy = false,
     },
 
     {
@@ -177,10 +177,6 @@ local plugins = {
         }
     },
     {
-        'hrsh7th/cmp-cmdline',
-        lazy = true
-    },
-    {
         'numToStr/Comment.nvim',
         event = "InsertEnter",
         lazy = false,
@@ -196,6 +192,21 @@ local plugins = {
         ft = { "lua" },
         opts = {},
         lazy = true,
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        priority = 1000,
+        opts = {
+            colors = {
+                theme = {
+                    all = {
+                        ui = {
+                            bg_gutter = "none"
+                        }
+                    }
+                }
+            }
+        }
     },
     {
         'nvim-treesitter/nvim-treesitter-context',
