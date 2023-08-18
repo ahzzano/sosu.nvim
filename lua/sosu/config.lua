@@ -38,4 +38,6 @@ vim.opt.laststatus = 0
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+vim.cmd [[set noshowmode]]
+
 --vim.cmd("colorscheme tokyonight-moon")

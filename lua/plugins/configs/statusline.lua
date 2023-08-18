@@ -1,10 +1,6 @@
 local macchiato = require("catppuccin.palettes").get_palette "macchiato"
 local catppuccin = require "lualine.themes.catppuccin"
 
-for key, value in pairs(catppuccin) do
-    value.z = { bg = macchiato.green, fg = macchiato.surface0 }
-end
-
 local function get_lsp()
     if next(vim.lsp.get_active_clients()) == nil then
         return "[No LSP Attached]"
