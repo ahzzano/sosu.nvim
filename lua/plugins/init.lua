@@ -140,7 +140,6 @@ local plugins = {
             term_colors = true,
             transparent_background = false,
             integrations = {
-                neogit = true,
                 harpoon = true,
                 treesitter_context = true
             }
