@@ -20,7 +20,7 @@ local opts = {
       }
     },
     section_separators = {
-      left = '',
+      left = '',
       right = ''
       -- left = '', right = ''
     },
