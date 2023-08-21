@@ -1,6 +1,6 @@
 -- General Settings
 
-local tabwidth = 4
+local tabwidth = 2
 
 -- Settings
 vim.opt.guicursor = ""
@@ -22,7 +22,7 @@ vim.opt.scrolloff = 6
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "80"
 vim.opt.wrap = false
 
 -- Folds
