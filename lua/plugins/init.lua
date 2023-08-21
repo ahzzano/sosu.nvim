@@ -225,7 +225,9 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = true
+    config = true,
+    event = "VeryLazy",
+    lazy = true
   },
 
 }
