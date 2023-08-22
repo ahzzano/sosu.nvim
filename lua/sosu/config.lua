@@ -18,6 +18,8 @@ vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 
+vim.opt.swapfile = false
+
 vim.opt.scrolloff = 6
 
 vim.opt.updatetime = 50

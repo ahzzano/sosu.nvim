@@ -57,6 +57,11 @@ local plugins = {
     lazy = true
   },
   {
+    'hrsh7th/cmp-cmdline',
+    lazy = true,
+    event = 'VeryLazy'
+  },
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     dependencies = {
