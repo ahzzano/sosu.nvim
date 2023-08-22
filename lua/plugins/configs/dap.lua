@@ -6,13 +6,12 @@ dapui.setup({
   layouts = {
     {
       elements = {
-        { id = "breakpoints", size = 0.25 },
+        { id = "breakpoints", size = 0.20 },
         { id = "stacks",      size = 0.40 },
-        { id = "watches",     size = 0.15 },
-        { id = "scopes",      size = 0.20 }
+        { id = "scopes",      size = 0.40 }
       },
       position = "right",
-      size = 60,
+      size = 40,
     }
   }
 })
@@ -30,6 +29,7 @@ end
 
 vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint<CR>', {})
 vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>', {})
+vim.keymap.set('n', '<F5>', dap.step_over)
 
 local function get_mason_package(package)
   return vim.fn.stdpath('data') .. '/mason/packages/' .. package .. '/'
