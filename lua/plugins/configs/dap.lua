@@ -1,7 +1,21 @@
 local dap = require('dap')
 local dapui = require('dapui')
+local widgets = require('dap.ui.widgets')
 
-dapui.setup()
+dapui.setup({
+  layouts = {
+    {
+      elements = {
+        { id = "breakpoints", size = 0.25 },
+        { id = "stacks",      size = 0.40 },
+        { id = "watches",     size = 0.15 },
+        { id = "scopes",      size = 0.20 }
+      },
+      position = "right",
+      size = 60,
+    }
+  }
+})
 dap.listeners.after.event_initialized['dapui_config'] = function()
   dapui.open()
 end

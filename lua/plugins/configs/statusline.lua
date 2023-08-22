@@ -16,7 +16,11 @@ local opts = {
     theme = 'auto',
     disabled_filetypes = {
       statusline = {
-        "NvimTree"
+        "NvimTree",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dapui_scopes",
       }
     },
     section_separators = {
