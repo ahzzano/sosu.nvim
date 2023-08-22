@@ -17,13 +17,17 @@ end
 vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint<CR>', {})
 vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>', {})
 
+local function get_mason_package(package)
+  return vim.fn.stdpath('data') .. '/mason/packages/' .. package .. '/'
+end
+
 dap.adapters.codelldb = {
   type = 'server',
   host = '127.0.0.1',
   port = 13000,
   executable = {
     -- CHANGE THIS to your path!
-    command = [[C:\Users\wsant\Downloads\codelldb\adapter\codelldb.exe]],
+    command = get_mason_package('codelldb') .. 'extension/adapter/codelldb.exe',
     args = { "--port", "13000" },
 
     -- On windows you may have to uncomment this:
