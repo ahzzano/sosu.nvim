@@ -43,16 +43,10 @@ local opts = {
       }
     },
     lualine_b = {
-
-      'branch',
-      {
-        'diagnostics',
-
-        left_padding = 2,
-      }
+      'branch'
     },
     lualine_c = { 'filename' },
-    lualine_x = { 'filetype', get_lsp },
+    lualine_x = { 'filetype' },
     lualine_y = { 'progress' },
     lualine_z = { 'location' }
   },

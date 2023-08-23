@@ -1,6 +1,6 @@
 -- General Settings
 
-local tabwidth = 2
+local tabwidth = 4
 
 -- Settings
 vim.opt.guicursor = ""
