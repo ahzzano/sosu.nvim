@@ -9,6 +9,7 @@ local function format(_, vim_item)
     return vim_item
 end
 
+
 cmp.setup({
     preselect = 'item',
     completion = {
@@ -35,4 +36,13 @@ cmp.setup({
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
+})
+
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
 })
