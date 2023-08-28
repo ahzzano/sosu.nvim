@@ -47,7 +47,6 @@ local plugins = {
             ensure_installed = {
                 'clangd',
                 'gopls',
-                'pyright',
                 'rust_analyzer',
                 'lua_ls',
                 'rome',
@@ -59,7 +58,7 @@ local plugins = {
     {
         'hrsh7th/cmp-cmdline',
         lazy = true,
-        event = 'VeryLazy'
+        event = 'VeryLazy',
     },
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -76,6 +75,19 @@ local plugins = {
         },
         lazy = true,
     },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        lazy = true,
+        dependencies = {
+            { 'VonHeikemen/lsp-zero.nvim' },
+            { "nvim-lua/plenary.nvim" }
+        },
+        config = function()
+            require('plugins.configs.null-ls')
+        end,
+        event = "VeryLazy"
+    },
+
     {
         'L3MON4D3/LuaSnip',
         dependencies = {
