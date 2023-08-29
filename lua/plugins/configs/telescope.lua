@@ -32,7 +32,7 @@ require('telescope').setup {
             theme = "dropdown"
         },
         lsp_references = {
-            theme = "get_ivy",
+            theme = "ivy",
             previewer = false
         },
     },
