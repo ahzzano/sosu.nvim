@@ -49,8 +49,10 @@ local plugins = {
                 'gopls',
                 'rust_analyzer',
                 'lua_ls',
+                -- Webdev Things
                 'rome',
                 'tsserver',
+                'tailwindcss',
             }
         },
         lazy = true
