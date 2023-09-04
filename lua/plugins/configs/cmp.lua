@@ -35,6 +35,8 @@ cmp.setup({
         ['<Tab>'] = cmp_action.tab_complete(),
         ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
     },
 })
 

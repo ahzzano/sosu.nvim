@@ -50,7 +50,7 @@ local plugins = {
                 'rust_analyzer',
                 'lua_ls',
                 -- Webdev Things
-                'rome',
+                'biome',
                 'tsserver',
                 'tailwindcss',
             }
