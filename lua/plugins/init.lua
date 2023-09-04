@@ -96,6 +96,7 @@ local plugins = {
             "rafamadriz/friendly-snippets"
         },
         opts = {},
+        config= true,
         lazy = true
     },
     {
