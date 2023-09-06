@@ -2,6 +2,7 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 require('luasnip.loaders.from_vscode').lazy_load()
+local luasnip = require 'luasnip'
 
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
@@ -38,6 +39,11 @@ cmp.setup({
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
     },
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end
+    }
 })
 
 cmp.setup.cmdline(':', {
