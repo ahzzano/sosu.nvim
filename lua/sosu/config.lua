@@ -33,8 +33,8 @@ vim.opt.foldlevel = 20
 vim.opt.foldmethod = 'indent'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 vim.opt.laststatus = 0
 
 vim.opt.hlsearch = false

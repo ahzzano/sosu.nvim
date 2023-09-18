@@ -146,20 +146,20 @@ local plugins = {
         ft = { "html", "markdown", "xml", "typescript", "vue", "jsx" },
         lazy = true
     },
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        keys = {
-            "<C-n>"
-        },
-        config = function()
-            require('plugins.configs.nvimtree')
-        end,
-        lazy = true
-    },
+    --{
+    --     "nvim-tree/nvim-tree.lua",
+    --     version = "*",
+    --     dependencies = {
+    --         "nvim-tree/nvim-web-devicons",
+    --     },
+    --     keys = {
+    --         "<C-n>"
+    --     },
+    --     config = function()
+    --         require('plugins.configs.nvimtree')
+    --     end,
+    --     lazy = true
+    -- },
 
     --#endregion
     {
