@@ -30,8 +30,9 @@ vim.opt.wrap = false
 -- Folds
 vim.opt.foldenable = true
 vim.opt.foldlevel = 20
-vim.opt.foldmethod = 'indent'
+vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = vim.opt.foldmethod
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
