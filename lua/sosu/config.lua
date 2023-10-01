@@ -1,3 +1,14 @@
+-- Neovide Specific
+
+if vim.g.neovide then
+    vim.o.guifont = "Hack Nerd Font Mono:h10"
+    local padding = 10
+    vim.g.neovide_padding_top = padding
+    vim.g.neovide_padding_bottom = padding
+    vim.g.neovide_padding_right = padding
+    vim.g.neovide_padding_left = padding
+end
+
 -- General Settings
 
 local tabwidth = 4
