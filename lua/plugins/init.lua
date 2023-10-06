@@ -5,6 +5,15 @@ local plugins = {
         lazy = true
     },
     { 'nvim-lua/plenary.nvim' },
+    {
+        'echasnovski/mini.nvim',
+        version = false,
+        config = function(_)
+            mini = require('mini.files').setup()
+
+            vim.keymap.set('n', '<leader>pv', MiniFiles.open, {noremap=true, silent=true}) 
+        end
+    },
 
     {
         'lewis6991/gitsigns.nvim',
@@ -96,7 +105,7 @@ local plugins = {
             "rafamadriz/friendly-snippets"
         },
         opts = {},
-        config= true,
+        config = true,
         lazy = true
     },
     {
