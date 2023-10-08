@@ -11,7 +11,7 @@ local plugins = {
         config = function(_)
             mini = require('mini.files').setup()
 
-            vim.keymap.set('n', '<leader>pv', MiniFiles.open, {noremap=true, silent=true}) 
+            vim.keymap.set('n', '<leader>pv', MiniFiles.open, { noremap = true, silent = true })
         end
     },
 
@@ -196,6 +196,14 @@ local plugins = {
                 treesitter_context = true
             }
         }
+    },
+    {
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require 'nordic'.load()
+        end
     },
     {
         'nvim-lualine/lualine.nvim',

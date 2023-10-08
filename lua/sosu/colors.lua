@@ -1,5 +1,5 @@
 function SetColorscheme(color)
-    color = color or "catppuccin-mocha"
+    color = color or "nordic"
     vim.cmd.colorscheme(color)
 
     -- local hl = vim.api.nvim_get_hl_by_name('Normal')
