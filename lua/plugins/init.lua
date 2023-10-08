@@ -57,6 +57,7 @@ local plugins = {
                 'clangd',
                 'gopls',
                 'rust_analyzer',
+                'zls',
                 'lua_ls',
                 -- Webdev Things
                 'biome',
