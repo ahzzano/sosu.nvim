@@ -195,7 +195,6 @@ local plugins = {
         end,
         lazy = false,
     },
-
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
