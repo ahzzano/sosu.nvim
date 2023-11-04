@@ -6,13 +6,12 @@ local plugins = {
     },
     { 'nvim-lua/plenary.nvim' },
     {
-        'echasnovski/mini.nvim',
-        version = false,
-        config = function(_)
-            mini = require('mini.files').setup()
-
-            vim.keymap.set('n', '<leader>pv', MiniFiles.open, { noremap = true, silent = true })
-        end
+        'nvim-tree/nvim-tree.lua',
+        lazy = true,
+        config = function()
+            require('plugins.configs.nvimtree')
+        end,
+        event = 'VeryLazy'
     },
 
     {
@@ -22,8 +21,6 @@ local plugins = {
         event = "InsertEnter",
     },
 
-    --#region LSP RELATED
-    -- DO NOT TOUCH
     {
         'neovim/nvim-lspconfig',
         lazy = true,
@@ -54,11 +51,12 @@ local plugins = {
         'williamboman/mason-lspconfig.nvim',
         opts = {
             ensure_installed = {
-                'clangd',
-                'gopls',
-                'rust_analyzer',
-                'zls',
-                'lua_ls',
+                -- Favorite Languages
+                'clangd',        -- c/c++
+                'gopls',         -- go
+                'rust_analyzer', --rust
+                'zls',           --zig
+                'lua_ls',        --lua
                 -- Webdev Things
                 'biome',
                 'tsserver',
@@ -156,22 +154,6 @@ local plugins = {
         ft = { "html", "markdown", "xml", "typescript", "vue", "jsx" },
         lazy = true
     },
-    --{
-    --     "nvim-tree/nvim-tree.lua",
-    --     version = "*",
-    --     dependencies = {
-    --         "nvim-tree/nvim-web-devicons",
-    --     },
-    --     keys = {
-    --         "<C-n>"
-    --     },
-    --     config = function()
-    --         require('plugins.configs.nvimtree')
-    --     end,
-    --     lazy = true
-    -- },
-
-    --#endregion
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.1',
@@ -202,6 +184,7 @@ local plugins = {
         'AlexvZyl/nordic.nvim',
         lazy = false,
         priority = 1000,
+        opts = { italic_comments = true, },
         config = function()
             require 'nordic'.load()
         end

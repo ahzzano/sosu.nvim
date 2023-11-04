@@ -6,6 +6,7 @@ end
 local api = require "nvim-tree.api"
 
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+vim.keymap.set('n', '<leader>pv', ':NvimTreeToggle<CR>', opts)
 
 nvim_tree.setup({
     actions = {
