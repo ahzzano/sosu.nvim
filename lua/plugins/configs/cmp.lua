@@ -10,6 +10,34 @@ local function format(_, vim_item)
     return vim_item
 end
 
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+function super_tab(fallback)
+    if cmp.visible() then
+        cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+    elseif has_words_before() then
+        cmp.complete()
+    else
+        fallback()
+    end
+end
+
+function ssuper_tab(fallback)
+    if cmp.visible() then
+        cmp.select_prev_item()
+    elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+    else
+        fallback()
+    end
+end
+
 
 cmp.setup({
     preselect = 'item',
@@ -33,8 +61,10 @@ cmp.setup({
     mapping = {
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-        ['<Tab>'] = cmp_action.tab_complete(),
-        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        -- ['<Tab>'] = cmp_action.tab_complete(),
+        ['<Tab>'] = cmp.mapping(super_tab, {'i', 's'}),
+        -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<S-Tab>'] = cmp.mapping(ssuper_tab, {'i', 's'}),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
