@@ -40,3 +40,6 @@ vim.keymap.set("v", "<leader>y", "\"+y", opts)
 vim.keymap.set("n", "<leader>Y", "\"+y", opts)
 
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- For OJ purposes
+vim.keymap.set('n', '<leader>oj', 'ggVG"+yzz', opts)
