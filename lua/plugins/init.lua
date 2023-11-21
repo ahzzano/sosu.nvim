@@ -277,7 +277,9 @@ local plugins = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         },
-        config = true,
+        config = function()
+            require('plugins.configs.neogit')
+        end,
         event = "VeryLazy",
         lazy = true
     },
