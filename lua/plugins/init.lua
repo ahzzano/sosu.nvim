@@ -248,19 +248,16 @@ local plugins = {
         lazy = true,
     },
     {
-        "rebelot/kanagawa.nvim",
+        "folke/tokyonight.nvim",
+        lazy = false,
         priority = 1000,
-        opts = {
-            colors = {
-                theme = {
-                    all = {
-                        ui = {
-                            bg_gutter = "none"
-                        }
-                    }
-                }
-            }
-        }
+        opts = {},
+    },
+    {
+        "sainnhe/gruvbox-material",
+        lazy = false,
+        priority = 1000,
+        opts = {}
     },
     {
         'nvim-treesitter/nvim-treesitter-context',

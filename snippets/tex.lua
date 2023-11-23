@@ -77,10 +77,18 @@ local list = s("ul", fmt([[
 ]],
     i(1, "")))
 
+local graphics = s("cg", fmt([[
+    \begin{{center}}
+        \includegraphics[]{{{}}}
+    \end{{center}}
+]], {
+    i(1, "filename")
+}))
 
 
 table.insert(snippets, default_document)
 table.insert(snippets, unnumbered_equation)
 table.insert(snippets, list)
 table.insert(snippets, enumerate)
+table.insert(snippets, graphics)
 return snippets, autosnippets
