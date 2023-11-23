@@ -281,11 +281,7 @@ local plugins = {
         lazy = true
     },
 
-    {
-        'lervag/vimtex',
-        ft = { 'latex', 'tex' },
-        lazy = true
-    },
+
 
 }
 

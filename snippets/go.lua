@@ -28,11 +28,14 @@ local k = require("luasnip.nodes.key_indexer").new_key
 
 local snippets, autosnippets = {}, {}
 
-local err_check = s("iferr", {
-    t "if ",
+local err_check = s("iferr", fmt([[
+    if {} != nil {{
+        {}
+    }}
+]], {
     i(1, "err"),
-    t({ " != nil{", "", "}" })
-})
+    i(2, "")
+}))
 
 table.insert(snippets, err_check)
 

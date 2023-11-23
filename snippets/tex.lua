@@ -37,7 +37,7 @@ local default_document = s(
 
     \title{{default}}
     \author{{{}}}
-    \date{{November 2023}}
+    \date{{}}
 
     \begin{{document}}
 
@@ -49,7 +49,18 @@ local default_document = s(
     \end{{document}}
     ]], {
         i(1, "author"),
-        i(2, "")
+        i(2, "date")
+    })
+)
+
+local numbered_equation = s(
+    "equ",
+    fmt([[
+        \begin{{equation}}
+            {}
+        \end{{equation}}
+    ]], {
+        i(1, "")
     })
 )
 
@@ -78,17 +89,20 @@ local list = s("ul", fmt([[
     i(1, "")))
 
 local graphics = s("cg", fmt([[
-    \begin{{center}}
-        \includegraphics[]{{{}}}
-    \end{{center}}
+    \begin{{figure}}[h]
+        \centering
+        \includegraphics{{{}}}
+        \caption{{{}}}
+    \end{{figure}}
 ]], {
-    i(1, "filename")
+    i(1, "filename"),
+    i(2, "caption")
 }))
-
 
 table.insert(snippets, default_document)
 table.insert(snippets, unnumbered_equation)
 table.insert(snippets, list)
 table.insert(snippets, enumerate)
 table.insert(snippets, graphics)
+
 return snippets, autosnippets
