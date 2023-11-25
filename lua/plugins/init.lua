@@ -110,6 +110,12 @@ local plugins = {
         lazy = true
     },
     {
+        'ahzzano/nvtex',
+        config = function()
+            require('nvtex').setup()
+        end
+    },
+    {
         'hrsh7th/cmp-nvim-lsp',
         lazy = true
     },
