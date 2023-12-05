@@ -113,7 +113,18 @@ local plugins = {
         'ahzzano/nvtex',
         config = function()
             require('nvtex').setup()
-        end
+        end,
+        cond = true,
+    },
+    {
+        'navarasu/onedark.nvim',
+        config = function()
+            require('onedark').setup {
+                style = 'darker',
+                term_colors = true
+            }
+        end,
+        lazy = false
     },
     {
         'hrsh7th/cmp-nvim-lsp',

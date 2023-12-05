@@ -34,6 +34,7 @@ local default_document = s(
     \documentclass{{article}}
     \usepackage{{amsmath}}
     \usepackage{{graphicx}}
+    \usepackage{{tikz}}
 
     \title{{default}}
     \author{{{}}}
