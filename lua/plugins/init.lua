@@ -120,7 +120,7 @@ local plugins = {
         'navarasu/onedark.nvim',
         config = function()
             require('onedark').setup {
-                style = 'darker',
+                -- style = 'darker',
                 term_colors = true
             }
         end,
