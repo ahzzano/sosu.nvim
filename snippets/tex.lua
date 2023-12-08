@@ -36,9 +36,9 @@ local default_document = s(
     \usepackage{{graphicx}}
     \usepackage{{tikz}}
 
-    \title{{default}}
+    \title{{{}}}
     \author{{{}}}
-    \date{{}}
+    \date{{{}}}
 
     \begin{{document}}
 
@@ -49,8 +49,10 @@ local default_document = s(
 
     \end{{document}}
     ]], {
-        i(1, "author"),
-        i(2, "date")
+        i(1, "document title"),
+        i(2, "author"),
+        i(3, "date"),
+        i(4, "")
     })
 )
 

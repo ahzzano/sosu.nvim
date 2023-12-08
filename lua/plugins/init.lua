@@ -127,6 +127,16 @@ local plugins = {
         lazy = false
     },
     {
+        'ribru17/bamboo.nvim',
+        opts = {
+            -- style = 'multiplex',
+            code_style = {
+                comments='none',
+                conditionals='none'
+            }
+        },
+    },
+    {
         'hrsh7th/cmp-nvim-lsp',
         lazy = true
     },
@@ -180,29 +190,6 @@ local plugins = {
         lazy = true,
         event = "InsertEnter",
         opts = {}
-    },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        opts = {
-            no_italic = true,
-            term_colors = true,
-            transparent_background = false,
-            integrations = {
-                harpoon = true,
-                treesitter_context = true
-            }
-        }
-    },
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = { italic_comments = true, },
-        config = function()
-            require 'nordic'.load()
-        end
     },
     {
         'nvim-lualine/lualine.nvim',
