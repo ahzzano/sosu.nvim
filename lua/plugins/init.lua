@@ -101,7 +101,9 @@ local plugins = {
         dependencies = {
             "rafamadriz/friendly-snippets"
         },
-        opts = {},
+        opts = {
+            enable_autosnippets = true
+        },
         config = true,
         lazy = true
     },

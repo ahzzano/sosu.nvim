@@ -26,49 +26,54 @@ local parse = require("luasnip.util.parser").parse_snippet
 local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
-local snippets, autosnippets = {}, {}
+local snippets = {}
+local autosnippets = {}
 
 local default_document = s(
-    "initd",
+    "inittex",
     fmt([[
     \documentclass{{article}}
+
     \usepackage{{amsmath}}
+    \usepackage{{amssymb}}
+    \usepackage{{amsthm}}
     \usepackage{{graphicx}}
     \usepackage{{tikz}}
 
-    \title{{{}}}
-    \author{{{}}}
-    \date{{{}}}
+    \title{{{title}}}
+    \author{{{author}}}
+    \date{{{date}}}
 
     \begin{{document}}
 
     \maketitle
-
     \section{{Introduction}}
-    {}
+    {content}
 
     \end{{document}}
     ]], {
-        i(1, "document title"),
-        i(2, "author"),
-        i(3, "date"),
-        i(4, "")
+        title = i(1, ""),
+        author = i(2, ""),
+        date = i(3, ""),
+        content = i(4, "")
     })
 )
 
 local numbered_equation = s(
-    "equ",
+    "!eq",
     fmt([[
         \begin{{equation}}
-            {}
+            {equation}
+            \label{{eq:{equation_label}}}
         \end{{equation}}
     ]], {
-        i(1, "")
+        equation_label = i(1, ""),
+        equation = i(2, "")
     })
 )
 
 local unnumbered_equation = s(
-    "eq",
+    "!ueq",
     fmt([[
         \[
             {}
@@ -91,21 +96,23 @@ local list = s("ul", fmt([[
 ]],
     i(1, "")))
 
-local graphics = s("cg", fmt([[
+local graphics = s("!ig", fmt([[
     \begin{{figure}}[h]
         \centering
-        \includegraphics{{{}}}
-        \caption{{{}}}
+        \includegraphics{{{file}}}
+        \caption{{{caption}}}
     \end{{figure}}
 ]], {
-    i(1, "filename"),
-    i(2, "caption")
+    file = i(1, "filename"),
+    caption = i(2, "")
 }))
 
-table.insert(snippets, default_document)
-table.insert(snippets, unnumbered_equation)
 table.insert(snippets, list)
 table.insert(snippets, enumerate)
-table.insert(snippets, graphics)
+
+table.insert(autosnippets, graphics)
+table.insert(autosnippets, default_document)
+table.insert(autosnippets, unnumbered_equation)
+table.insert(autosnippets, numbered_equation)
 
 return snippets, autosnippets

@@ -1,9 +1,9 @@
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
-require('luasnip.loaders.from_vscode').lazy_load()
-require('luasnip.loaders.from_lua').load({paths = vim.fn.stdpath("config").."\\snippets"})
 local luasnip = require 'luasnip'
+require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_lua').load({ paths = vim.fn.stdpath("config") .. "\\snippets" })
 
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
@@ -12,9 +12,9 @@ local function format(_, vim_item)
 end
 
 local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 function super_tab(fallback)
@@ -39,7 +39,6 @@ function ssuper_tab(fallback)
     end
 end
 
-
 cmp.setup({
     preselect = 'item',
     completion = {
@@ -63,9 +62,9 @@ cmp.setup({
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
         -- ['<Tab>'] = cmp_action.tab_complete(),
-        ['<Tab>'] = cmp.mapping(super_tab, {'i', 's'}),
+        ['<Tab>'] = cmp.mapping(super_tab, { 'i', 's' }),
         -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
-        ['<S-Tab>'] = cmp.mapping(ssuper_tab, {'i', 's'}),
+        ['<S-Tab>'] = cmp.mapping(ssuper_tab, { 'i', 's' }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
