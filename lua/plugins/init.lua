@@ -115,6 +115,8 @@ local plugins = {
             require('nvtex').setup()
         end,
         cond = true,
+        lazy = true,
+        ft = { 'latex', 'tex' },
     },
     {
         'navarasu/onedark.nvim',
@@ -131,8 +133,8 @@ local plugins = {
         opts = {
             -- style = 'multiplex',
             code_style = {
-                comments='none',
-                conditionals='none'
+                comments = 'none',
+                conditionals = 'none'
             }
         },
     },
