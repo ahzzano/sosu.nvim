@@ -29,14 +29,12 @@ require('telescope').setup {
             previewer = false
         },
         grep_string = {
-            theme = "dropdown"
+            theme = "ivy"
         },
         lsp_references = {
             theme = "ivy",
-            previewer = false
         },
     },
-
 }
 
 local builtin = require('telescope.builtin')
