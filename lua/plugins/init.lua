@@ -144,30 +144,6 @@ local plugins = {
         'hrsh7th/cmp-nvim-lsp',
         lazy = true
     },
-    {
-        'mfussenegger/nvim-dap',
-        lazy = true,
-        event = "VeryLazy"
-    },
-    {
-        'rcarriga/nvim-dap-ui',
-        lazy = true,
-        event = "VeryLazy",
-        config = function()
-            require('plugins.configs.dap')
-        end
-    },
-    {
-        'jay-babu/mason-nvim-dap.nvim',
-        event = "VeryLazy",
-        lazy = true,
-        dependencies = {
-            { 'rcarriga/nvim-dap-ui' },
-            { 'mfussenegger/nvim-dap' },
-            { 'williamboman/mason-lspconfig.nvim' },
-        }
-    },
-
     --#endregion
     --#region TREESITTER
     {
