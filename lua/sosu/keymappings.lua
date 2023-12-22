@@ -1,6 +1,4 @@
--- Essentials
-local opts = { noremap = true, silent = true }
-
+-- Essentials local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -28,8 +26,8 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", '<leader>v', ':vsplit<CR>')
-vim.keymap.set("n", '<leader>h', ':split<CR>')
+vim.keymap.set("n", '<leader>sv', ':vsplit<CR>')
+vim.keymap.set("n", '<leader>sh', ':split<CR>')
 
 vim.keymap.set('v', 'p', '"_dP"', opts)
 
