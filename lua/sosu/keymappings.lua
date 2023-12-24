@@ -1,4 +1,5 @@
--- Essentials local opts = { noremap = true, silent = true }
+-- Essentials
+local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 

@@ -1,4 +1,4 @@
-local actions = require('telescope.actions')
+local actions = require 'telescope.actions'
 
 require('telescope').setup {
     defaults = {
@@ -47,4 +47,3 @@ vim.keymap.set('n', '<leader>bf', builtin.buffers)
 vim.keymap.set('n', '<leader>gs', function()
     builtin.grep_string({ search = vim.fn.input("Grep Search > ") })
 end)
-vim.keymap.set('n', '<leader>lr', builtin.lsp_references)

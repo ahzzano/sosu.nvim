@@ -32,6 +32,9 @@ local plugins = {
     {
         'williamboman/mason.nvim',
         opts = {
+            ui = {
+                border = "single"
+            }
         },
         build = function()
             pcall(vim.api.nvim_command, 'MasonUpdate')
@@ -95,7 +98,6 @@ local plugins = {
         end,
         event = "VeryLazy"
     },
-
     {
         'L3MON4D3/LuaSnip',
         dependencies = {
@@ -119,26 +121,6 @@ local plugins = {
         cond = true,
         lazy = true,
         ft = { 'latex', 'tex' },
-    },
-    {
-        'navarasu/onedark.nvim',
-        config = function()
-            require('onedark').setup {
-                -- style = 'darker',
-                term_colors = true
-            }
-        end,
-        lazy = false
-    },
-    {
-        'ribru17/bamboo.nvim',
-        opts = {
-            -- style = 'multiplex',
-            code_style = {
-                comments = 'none',
-                conditionals = 'none'
-            }
-        },
     },
     {
         'hrsh7th/cmp-nvim-lsp',
@@ -264,9 +246,6 @@ local plugins = {
         event = "VeryLazy",
         lazy = true
     },
-
-
-
 }
 
 return plugins

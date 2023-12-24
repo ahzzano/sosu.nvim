@@ -14,4 +14,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(plugins_file)
+require("lazy").setup(plugins_file, {
+    ui = {
+        border = "single"
+    }
+})
