@@ -3,6 +3,12 @@ if vim.bo.filetype == 'lua' then
 end
 
 local lsp = require('lsp-zero').preset()
+require('lspconfig').clangd.setup({
+    on_init = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingRangeProvider = false
+    end
+})
 
 vim.diagnostic.config({
     virtual_text = {
@@ -21,8 +27,6 @@ lsp.format_on_save({
             'rust',
             'go',
             'lua',
-            'cpp',
-            'c',
             'html',
             'javascript',
             'typescript',
