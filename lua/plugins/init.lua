@@ -59,9 +59,6 @@ local plugins = {
                 "zls",           --zig
                 "lua_ls",        --lua
                 -- Webdev Things
-                "biome",
-                "tsserver",
-                "tailwindcss",
             },
         },
         lazy = true,
