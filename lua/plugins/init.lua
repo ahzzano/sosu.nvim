@@ -265,6 +265,13 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
+
+    -- Local Projects
+    -- {
+    --     dir = "~/Projects/nvim-plugins/neotex",
+    --     config = true,
+    --
+    -- }
 }
 
 return plugins
