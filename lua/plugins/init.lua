@@ -1,10 +1,11 @@
 local plugins = {
-    {
-        "nvim-tree/nvim-web-devicons",
-        opts = {},
-        lazy = true,
-    },
+    "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
+    "hrsh7th/cmp-nvim-lsp",
+    "lewis6991/gitsigns.nvim",
+    "ThePrimeagen/harpoon",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-cmdline",
     {
         "alexghergh/nvim-tmux-navigation",
         config = function()
@@ -29,12 +30,6 @@ local plugins = {
             require("plugins.configs.nvimtree")
         end,
         event = "VeryLazy",
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        opts = {},
-        lazy = true,
-        event = "InsertEnter",
     },
     {
         "neovim/nvim-lspconfig",
@@ -81,11 +76,6 @@ local plugins = {
         lazy = true,
     },
     {
-        "hrsh7th/cmp-cmdline",
-        lazy = true,
-        event = "VeryLazy",
-    },
-    {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",
         dependencies = {
@@ -123,25 +113,6 @@ local plugins = {
         config = true,
         lazy = true,
     },
-    {
-        "saadparwaiz1/cmp_luasnip",
-        lazy = true,
-    },
-    {
-        "ahzzano/nvtex",
-        config = function()
-            require("nvtex").setup()
-        end,
-        cond = true,
-        lazy = true,
-        ft = { "latex", "tex" },
-    },
-    {
-        "hrsh7th/cmp-nvim-lsp",
-        lazy = true,
-    },
-    --#endregion
-    --#region TREESITTER
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = true,
@@ -216,11 +187,6 @@ local plugins = {
         config = true,
     },
     {
-        "ThePrimeagen/harpoon",
-        lazy = true,
-        event = "VeryLazy",
-    },
-    {
         "folke/neodev.nvim",
         ft = { "lua" },
         opts = {},
@@ -265,13 +231,6 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
-
-    -- Local Projects
-    -- {
-    --     dir = "~/Projects/nvim-plugins/neotex",
-    --     config = true,
-    --
-    -- }
 }
 
 return plugins
