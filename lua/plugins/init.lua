@@ -2,7 +2,6 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "lewis6991/gitsigns.nvim",
     "ThePrimeagen/harpoon",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
@@ -10,6 +9,10 @@ local plugins = {
         "numToStr/Comment.nvim",
         config = true,
         lazy = false,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        lazy=false
     },
     {
         "alexghergh/nvim-tmux-navigation",
