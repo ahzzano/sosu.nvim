@@ -6,6 +6,7 @@ local plugins = {
     "ThePrimeagen/harpoon",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
+    "numToStr/Comment.nvim",
     {
         "alexghergh/nvim-tmux-navigation",
         config = function()
@@ -140,7 +141,6 @@ local plugins = {
     },
     {
         "nvim-lualine/lualine.nvim",
-        event = "VeryLazy",
         config = function()
             require("plugins.configs.statusline")
         end,
@@ -156,7 +156,6 @@ local plugins = {
         ft = { "rust" },
         config = function()
             local rust_tools = require("rust-tools")
-
             rust_tools.setup({
                 server = {
                     on_attach = function(_, bufnr)
@@ -181,12 +180,6 @@ local plugins = {
         end,
     },
     {
-        "numToStr/Comment.nvim",
-        event = "InsertEnter",
-        lazy = false,
-        config = true,
-    },
-    {
         "folke/neodev.nvim",
         ft = { "lua" },
         opts = {},
@@ -199,16 +192,17 @@ local plugins = {
         opts = {},
     },
     {
-        "sainnhe/gruvbox-material",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
         opts = {},
+    },
+    {
+        'navarasu/onedark.nvim',
+        priority = 1000,
+        opts = {
+            style = 'deep'
+        },
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
