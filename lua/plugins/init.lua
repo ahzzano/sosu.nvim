@@ -12,6 +12,8 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
+        config=true,
+        opts={},
         lazy=false
     },
     {
