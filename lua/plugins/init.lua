@@ -6,7 +6,11 @@ local plugins = {
     "ThePrimeagen/harpoon",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
-    "numToStr/Comment.nvim",
+    {
+        "numToStr/Comment.nvim",
+        config = true,
+        lazy = false,
+    },
     {
         "alexghergh/nvim-tmux-navigation",
         config = function()
@@ -201,7 +205,7 @@ local plugins = {
         'navarasu/onedark.nvim',
         priority = 1000,
         opts = {
-            style = 'deep'
+            --style = 'deep'
         },
     },
     {
