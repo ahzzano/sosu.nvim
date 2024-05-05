@@ -35,11 +35,22 @@ require('telescope').setup {
             theme = "ivy",
         },
     },
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,       -- override the generic sorter
+            override_file_sorter = true,          -- override the file sorter
+            case_mode = "smart_case",             -- or "ignore_case" or "respect_case"
+        }
+    }
 }
+
+require("telescope").load_extension('fzf')
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<C-p>', builtin.find_files);
+-- vim.keymap.set('i', '<C-p>', builtin.find_files);
+-- vim.keymap.set('i', '<C-g>', builtin.git_files);
 
 vim.keymap.set('n', '<leader>pf', builtin.find_files)
 vim.keymap.set('n', '<leader>gf', builtin.git_files)

@@ -5,6 +5,7 @@ local plugins = {
     "ThePrimeagen/harpoon",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
         "numToStr/Comment.nvim",
         config = true,
@@ -12,9 +13,9 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
-        config=true,
-        opts={},
-        lazy=false
+        config = true,
+        opts = {},
+        lazy = false
     },
     {
         "alexghergh/nvim-tmux-navigation",
