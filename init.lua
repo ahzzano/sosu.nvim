@@ -8,8 +8,10 @@ require('sosu.colors')
 require('plugins')
 require('plugins.setup')()
 
-local pf = vim.fn.getcwd() .. '/project.godot'
-if pf then
+local pf = vim.fn.getcwd() .. '\\project.godot'
+local godot_pf = io.open(pf)
+
+if godot_pf ~= nil then
     vim.fn.serverstart '127.0.0.1:55432'
 end
 
