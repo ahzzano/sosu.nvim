@@ -7,10 +7,6 @@ local plugins = {
     "hrsh7th/cmp-cmdline",
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
-        "lervag/vimtex",
-        ft = { 'tex', 'latex' }
-    },
-    {
         "numToStr/Comment.nvim",
         config = true,
         lazy = false,
