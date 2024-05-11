@@ -5,9 +5,11 @@ neogit.setup({
 })
 
 vim.keymap.set('n', '<leader>ngo', function()
-    neogit.open()
+    neogit.open({
+        kind = 'vsplit'
+    })
 end)
 
 vim.keymap.set('n', '<leader>ngc', function()
-    neogit.open({ "commit" })
+    neogit.open({ "commit", kind = 'vsplit' })
 end)
