@@ -14,5 +14,12 @@ vim.keymap.set('n', '<leader>ngc', function()
     neogit.open({ "commit", kind = 'vsplit' })
 end)
 
+local group = vim.api.nvim_create_augroup('MyCustomNeogitEvents', { clear = true })
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'NeogitPushComplete',
+    group = group,
+    callback = require('neogit').close,
+})
+
 -- useful events
-local group = vim.api.nvim_create_augroup('MyNeogitEvents', { clear = true })
+-- local group = vim.api.nvim_create_augroup('MyNeogitEvents', { clear = true })
