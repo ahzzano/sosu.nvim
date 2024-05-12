@@ -2,7 +2,12 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "ThePrimeagen/harpoon",
+    {
+        "ThePrimeagen/harpoon",
+        branch = 'harpoon2',
+        dependencies = { "nvim-lua/plenary.nvim" }
+
+    },
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
