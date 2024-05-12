@@ -15,3 +15,5 @@ vim.keymap.set("n", "<C-t>", function() harpolist:select(1) end)
 vim.keymap.set("n", "<C-w>", function() harpolist:select(2) end)
 vim.keymap.set("n", "<C-g>", function() harpolist:select(3) end)
 vim.keymap.set("n", "<C-s>", function() harpolist:select(4) end)
+
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
