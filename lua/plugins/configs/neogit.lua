@@ -1,7 +1,7 @@
 local neogit = require('neogit')
 
 neogit.setup({
-    kind = 'vsplit'
+    -- kind = 'vsplit'
 })
 
 vim.keymap.set('n', '<leader>ngo', function()
