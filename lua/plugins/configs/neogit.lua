@@ -16,15 +16,3 @@ end)
 
 -- useful events
 local group = vim.api.nvim_create_augroup('MyNeogitEvents', { clear = true })
-
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'NeogitPushComplete',
-    group = group,
-    callback = require("neogit").close,
-})
-
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'NeogitPullComplete',
-    group = group,
-    callback = require('neogit').close,
-})
