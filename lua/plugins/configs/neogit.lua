@@ -5,13 +5,11 @@ neogit.setup({
 })
 
 vim.keymap.set('n', '<leader>ngo', function()
-    neogit.open({
-        kind = 'vsplit'
-    })
+    neogit.open({})
 end)
 
 vim.keymap.set('n', '<leader>ngc', function()
-    neogit.open({ "commit", kind = 'vsplit' })
+    neogit.open({ "commit" })
 end)
 
 local group = vim.api.nvim_create_augroup('MyCustomNeogitEvents', { clear = true })
