@@ -26,5 +26,5 @@ vim.api.nvim_create_autocmd('User', {
 vim.api.nvim_create_autocmd('User', {
     pattern = 'NeogitPullComplete',
     group = group,
-    ballback = require('neogit').close,
+    callback = require('neogit').close,
 })
