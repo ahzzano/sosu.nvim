@@ -19,6 +19,10 @@ nvim_tree.setup({
             enable = true
         },
         root_folder_label = false
+    },
+    view = {
+        side = 'right',
+        width = 26,
     }
 })
 
@@ -43,6 +47,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
+
 local function tab_win_closed(winnr)
     local api = require "nvim-tree.api"
     local tabnr = vim.api.nvim_win_get_tabpage(winnr)
