@@ -103,6 +103,10 @@ local plugins = {
         build = function()
             pcall(vim.api.nvim_command, "MasonUpdate")
         end,
+        config = function()
+            -- code
+            require("mason-nvim-dap").setup()
+        end
     },
     {
         "hrsh7th/nvim-cmp",
