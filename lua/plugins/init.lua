@@ -2,6 +2,42 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    "jay-babu/mason-nvim-dap.nvim",
+    -- dap things
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require('plugins.configs.dap')
+        end
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+        config = function()
+            local dap = require("dap")
+            local dapui = require("dapui")
+
+            dapui.setup()
+            dap.listeners.after.event_initialized['dapui_config'] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated['dapui_config'] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited['dapui_config'] = function()
+                dapui.close()
+            end
+        end
+
+    },
+    {
+        'mfussenegger/nvim-dap-python',
+        ft = {'python'},
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap",
+        }
+    },
     {
         "ThePrimeagen/harpoon",
         branch = 'harpoon2',
@@ -10,7 +46,7 @@ local plugins = {
     },
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     {
         "numToStr/Comment.nvim",
         config = true,
@@ -145,7 +181,16 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.4",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { 
+            "nvim-lua/plenary.nvim",
+            {
+              "nvim-telescope/telescope-fzf-native.nvim",
+              build = "make",
+              config = function()
+                require("telescope").load_extension("fzf")
+              end,
+            }
+        },
         lazy = true,
     },
     {
