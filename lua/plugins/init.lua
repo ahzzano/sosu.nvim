@@ -2,42 +2,6 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
-    "jay-babu/mason-nvim-dap.nvim",
-    -- dap things
-    {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require('plugins.configs.dap')
-        end
-    },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-        config = function()
-            local dap = require("dap")
-            local dapui = require("dapui")
-
-            dapui.setup()
-            dap.listeners.after.event_initialized['dapui_config'] = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated['dapui_config'] = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited['dapui_config'] = function()
-                dapui.close()
-            end
-        end
-
-    },
-    {
-        'mfussenegger/nvim-dap-python',
-        ft = {'python'},
-        dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "mfussenegger/nvim-dap",
-        }
-    },
     {
         "ThePrimeagen/harpoon",
         branch = 'harpoon2',
@@ -103,10 +67,6 @@ local plugins = {
         build = function()
             pcall(vim.api.nvim_command, "MasonUpdate")
         end,
-        config = function()
-            -- code
-            require("mason-nvim-dap").setup()
-        end
     },
     {
         "hrsh7th/nvim-cmp",
@@ -185,14 +145,14 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.4",
-        dependencies = { 
+        dependencies = {
             "nvim-lua/plenary.nvim",
             {
-              "nvim-telescope/telescope-fzf-native.nvim",
-              build = "make",
-              config = function()
-                require("telescope").load_extension("fzf")
-              end,
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                config = function()
+                    require("telescope").load_extension("fzf")
+                end,
             }
         },
         lazy = true,
