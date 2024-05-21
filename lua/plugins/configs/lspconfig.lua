@@ -83,11 +83,11 @@ local function setup_keybinds(event)
     vim.keymap.set('n', 'vrf', function() vim.lsp.buf.format({ async = true }) end, opts)
 end
 
-local function setup_autofmt(event)
+local function setup_autofmt()
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('user_autofmt', { clear = true }),
         callback = function()
-            vim.lsp.buf.format({ async = true })
+            vim.lsp.buf.format({ async = false })
         end
     })
 end
@@ -96,7 +96,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
     callback = function(event)
         setup_keybinds(event)
-        setup_autofmt(event)
+        setup_autofmt()
     end
 })
 

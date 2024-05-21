@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -62,8 +61,6 @@ cmp.setup({
         { name = 'crates' }
     },
     mapping = {
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
         -- ['<Tab>'] = cmp_action.tab_complete(),
         ['<Tab>'] = cmp.mapping(super_tab, { 'i', 's' }),
         -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
