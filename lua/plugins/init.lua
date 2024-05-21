@@ -51,6 +51,10 @@ local plugins = {
         "neovim/nvim-lspconfig",
         lazy = true,
         event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
 
         config = function(_)
             require("plugins.configs.lspconfig")
@@ -78,17 +82,6 @@ local plugins = {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = {
-                -- Favorite Languages
-                "clangd",        -- c/c++
-                "gopls",         -- go
-                "rust_analyzer", --rust
-                "zls",           --zig
-                "lua_ls",        --lua
-                -- Webdev Things
-            },
-        },
         lazy = true,
     },
     {
@@ -206,7 +199,9 @@ local plugins = {
     {
         "folke/neodev.nvim",
         ft = { "lua" },
-        opts = {},
+        opts = {
+            lspconfig = true
+        },
         lazy = true,
     },
     {
