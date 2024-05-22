@@ -2,8 +2,6 @@ if vim.bo.filetype == "lua" then
     require("neodev").setup()
 end
 
-local lsp = require("lsp-zero").preset()
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -38,28 +36,8 @@ end
 
 vim.diagnostic.config({
     virtual_text = {
-        prefix = " ",
+        prefix = "",
         virt_text_pos = "right_align",
-    },
-})
-
-lsp.format_on_save({
-    format_opts = {
-        async = false,
-        timeout_ms = 10000,
-    },
-    servers = {
-        ["null-ls"] = {
-            "rust",
-            "go",
-            "lua",
-            "html",
-            "javascript",
-            "typescript",
-            "css",
-            "c",
-            "c++",
-        },
     },
 })
 

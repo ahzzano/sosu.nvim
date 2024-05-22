@@ -2,15 +2,21 @@ local plugins = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-cmdline",
     {
         "ThePrimeagen/harpoon",
         branch = 'harpoon2',
-        dependencies = { "nvim-lua/plenary.nvim" }
+        dependencies = { 
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        }
 
     },
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-cmdline",
-    -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make' 
+    },
     {
         "numToStr/Comment.nvim",
         config = true,
@@ -84,26 +90,10 @@ local plugins = {
         "williamboman/mason-lspconfig.nvim",
         lazy = true,
     },
-    -- {
-    --     "VonHeikemen/lsp-zero.nvim",
-    --     branch = "v2.x",
-    --     dependencies = {
-    --         -- LSP Support
-    --         { "neovim/nvim-lspconfig" },             -- Required
-    --         { "williamboman/mason.nvim" },
-    --         { "williamboman/mason-lspconfig.nvim" }, -- Optional
-    --         { "hrsh7th/nvim-cmp" },                  -- Required
-    --         { "hrsh7th/cmp-nvim-lsp" },              -- Required
-    --         { "L3MON4D3/LuaSnip" },                  -- Required
-    --         { "saadparwaiz1/cmp_luasnip" },
-    --     },
-    --     lazy = true,
-    -- },
     {
         'jose-elias-alvarez/null-ls.nvim',
         lazy = true,
         dependencies = {
-            { 'VonHeikemen/lsp-zero.nvim' },
             { "nvim-lua/plenary.nvim" }
         },
         config = function()
@@ -182,7 +172,6 @@ local plugins = {
             })
         end,
         dependencies = {
-            { "VonHeikemen/lsp-zero.nvim" },
             { "neovim/nvim-lspconfig" },
         },
     },

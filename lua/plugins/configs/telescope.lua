@@ -8,28 +8,31 @@ require('telescope').setup {
             }
         },
         file_ignore_patterns = {
-            "%.git/", "%.git\\",
-            "%.node%_modules/", "%.node%_modules\\"
+            ".git/", ".git\\",
+            ".node_modules/", ".node_modules\\"
         },
+        layout_strategy = 'center',
+        layout_config = {
+            prompt_position = 'bottom'
+        },
+        -- border = false,
+        -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        borderchars = {
+            results = {"─", "│", " ", "│", "┌", "┐", "│", "│"},
+
+            prompt = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+            preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        }
     },
     pickers = {
         find_files = {
-            theme = "dropdown",
             previewer = false
         },
         buffers = {
-            theme = "dropdown",
             previewer = false,
         },
         git_files = {
-            theme = "dropdown",
             previewer = false
-        },
-        grep_string = {
-            theme = "ivy"
-        },
-        lsp_references = {
-            theme = "ivy",
         },
     },
     extensions = {
