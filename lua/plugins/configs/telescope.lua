@@ -14,7 +14,7 @@ require('telescope').setup {
             ".node_modules\\",
             ".vscode"
         },
-        layout_strategy = 'center',
+        layout_strategy = 'horizontal',
         layout_config = {
             prompt_position = 'bottom'
         },
