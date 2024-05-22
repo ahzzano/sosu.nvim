@@ -16,7 +16,8 @@ require('telescope').setup {
         },
         layout_strategy = 'horizontal',
         layout_config = {
-            prompt_position = 'bottom'
+            prompt_position='bottom',
+            -- mirror=true
         },
         -- border = false,
         -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
@@ -30,18 +31,18 @@ require('telescope').setup {
     pickers = {
         find_files = {
             previewer = false,
-            results_title = 'Files',
-            prompt_title = ""
+            results_title = 'Find Files',
+            prompt_title = "Search Key"
         },
         buffers = {
             previewer = false,
             results_title = 'Buffers',
-            prompt_title = ""
+            prompt_title = "Search Key"
         },
         git_files = {
             previewer = false,
-            results_title = 'Git Files',
-            prompt_title = ""
+            results_title = "Git Files",
+            prompt_title = "Search Key"
         },
     },
     extensions = {
