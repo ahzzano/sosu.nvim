@@ -8,8 +8,11 @@ require('telescope').setup {
             }
         },
         file_ignore_patterns = {
-            ".git/", ".git\\",
-            ".node_modules/", ".node_modules\\"
+            ".git/",
+            ".git\\",
+            ".node_modules/", 
+            ".node_modules\\",
+            ".vscode"
         },
         layout_strategy = 'center',
         layout_config = {
@@ -22,17 +25,23 @@ require('telescope').setup {
 
             prompt = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
             preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-        }
+        },
     },
     pickers = {
         find_files = {
-            previewer = false
+            previewer = false,
+            results_title = 'Files',
+            prompt_title = ""
         },
         buffers = {
             previewer = false,
+            results_title = 'Buffers',
+            prompt_title = ""
         },
         git_files = {
-            previewer = false
+            previewer = false,
+            results_title = 'Git Files',
+            prompt_title = ""
         },
     },
     extensions = {
