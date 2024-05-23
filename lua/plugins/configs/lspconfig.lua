@@ -87,8 +87,7 @@ local function setup_keybinds(event)
             vim.lsp.inlay_hint(0, nil)
         else
             print("Inlay Hints not available")
-        end,
-        opts
+        end
     end)
 end
 
