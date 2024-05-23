@@ -22,7 +22,7 @@ local function toggle_telescope(harpoon_files)
 
     require("telescope.pickers").new({}, {
         results_title = "Harpoon",
-        prompt_title = "",
+        prompt_title = "Search Key",
         finder = require("telescope.finders").new_table({
             results = file_paths,
         }),
