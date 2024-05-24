@@ -15,13 +15,13 @@ require('mason-lspconfig').setup({
 
         -- Good Webdev Items
     },
-    -- handlers = {
-    --     function(server_name)
-    --         require('lspconfig')[server_name].setup({
-    --             inlay_hints = true
-    --         })
-    --     end,
-    -- },
+    handlers = {
+        function(server_name)
+            require('lspconfig')[server_name].setup({
+                inlay_hints = true
+            })
+        end,
+    },
 })
 
 
