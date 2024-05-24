@@ -82,11 +82,14 @@ local function setup_keybinds(event)
     vim.keymap.set('n', 'vrn', function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set('n', 'vrr', function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set('n', 'vrf', function() vim.lsp.buf.format({ async = true }) end, opts)
-    vim.keymap.set('n', 'uh', function()
+    vim.keymap.set('n', 'vih', function()
         if vim.lsp.inlay_hint then
-            vim.lsp.inlay_hint(0, nil)
-        else
-            print("Inlay Hints not available")
+            if vim.lsp.inlay_hint.is_enabled() then
+                print("disabling inlay hints")
+            else
+                print("enabling inlay hints")
+            end
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end
     end)
 end
@@ -100,16 +103,10 @@ local function setup_autofmt()
     })
 end
 
-
-
-
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
     callback = function(event)
         setup_keybinds(event)
         setup_autofmt()
-        if vim.lsp.inlay_hint then
-            vim.lsp.inlay_hint(0, nil)
-        end
     end
 })
