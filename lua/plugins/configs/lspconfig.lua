@@ -24,23 +24,6 @@ require('mason-lspconfig').setup({
     -- },
 })
 
-require('lspconfig').gdscript.setup({
-    cmd = { 'ncat', 'localhost', '6005' }, -- the important trick for Windows!
-    filetypes = { 'gd', 'gdscript', 'gdscript3' }
-})
-
-require('lspconfig').lua_ls.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            },
-            hint = {
-                enable = true,
-            },
-        }
-    }
-})
 
 local signs = {
     Error = "✘",
@@ -110,3 +93,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
         setup_autofmt()
     end
 })
+
+require('lspconfig').gdscript.setup({
+    cmd = { 'ncat', 'localhost', '6005' }, -- the important trick for Windows!
+    filetypes = { 'gd', 'gdscript', 'gdscript3' }
+})
+
+require('lspconfig').lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            },
+            hint = {
+                enable = true,
+            },
+        }
+    }
+})
+
+require('lspconfig').clangd.setup()
+require('lspconfig').gopls.setup()
+require('lspconfig').zls.setup()
