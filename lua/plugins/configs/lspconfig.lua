@@ -112,6 +112,6 @@ require('lspconfig').lua_ls.setup({
     }
 })
 
-require('lspconfig').clangd.setup()
-require('lspconfig').gopls.setup()
-require('lspconfig').zls.setup()
+require('lspconfig').clangd.setup({})
+require('lspconfig').gopls.setup({})
+require('lspconfig').zls.setup({})
