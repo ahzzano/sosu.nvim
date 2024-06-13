@@ -11,9 +11,10 @@ require('mason-lspconfig').setup({
         'rust_analyzer',
         'zls',
         'lua_ls',
-        'pyright'
+        'pyright',
 
         -- Good Webdev Items
+        -- Debuggers
     },
     handlers = {
         function(server_name)

@@ -4,18 +4,38 @@ local plugins = {
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
+    -- DAP
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "williamboman/mason.nvim",
+        },
+        config = function()
+            require 'plugins.configs.dap'
+        end
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio"
+        }
+    },
     {
         "ThePrimeagen/harpoon",
         branch = 'harpoon2',
-        dependencies = { 
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         }
 
     },
-    { 
+    {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make' 
+        build = 'make'
     },
     {
         "numToStr/Comment.nvim",
