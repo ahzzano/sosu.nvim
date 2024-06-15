@@ -17,7 +17,9 @@ require('telescope').setup {
             -- ignore vscode folder
             ".vscode",
             -- ignore include directory
-            "include/"
+            "include/",
+            "lib/",
+            "bin/",
         },
         layout_strategy = 'horizontal',
         layout_config = {
