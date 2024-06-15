@@ -8,21 +8,26 @@ require('telescope').setup {
             }
         },
         file_ignore_patterns = {
+            -- ignore git
             ".git/",
             ".git\\",
-            ".node_modules/", 
+            -- ignore node modules
+            ".node_modules/",
             ".node_modules\\",
-            ".vscode"
+            -- ignore vscode folder
+            ".vscode",
+            -- ignore include directory
+            "include/"
         },
         layout_strategy = 'horizontal',
         layout_config = {
-            prompt_position='bottom',
+            prompt_position = 'bottom',
             -- mirror=true
         },
         -- border = false,
         -- borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         borderchars = {
-            results = {"─", "│", " ", "│", "┌", "┐", "│", "│"},
+            results = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
 
             prompt = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
             preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
