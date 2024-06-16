@@ -95,9 +95,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
+-- Godot things
 require('lspconfig').gdscript.setup({
     cmd = { 'ncat', 'localhost', '6005' }, -- the important trick for Windows!
     filetypes = { 'gd', 'gdscript', 'gdscript3' }
+})
+
+require('lspconfig').gdscript.setup({
+    cmd = { 'godot-wsl-lsp', '--useMirroredNetworking' }
 })
 
 require('lspconfig').lua_ls.setup({
