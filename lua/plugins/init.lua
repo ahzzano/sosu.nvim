@@ -20,7 +20,13 @@ local plugins = {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        opts = {}
+        opts = {
+            exclude = {
+                filetypes = {
+                    "dashboard"
+                }
+            }
+        }
     },
     {
         "rcarriga/nvim-dap-ui",
