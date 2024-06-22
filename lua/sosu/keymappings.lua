@@ -9,6 +9,9 @@ vim.keymap.set('n', '<C-down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-right>', ':vertical resize +2<CR>', opts)
 
+vim.keymap.set('n', '<F1>', '', opts)
+vim.keymap.set('i', '<F1>', '', opts)
+
 -- General
 
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, opts)
