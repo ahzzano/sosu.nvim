@@ -20,6 +20,8 @@ require('telescope').setup {
             "include/",
             "lib/",
             "bin/",
+            "target/",
+            "target\\",
         },
         layout_strategy = 'horizontal',
         layout_config = {
