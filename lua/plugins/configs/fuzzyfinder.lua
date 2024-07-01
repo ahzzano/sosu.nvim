@@ -5,6 +5,11 @@ fzf.setup({
         previewer = false,
         actions = {}
     },
+    git = {
+        files = {
+            previewer = false,
+        }
+    },
     lsp = {
         async = true
     }
