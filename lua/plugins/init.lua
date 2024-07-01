@@ -36,14 +36,13 @@ local plugins = {
         }
     },
     {
-        "ThePrimeagen/harpoon",
-        branch = 'harpoon2',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-        }
-
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require 'plugins.configs.fuzzyfinder'
+        end
     },
+
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make'
