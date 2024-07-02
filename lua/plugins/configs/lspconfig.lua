@@ -42,10 +42,6 @@ vim.diagnostic.config({
     virtual_text = {
         prefix = "",
         virt_text_pos = "eol",
-        severity = {
-            vim.diagnostic.severity.ERROR,
-            vim.diagnostic.severity.HINT
-        }
     },
     inlay_hints = {
         enable = true
