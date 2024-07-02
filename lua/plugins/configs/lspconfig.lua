@@ -41,7 +41,11 @@ end
 vim.diagnostic.config({
     virtual_text = {
         prefix = "",
-        virt_text_pos = "right_align",
+        virt_text_pos = "eol",
+        severity = {
+            vim.diagnostic.severity.ERROR,
+            vim.diagnostic.severity.HINT
+        }
     },
     inlay_hints = {
         enable = true
@@ -63,6 +67,12 @@ local function setup_keybinds(event)
 
     vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
+
+    vim.keymap.set('n', 'td', function()
+        vim.diagnostic.config({
+            virtual_text = false
+        })
+    end)
 
     vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
 
