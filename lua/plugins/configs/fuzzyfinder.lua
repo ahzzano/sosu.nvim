@@ -3,7 +3,8 @@ fzf.setup({
     -- fzf_opts = { ['--layout'] = 'reverse-list' },
     files = {
         previewer = false,
-        actions = {}
+        actions = {},
+        file_ignore_patterns = { 'node_modules', 'bin' }
     },
     git = {
         files = {
