@@ -5,7 +5,7 @@ end
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        -- My usual tools
+        -- the fun stuff
         'clangd',
         'gopls',
         'rust_analyzer',
@@ -14,7 +14,8 @@ require('mason-lspconfig').setup({
         'pyright',
 
         -- Good Webdev Items
-        -- Debuggers
+        'tsserver',
+        'eslint',
     },
     handlers = {
         function(server_name)
@@ -24,7 +25,6 @@ require('mason-lspconfig').setup({
         end,
     },
 })
-
 
 local signs = {
     Error = "✘",
@@ -135,3 +135,10 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').clangd.setup({})
 require('lspconfig').gopls.setup({})
 require('lspconfig').zls.setup({})
+require('lspconfig').tsserver.setup({
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        }
+    }
+})
