@@ -4,7 +4,7 @@ fzf.setup({
     files = {
         previewer = false,
         actions = {},
-        file_ignore_patterns = { 'node_modules', 'bin' }
+        file_ignore_patterns = { 'node_modules', 'bin', '.git' }
     },
     git = {
         files = {
