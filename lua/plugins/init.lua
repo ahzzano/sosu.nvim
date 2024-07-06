@@ -147,7 +147,7 @@ local plugins = {
     },
     {
         "windwp/nvim-ts-autotag",
-        ft = { "html", "markdown", "xml", "typescript", "vue", "jsx" },
+        ft = { "html", "markdown", "xml", "typescript", "vue", "jsx", "svelte" },
         lazy = true,
     },
     {
