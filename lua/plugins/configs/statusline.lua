@@ -10,6 +10,7 @@ end
 local opts = {
     icons_enabled = true,
     options = {
+        globalstatus = true,
         theme = 'auto',
         disabled_filetypes = {
             statusline = {
@@ -17,8 +18,8 @@ local opts = {
             }
         },
         section_separators = {
-            -- left = '',
-            -- right = ''
+            left = '',
+            right = ''
             -- left = '', right = ''
         },
         component_separators = { left = '|', right = '' },
@@ -27,20 +28,20 @@ local opts = {
         lualine_a = {
             {
                 "mode",
-                separator = {
-
-                    -- left = '', right = ''
-                },
+                -- separator = {
+                --
+                --     -- left = '', right = ''
+                -- },
                 right_padding = 2,
                 left_padding = 2,
             }
         },
         lualine_b = {
-            'branch'
+            'buffers'
         },
-        lualine_c = { 'filename' },
-        lualine_x = { 'filetype' },
-        lualine_y = { 'progress' },
+        lualine_c = { 'branch' },
+        lualine_x = { 'diagnostics' },
+        lualine_y = { 'filetype' },
         lualine_z = { 'location' }
     },
     inactive_sections = {
