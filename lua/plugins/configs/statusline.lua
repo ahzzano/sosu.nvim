@@ -37,7 +37,7 @@ local opts = {
             }
         },
         lualine_b = {
-            'buffers'
+            'filename'
         },
         lualine_c = { 'branch' },
         lualine_x = { 'diagnostics' },
