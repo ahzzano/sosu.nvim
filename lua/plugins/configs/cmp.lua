@@ -6,6 +6,9 @@ require('luasnip.loaders.from_lua').load({ paths = vim.fn.stdpath("config") .. "
 
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
+    if vim_item.kind == nil then
+        return ""
+    end
     vim_item.kind = " " .. kind_icons[vim_item.kind] .. " " or ""
     return vim_item
 end
