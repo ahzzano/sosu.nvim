@@ -51,5 +51,6 @@ local inline_equation = s(
 table.insert(snippets, ccode)
 table.insert(snippets, asmcode)
 table.insert(snippets, equation)
+table.insert(snippets, inline_equation)
 
 return snippets, autosnippets
