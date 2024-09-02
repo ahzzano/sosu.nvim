@@ -1,14 +1,22 @@
-fzf = require("fzf-lua")
+local fzf = require("fzf-lua")
+local ignore_fdirs = {
+    'node_modules',
+    'bin',
+    '.git',
+    'build',
+    'target',
+    'include'
+}
 fzf.setup({
     -- fzf_opts = { ['--layout'] = 'reverse-list' },
     files = {
-        previewer = false,
-        actions = {},
-        file_ignore_patterns = { 'node_modules', 'bin', '.git' }
+        previewer = true,
+        file_ignore_patterns = ignore_fdirs
     },
     git = {
         files = {
-            previewer = false,
+            previewer = true,
+            file_ignore_patterns = ignore_fdirs
         }
     },
     lsp = {
