@@ -138,10 +138,10 @@ require('lspconfig').svelte.setup({})
 require('lspconfig').clangd.setup({})
 require('lspconfig').gopls.setup({})
 require('lspconfig').zls.setup({})
-require('lspconfig').tsserver.setup({
-    init_options = {
-        preferences = {
-            disableSuggestions = true,
-        }
-    }
-})
+-- require('lspconfig').tsserver.setup({
+--     init_options = {
+--         preferences = {
+--             disableSuggestions = true,
+--         }
+--     }
+-- })
