@@ -71,12 +71,13 @@ local plugins = {
         end
     },
     {
-        "nvim-tree/nvim-tree.lua",
-        lazy = true,
+        'stevearc/oil.nvim',
+        opts = {},
         config = function()
-            require("plugins.configs.nvimtree")
+            require('oil').setup()
+            vim.keymap.set("n", "<leader>pv", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
         end,
-        event = "VeryLazy",
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
     {
         "neovim/nvim-lspconfig",

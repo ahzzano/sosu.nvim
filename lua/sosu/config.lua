@@ -47,6 +47,7 @@ vim.opt.foldmethod = vim.opt.foldmethod
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
 vim.opt.laststatus = 0
 vim.opt.showtabline = 0
 
