@@ -75,7 +75,7 @@ local plugins = {
         opts = {},
         config = function()
             require('oil').setup()
-            vim.keymap.set("n", "<leader>pv", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+            vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
         end,
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
