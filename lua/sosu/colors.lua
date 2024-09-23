@@ -1,5 +1,5 @@
 function SetColorscheme(color)
-    color = color or "tokyonight-storm"
+    color = color or "kanagawa"
 
     -- require('catppuccin').setup({
     --     transparent_background = true,
