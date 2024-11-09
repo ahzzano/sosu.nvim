@@ -4,19 +4,7 @@ local plugins = {
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
-    -- DAP
-    -- "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
-    -- {
-    --     "jay-babu/mason-nvim-dap.nvim",
-    --     dependencies = {
-    --         "mfussenegger/nvim-dap",
-    --         "williamboman/mason.nvim",
-    --     },
-    --     config = function()
-    --         require 'plugins.configs.dap'
-    --     end
-    -- },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -28,13 +16,6 @@ local plugins = {
             }
         }
     },
-    -- {
-    --     "rcarriga/nvim-dap-ui",
-    --     dependencies = {
-    --         "mfussenegger/nvim-dap",
-    --         "nvim-neotest/nvim-nio"
-    --     }
-    -- },
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -115,17 +96,6 @@ local plugins = {
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = true,
-    },
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        lazy = true,
-        dependencies = {
-            { "nvim-lua/plenary.nvim" }
-        },
-        config = function()
-            require('plugins.configs.null-ls')
-        end,
-        event = "VeryLazy"
     },
     {
         "L3MON4D3/LuaSnip",
