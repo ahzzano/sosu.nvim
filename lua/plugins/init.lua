@@ -5,18 +5,18 @@ local plugins = {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-cmdline",
     -- DAP
-    "mfussenegger/nvim-dap",
+    -- "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "williamboman/mason.nvim",
-        },
-        config = function()
-            require 'plugins.configs.dap'
-        end
-    },
+    -- {
+    --     "jay-babu/mason-nvim-dap.nvim",
+    --     dependencies = {
+    --         "mfussenegger/nvim-dap",
+    --         "williamboman/mason.nvim",
+    --     },
+    --     config = function()
+    --         require 'plugins.configs.dap'
+    --     end
+    -- },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -28,13 +28,13 @@ local plugins = {
             }
         }
     },
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio"
-        }
-    },
+    -- {
+    --     "rcarriga/nvim-dap-ui",
+    --     dependencies = {
+    --         "mfussenegger/nvim-dap",
+    --         "nvim-neotest/nvim-nio"
+    --     }
+    -- },
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
