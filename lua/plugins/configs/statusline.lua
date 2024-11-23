@@ -18,9 +18,10 @@ local opts = {
             }
         },
         section_separators = {
-            left = '',
-            right = ''
-            -- left = '', right = ''
+            -- left = '',
+            -- right = ''
+            left = '',
+            right = ' '
         },
         component_separators = { left = '|', right = '' },
     },
@@ -28,10 +29,6 @@ local opts = {
         lualine_a = {
             {
                 "mode",
-                -- separator = {
-                --
-                --     -- left = '', right = ''
-                -- },
                 right_padding = 2,
                 left_padding = 2,
             }

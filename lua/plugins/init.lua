@@ -6,6 +6,19 @@ local plugins = {
     "hrsh7th/cmp-cmdline",
     "nvim-neotest/nvim-nio",
     {
+        "j-hui/fidget.nvim",
+        opts = {
+
+        }
+    },
+    {
+        "kylechui/nvim-surround",
+        event = "VeryLazy",
+        opts = {
+
+        }
+    },
+    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {
