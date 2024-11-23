@@ -5,6 +5,7 @@ neogit.setup({
     auto_refresh = true,
     integrations = {
         fzf_lua = true
+
     },
 })
 
