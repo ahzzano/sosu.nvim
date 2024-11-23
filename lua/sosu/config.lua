@@ -31,6 +31,7 @@ vim.opt.smarttab = true
 
 vim.opt.swapfile = false
 
+vim.opt.cursorline = true
 vim.opt.scrolloff = 6
 
 vim.opt.updatetime = 50
@@ -54,6 +55,4 @@ vim.opt.showtabline = 0
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.cmd [[set noshowmode]]
-
---vim.cmd("colorscheme tokyonight-moon")
+vim.opt.showmode = false

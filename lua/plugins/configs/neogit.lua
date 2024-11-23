@@ -2,6 +2,10 @@ local neogit = require('neogit')
 
 neogit.setup({
     -- kind = 'vsplit'
+    auto_refresh = true,
+    integrations = {
+        fzf_lua = true
+    },
 })
 
 vim.keymap.set('n', '<leader>ngo', ':Neogit<CR>')
@@ -16,6 +20,3 @@ vim.api.nvim_create_autocmd('User', {
     group = group,
     callback = require('neogit').close,
 })
-
--- useful events
--- local group = vim.api.nvim_create_augroup('MyNeogitEvents', { clear = true })

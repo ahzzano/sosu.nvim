@@ -147,11 +147,6 @@ local plugins = {
         end,
         lazy = false,
     },
-    -- {
-    --     "glepnir/dashboard-nvim",
-    --     event = "VimEnter",
-    --     dependencies = { { "nvim-tree/nvim-web-devicons" } },
-    -- },
     {
         "simrat39/rust-tools.nvim",
         ft = { "rust" },
