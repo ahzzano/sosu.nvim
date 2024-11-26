@@ -78,10 +78,10 @@ local function setup_keybinds(event)
 
     vim.keymap.set('i', '<F3>', function() vim.lsp.buf.code_action() end, opts)
 
-    vim.keymap.set('n', 'vrn', function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set('n', 'vrr', function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set('n', 'vrf', function() vim.lsp.buf.format({ async = true }) end, opts)
-    vim.keymap.set('n', 'vih', function()
+    vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set('n', '<leader>vrf', function() vim.lsp.buf.format({ async = true }) end, opts)
+    vim.keymap.set('n', '<leader>vih', function()
         if vim.lsp.inlay_hint then
             if vim.lsp.inlay_hint.is_enabled() then
                 print("disabling inlay hints")
