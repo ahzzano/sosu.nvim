@@ -191,14 +191,6 @@ local plugins = {
         },
     },
     {
-        "rebelot/kanagawa.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            transparent = true
-        },
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -232,6 +224,19 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            }
+        }
+    }
 }
 
 return plugins

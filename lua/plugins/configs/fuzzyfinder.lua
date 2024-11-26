@@ -27,6 +27,7 @@ fzf.setup({
 vim.keymap.set('i', '<C-p>', fzf.files);
 vim.keymap.set('i', '<C-g>', fzf.git_files);
 
-vim.keymap.set('n', '<leader>pf', fzf.files)
-vim.keymap.set('n', '<leader>gf', fzf.git_files)
-vim.keymap.set('n', '<leader>bf', fzf.buffers)
+vim.keymap.set('n', '<leader>ff', fzf.files, { desc = "[F]ind [F]iles" })
+vim.keymap.set('n', '<leader>fg', fzf.git_files, { desc = "[F]ind [G]its" })
+vim.keymap.set('n', '<leader>fb', fzf.buffers, { desc = "[F]ind [B]uffers" })
+vim.keymap.set('n', '<leader>fd', fzf.diagnostics_document, { desc = "[F]ind [D]iagnostics" })
