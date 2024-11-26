@@ -14,7 +14,7 @@ require('mason-lspconfig').setup({
         'pyright',
 
         -- Good Webdev Items
-        'tsserver',
+        'ts_ls',
         'biome',
         'eslint',
     },
