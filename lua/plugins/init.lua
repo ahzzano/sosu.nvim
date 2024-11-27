@@ -227,6 +227,15 @@ local plugins = {
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
+        opts = {
+            preset = 'modern'
+        },
+        config = function()
+            wk = require('which-key')
+            wk.add({
+                { '<leader>s', group = 'windows' }
+            })
+        end,
         keys = {
             {
                 "<leader>?",
