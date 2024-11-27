@@ -54,13 +54,16 @@ local function setup_keybinds(event)
 
     fzf = require('fzf-lua')
 
-    vim.keymap.set('n', 'gd', function() fzf.lsp_definitions() end, opts)
-
-    vim.keymap.set('n', 'gDd', function() fzf.diagnostics_document() end, opts)
-    vim.keymap.set('n', 'gDw', function() fzf.diagnostics_workspace() end, opts)
-
-    vim.keymap.set('n', 'gr', function() fzf.lsp_references() end, opts)
-    vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
+    vim.keymap.set('n', 'gd', function() fzf.lsp_definitions() end,
+        { buffer = event.buf, desc = "[G]o to [D]efinitions" })
+    vim.keymap.set('n', '<leader>fdd', fzf.diagnostics_document,
+        { buffer = event.buf, desc = "[F]ind [D]iagnostcs in [D]ocument" })
+    vim.keymap.set('n', '<leader>fdw', fzf.diagnostics_workspace,
+        { buffer = event.buf, desc = "[F]ind [D]iagnostics in [W]orkspace" })
+    vim.keymap.set('n', 'gr', function() fzf.lsp_references() end,
+        { buffer = event.buf, desc = "[G]o to [R]eference" })
+    vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end,
+        { buffer = event.buf, desc = "[G]o to [I]mplementation" })
 
     vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
@@ -78,9 +81,12 @@ local function setup_keybinds(event)
 
     vim.keymap.set('i', '<F3>', function() vim.lsp.buf.code_action() end, opts)
 
-    vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set('n', '<leader>vrf', function() vim.lsp.buf.format({ async = true }) end, opts)
+    vim.keymap.set('n', '<leader>vrs', function() vim.lsp.buf.rename() end,
+        { buffer = event.buf, desc = "[R]ename [S]ymbol" })
+    vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.code_action() end,
+        { buffer = event.buf, desc = "Show Code Actions" })
+    vim.keymap.set('n', '<leader>vrf', function() vim.lsp.buf.format({ async = true }) end,
+        { buffer = event.buf, desc = "Format Document" })
     vim.keymap.set('n', '<leader>vih', function()
         if vim.lsp.inlay_hint then
             if vim.lsp.inlay_hint.is_enabled() then
@@ -90,7 +96,7 @@ local function setup_keybinds(event)
             end
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end
-    end)
+    end, { buffer = event.buf, desc = "Toggle Inlay Hints" })
 end
 
 local function setup_autofmt()
