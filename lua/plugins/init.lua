@@ -12,13 +12,6 @@ local plugins = {
         }
     },
     {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
-        opts = {
-
-        }
-    },
-    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {
@@ -35,11 +28,6 @@ local plugins = {
         config = function()
             require 'plugins.configs.fuzzyfinder'
         end
-    },
-    {
-        "numToStr/Comment.nvim",
-        config = true,
-        lazy = false,
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -65,13 +53,15 @@ local plugins = {
         end
     },
     {
-        'stevearc/oil.nvim',
-        opts = {},
+        'echasnovski/mini.nvim',
+        version = '*',
         config = function()
-            require('oil').setup()
-            vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-        end,
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+            require('mini.files').setup()
+            require('mini.surround').setup()
+            require('mini.pairs').setup()
+            require('mini.comment').setup()
+            vim.keymap.set("n", "<leader>pv", MiniFiles.open, { desc = "Open parent directory" })
+        end
     },
     {
         "neovim/nvim-lspconfig",
@@ -133,12 +123,6 @@ local plugins = {
         "windwp/nvim-ts-autotag",
         ft = { "html", "markdown", "xml", "typescript", "vue", "jsx", "svelte" },
         lazy = true,
-    },
-    {
-        "windwp/nvim-autopairs",
-        lazy = true,
-        event = "InsertEnter",
-        opts = {},
     },
     {
         "nvim-lualine/lualine.nvim",
