@@ -3,8 +3,8 @@ local plugins = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
+    "sainnhe/edge",
     "hrsh7th/cmp-cmdline",
-    "nvim-neotest/nvim-nio",
     {
         "j-hui/fidget.nvim",
         opts = {
@@ -56,6 +56,7 @@ local plugins = {
         'echasnovski/mini.nvim',
         version = '*',
         config = function()
+            require('mini.ai').setup()
             require('mini.files').setup()
             require('mini.surround').setup()
             require('mini.pairs').setup()
@@ -159,33 +160,10 @@ local plugins = {
         end,
     },
     {
-        "folke/neodev.nvim",
-        ft = { "lua" },
-        opts = {
-            lspconfig = true
-        },
-        lazy = true,
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            transparent = true
-        },
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
         opts = {},
-    },
-    {
-        'navarasu/onedark.nvim',
-        priority = 1000,
-        opts = {
-            --style = 'deep'
-        },
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
@@ -200,7 +178,6 @@ local plugins = {
         "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
         },
         config = function()
             require("plugins.configs.neogit")

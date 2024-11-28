@@ -17,6 +17,7 @@ require('mason-lspconfig').setup({
         'ts_ls',
         'biome',
         'eslint',
+        'volar',
     },
     handlers = {
         function(server_name)
@@ -138,19 +139,3 @@ require('lspconfig').lua_ls.setup({
         }
     }
 })
-
-require('lspconfig').biome.setup({})
-require('lspconfig').pyright.setup({})
-require('lspconfig').julials.setup({})
-require('lspconfig').svelte.setup({})
-require('lspconfig').clangd.setup({})
-require('lspconfig').gopls.setup({})
-require('lspconfig').zls.setup({})
-require('lspconfig').purescriptls.setup({})
--- require('lspconfig').tsserver.setup({
---     init_options = {
---         preferences = {
---             disableSuggestions = true,
---         }
---     }
--- })
