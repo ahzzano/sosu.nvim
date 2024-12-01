@@ -9,15 +9,20 @@ neogit.setup({
     },
 })
 
-vim.keymap.set('n', '<leader>ngo', ':Neogit<CR>')
+vim.keymap.set('n', '<leader>Go', ':Neogit<CR>', { desc = "Open Neogit" })
 
-vim.keymap.set('n', '<leader>ngc', function()
+vim.keymap.set('n', '<leader>Gc', function()
     neogit.open({ "commit" })
-end)
+end, { desc = "Open Neogit Commit" })
 
-local group = vim.api.nvim_create_augroup('MyCustomNeogitEvents', { clear = true })
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'NeogitPushComplete',
-    group = group,
-    callback = require('neogit').close,
-})
+vim.keymap.set('n', '<leader>Gp', function()
+    neogit.open({ "pull" })
+end, { desc = 'Open Neogit Pull' })
+
+vim.keymap.set('n', '<leader>GP', function()
+    neogit.open({ "push" })
+end, { desc = 'Open Neogit Push' })
+
+vim.keymap.set('n', '<leader>Gd', function()
+    neogit.open({ "diff" })
+end, { desc = 'Open Neogit Diff' })
