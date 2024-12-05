@@ -3,18 +3,6 @@ require("mason-nvim-dap").setup({
 })
 
 local dap = require('dap')
-local dapui = require("dapui")
-
-dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-end
 
 dap.adapters.gdb = {
     type = "executable",
@@ -49,11 +37,15 @@ dap.configurations.cpp = {
         stopOnEntry = false,
     },
 }
+
 dap.configurations.c = dap.configurations.cpp
 
-vim.keymap.set('n', '<leader>db', function()
-    dap.toggle_breakpoint()
-end)
+dap.configurations.python =
+
+    vim.keymap.set('n', '<leader>db', function()
+        dap.toggle_breakpoint()
+    end)
+
 vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>')
 vim.keymap.set('n', '<leader>dc', '<cmd> DapStepInto<CR>')
 vim.keymap.set('n', '<leader>drc', '<cmd> DapStepOut<CR>')

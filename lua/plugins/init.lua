@@ -1,4 +1,30 @@
 local plugins = {
+    -- dap stuff
+    {
+        'mfussenegger/nvim-dap',
+        config = function()
+            require('plugins.configs.dap')
+        end
+    },
+    "jay-babu/mason-nvim-dap.nvim",
+    {
+        'mfussenegger/nvim-dap-python',
+        config = function()
+            require('dap-python').setup('python')
+        end,
+
+    },
+    {
+        'theHamsta/nvim-dap-virtual-text',
+        config = function()
+            require('nvim-dap-virtual-text').setup {
+                virt_text_Pos = 'inline',
+                highlight_changed_variables = false,
+                all_frames = true
+            }
+        end
+    },
+
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
@@ -84,6 +110,15 @@ local plugins = {
             ui = {
                 border = "single",
             },
+            ensure_installed = {
+                'clangd',
+                'gopls',
+                'rust_analyzer',
+                'zls',
+                'lua_ls',
+                'pyright',
+                'debugpy'
+            }
         },
         build = function()
             pcall(vim.api.nvim_command, "MasonUpdate")
