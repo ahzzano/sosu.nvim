@@ -40,12 +40,11 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 
-dap.configurations.python =
 
-    vim.keymap.set('n', '<leader>db', function()
-        dap.toggle_breakpoint()
-    end)
+vim.keymap.set('n', '<leader>Db', function()
+    dap.toggle_breakpoint()
+end)
 
-vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>')
-vim.keymap.set('n', '<leader>dc', '<cmd> DapStepInto<CR>')
-vim.keymap.set('n', '<leader>drc', '<cmd> DapStepOut<CR>')
+vim.keymap.set('n', '<leader>Dr', '<cmd> DapContinue<CR>')
+vim.keymap.set('n', '<leader>Dsi', '<cmd> DapStepInto<CR>')
+vim.keymap.set('n', '<leader>Dso', '<cmd> DapStepOut<CR>')
