@@ -43,7 +43,7 @@ dap.configurations.c = dap.configurations.cpp
 
 vim.keymap.set('n', '<leader>Db', function()
     dap.toggle_breakpoint()
-end)
+end, { desc = "Toggle Breakpoint" })
 
 vim.keymap.set('n', '<leader>Dr', '<cmd> DapContinue<CR>')
 vim.keymap.set('n', '<leader>Dsi', '<cmd> DapStepInto<CR>')
