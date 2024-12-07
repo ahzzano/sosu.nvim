@@ -3,18 +3,6 @@ require("mason-nvim-dap").setup({
 })
 
 local dap = require('dap')
-local dapui = require("dapui")
-
-dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-end
 
 dap.adapters.gdb = {
     type = "executable",
@@ -49,11 +37,14 @@ dap.configurations.cpp = {
         stopOnEntry = false,
     },
 }
+
 dap.configurations.c = dap.configurations.cpp
 
-vim.keymap.set('n', '<leader>db', function()
+
+vim.keymap.set('n', '<leader>Db', function()
     dap.toggle_breakpoint()
-end)
-vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>')
-vim.keymap.set('n', '<leader>dc', '<cmd> DapStepInto<CR>')
-vim.keymap.set('n', '<leader>drc', '<cmd> DapStepOut<CR>')
+end, { desc = "Toggle Breakpoint" })
+
+vim.keymap.set('n', '<leader>Dr', '<cmd> DapContinue<CR>')
+vim.keymap.set('n', '<leader>Dsi', '<cmd> DapStepInto<CR>')
+vim.keymap.set('n', '<leader>Dso', '<cmd> DapStepOut<CR>')
