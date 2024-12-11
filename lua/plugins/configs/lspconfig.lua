@@ -2,6 +2,8 @@ if vim.bo.filetype == "lua" then
     require("neodev").setup()
 end
 
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -22,7 +24,8 @@ require('mason-lspconfig').setup({
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({
-                inlay_hints = true
+                inlay_hints = true,
+                capabilities = lsp_capabilities
             })
         end,
     },
