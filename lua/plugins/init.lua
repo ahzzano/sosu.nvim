@@ -24,7 +24,21 @@ local plugins = {
             }
         end
     },
+    { 
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        config = function()
+            dap_go = require('dap-go').setup()
+            vim.keymap.set('n', '<leader>dgt',  function()
+                require('dap-go').debug_test()
+            end)
+            vim.keymap.set('n', '<leader>dgl', function ()
+                require('dap-go').debug_last()
+            end)
+        end
 
+    },
+    -- Main
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",

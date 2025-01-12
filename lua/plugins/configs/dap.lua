@@ -21,7 +21,6 @@ dap.adapters.codelldb = {
         args = { "--port", "${port}" },
         detached = false,
     }
-
 }
 
 dap.configurations.cpp = {
@@ -41,10 +40,10 @@ dap.configurations.cpp = {
 dap.configurations.c = dap.configurations.cpp
 
 
-vim.keymap.set('n', '<leader>Db', function()
+vim.keymap.set('n', '<leader>db', function()
     dap.toggle_breakpoint()
 end, { desc = "Toggle Breakpoint" })
 
-vim.keymap.set('n', '<leader>Dr', '<cmd> DapContinue<CR>')
-vim.keymap.set('n', '<leader>Dsi', '<cmd> DapStepInto<CR>')
-vim.keymap.set('n', '<leader>Dso', '<cmd> DapStepOut<CR>')
+vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue<CR>')
+vim.keymap.set('n', '<leader>dsi', '<cmd> DapStepInto<CR>')
+vim.keymap.set('n', '<leader>dso', '<cmd> DapStepOut<CR>')
