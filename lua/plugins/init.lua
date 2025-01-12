@@ -240,28 +240,6 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        opts = {
-            preset = 'modern'
-        },
-        config = function()
-            wk = require('which-key')
-            wk.add({
-                { '<leader>s', group = 'windows' }
-            })
-        end,
-        keys = {
-            {
-                "<leader>?",
-                function()
-                    require("which-key").show({ global = false })
-                end,
-                desc = "Buffer Local Keymaps (which-key)",
-            }
-        }
-    }
 }
 
 return plugins
