@@ -14,6 +14,7 @@ require('mason-lspconfig').setup({
         'zls',
         'lua_ls',
         'pyright',
+        'omnisharp',
 
         -- Good Webdev Items
         'ts_ls',

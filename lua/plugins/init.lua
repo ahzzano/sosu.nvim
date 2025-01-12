@@ -201,6 +201,12 @@ local plugins = {
         opts = {},
     },
     {
+        "sainnhe/gruvbox-material",
+        priority = 1000,
+        opts = {},
+
+    },
+    {
         "nvim-treesitter/nvim-treesitter-context",
         opts = {},
         dependencies = {
