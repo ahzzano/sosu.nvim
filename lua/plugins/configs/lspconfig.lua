@@ -5,12 +5,14 @@ end
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason').setup({})
+require("mason-lspconfig").setup_handlers {
+    ['rust_analyzer'] = function() end
+}
 require('mason-lspconfig').setup({
     ensure_installed = {
         -- the fun stuff
         'clangd',
         'gopls',
-        'rust_analyzer',
         'zls',
         'lua_ls',
         'pyright',

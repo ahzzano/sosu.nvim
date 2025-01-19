@@ -112,6 +112,14 @@ local plugins = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
         },
+        opts = {
+            setup = {
+                rust_analyzer = function ()
+                    return true
+                end
+            }
+
+        },
 
         config = function(_)
             require("plugins.configs.lspconfig")
@@ -181,22 +189,28 @@ local plugins = {
         end,
         lazy = false,
     },
+    -- {
+    --     "simrat39/rust-tools.nvim",
+    --     ft = { "rust" },
+    --     config = function()
+    --         local rust_tools = require("rust-tools")
+    --         rust_tools.setup({
+    --             server = {
+    --                 on_attach = function(_, bufnr)
+    --                     vim.keymap.set("n", "<leader>vrr", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+    --                 end,
+    --             },
+    --         })
+    --     end,
+    --     dependencies = {
+    --         { "neovim/nvim-lspconfig" },
+    --     },
+    -- },
     {
-        "simrat39/rust-tools.nvim",
+          'mrcjkb/rustaceanvim',
+          version = '^5', -- Recommended
+          lazy = false, -- This plugin is already lazy
         ft = { "rust" },
-        config = function()
-            local rust_tools = require("rust-tools")
-            rust_tools.setup({
-                server = {
-                    on_attach = function(_, bufnr)
-                        vim.keymap.set("n", "<leader>vrr", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-                    end,
-                },
-            })
-        end,
-        dependencies = {
-            { "neovim/nvim-lspconfig" },
-        },
     },
     {
         "saecki/crates.nvim",
