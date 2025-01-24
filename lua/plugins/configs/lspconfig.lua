@@ -13,7 +13,6 @@ require('mason-lspconfig').setup({
         -- the fun stuff
         'clangd',
         'gopls',
-        'zls',
         'lua_ls',
         'pyright',
         'omnisharp',

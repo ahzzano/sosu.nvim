@@ -1,8 +1,11 @@
-local cmp = require('cmp')
+local cmp = require 'cmp'
 
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
-require('luasnip.loaders.from_lua').load({ paths = vim.fn.stdpath("config") .. "\\snippets" })
+
+-- add the snippets
+require("snippets.cpp")
+require("snippets.go")
 
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
