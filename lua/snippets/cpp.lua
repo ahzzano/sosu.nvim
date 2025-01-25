@@ -24,8 +24,18 @@ ls.add_snippets("cpp", {
         ]], {
             i(1, "N"), rep(1), i(2), rep(2), rep(1), rep(2), i(0)
         })
+    ),
 
-    )
+    s('allv',
+        fmt(
+        [[
+        {}.begin(), {}.end()
+        ]], {
+            i(1, 'v'),
+            rep(1),
+        })
+    ), 
+
 })
 
 
