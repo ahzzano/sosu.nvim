@@ -101,9 +101,14 @@ local plugins = {
             require('mini.files').setup()
             require('mini.surround').setup()
             require('mini.pairs').setup()
-            require('mini.comment').setup()
             vim.keymap.set("n", "<leader>pv", MiniFiles.open, { desc = "Open parent directory" })
         end
+    },
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        }
     },
     {
         "neovim/nvim-lspconfig",
