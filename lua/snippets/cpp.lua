@@ -49,14 +49,6 @@ ls.add_snippets("cpp", {
         t({ "std::ios_base::sync_with_stdio(false);", "std::cin.tie(NULL);" }),
     }),
 
-    s('cpnext', fmt([[
-    int next() {{
-        int a;
-        std::cin >> a;
-        return a;
-    }}
-    ]], {})),
-
     s('cpncases',
         fmt([[
         int {} = 0;
@@ -115,9 +107,12 @@ ls.add_snippets("cpp", {
         i(0),
     })),
 
-    s('print', c(1, {
-        { t("std::cout << "), i(1), t(" << \" \";") },
-        { t("std::cout << "), i(1), t(" << \"\\n\";") },
+    s('print', fmt([[std::cout << {} << {};]], {
+        i(1),
+        c(2, {
+            t("\" \""),
+            t("\"\\n\""),
+        })
     })),
 
     s('cpst', fmt([[
