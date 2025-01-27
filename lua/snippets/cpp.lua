@@ -4,6 +4,7 @@ local t = ls.text_node
 local i = ls.insert_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
+local c = ls.choice_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
@@ -57,16 +58,12 @@ ls.add_snippets("cpp", {
     ]], {})),
 
     s('cpncases',
-        fmt(
-            [[
+        fmt([[
         int {} = 0;
         std::cin >> {};
-        for(int {}=0; {}<{}; {}++) {{
-            {}
-        }}
         ]], {
-                i(1, "N"), rep(1), i(2), rep(2), rep(1), rep(2), i(0)
-            })
+            i(1, "N"), rep(1)
+        })
     ),
 
     s('allv',
@@ -83,9 +80,52 @@ ls.add_snippets("cpp", {
         d(1, retype)
     }),
 
+    s('foru', fmt([[
+    for(int {} = 0; {} < {}, {}++) {{
+        {}
+    }}
+
+    ]], {
+        i(1, "i"),
+        rep(1),
+        i(2),
+        rep(1),
+        i(0)
+    })),
+
+    s('ford', fmt([[
+    for(int {}={}, {} >= 0; {}--) {{
+        {}
+    }}
+
+    ]], {
+        i(1, "i"),
+        i(2),
+        rep(1),
+        rep(1),
+        i(0),
+    })),
+    s('lambda', fmt([[
+    [{}]({}){{
+        {}
+    }}
+    ]], {
+        i(1),
+        i(2),
+        i(0),
+    })),
+
+    s('print', c(1, {
+        { t("std::cout << "), i(1), t(" << \" \";") },
+        { t("std::cout << "), i(1), t(" << \"\\n\";") },
+    })),
+
     s('cpst', fmt([[
     #include <iostream>
     #include <vector>
+
+    #define ll long long int
+    #define ull unsigned long long int
 
     typedef std::vector<int> vec_i;
     typedef std::pair<int, int> ipair;
