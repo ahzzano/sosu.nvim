@@ -73,7 +73,7 @@ ls.add_snippets("cpp", {
     }),
 
     s('foru', fmt([[
-    for(int {} = 0; {} < {}, {}++) {{
+    for(int {} = 0; {} < {}; {}++) {{
         {}
     }}
 
@@ -97,6 +97,7 @@ ls.add_snippets("cpp", {
         rep(1),
         i(0),
     })),
+
     s('lambda', fmt([[
     [{}]({}){{
         {}
