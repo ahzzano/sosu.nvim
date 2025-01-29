@@ -8,7 +8,7 @@ local ignore_fdirs = {
     'include'
 }
 fzf.setup({
-    -- fzf_opts = { ['--layout'] = 'reverse-list' },
+    fzf_opts = { ['--layout'] = 'reverse-list' },
     files = {
         previewer = true,
         file_ignore_patterns = ignore_fdirs
@@ -25,7 +25,7 @@ fzf.setup({
 })
 
 vim.keymap.set('i', '<C-p>', fzf.files);
-vim.keymap.set('i', '<C-g>', fzf.git_files);
+vim.keymap.set('i', '<C-g>', fzf.git_files)
 
 vim.keymap.set('n', '<leader>ff', fzf.files, { desc = "[F]ind [F]iles" })
 vim.keymap.set('n', '<leader>fg', fzf.git_files, { desc = "[F]ind [G]its" })
