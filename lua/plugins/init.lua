@@ -24,15 +24,15 @@ local plugins = {
             }
         end
     },
-    { 
+    {
         "leoluz/nvim-dap-go",
         ft = "go",
         config = function()
             dap_go = require('dap-go').setup()
-            vim.keymap.set('n', '<leader>dgt',  function()
+            vim.keymap.set('n', '<leader>dgt', function()
                 require('dap-go').debug_test()
             end)
-            vim.keymap.set('n', '<leader>dgl', function ()
+            vim.keymap.set('n', '<leader>dgl', function()
                 require('dap-go').debug_last()
             end)
         end
@@ -120,7 +120,7 @@ local plugins = {
         },
         opts = {
             setup = {
-                rust_analyzer = function ()
+                rust_analyzer = function()
                     return true
                 end
             }
@@ -191,7 +191,7 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         config = function()
-            require("plugins.configs.statusline")
+            require("plugins.configs.lualine")
         end,
         lazy = false,
     },
@@ -213,9 +213,9 @@ local plugins = {
     --     },
     -- },
     {
-          'mrcjkb/rustaceanvim',
-          version = '^5', -- Recommended
-          lazy = false, -- This plugin is already lazy
+        'mrcjkb/rustaceanvim',
+        version = '^5',   -- Recommended
+        lazy = false,     -- This plugin is already lazy
         ft = { "rust" },
     },
     {
