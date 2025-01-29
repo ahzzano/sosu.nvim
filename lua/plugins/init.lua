@@ -43,7 +43,6 @@ local plugins = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
-    "L3MON4D3/LuaSnip",
     "sainnhe/edge",
     "hrsh7th/cmp-cmdline",
     {
@@ -195,27 +194,10 @@ local plugins = {
         end,
         lazy = false,
     },
-    -- {
-    --     "simrat39/rust-tools.nvim",
-    --     ft = { "rust" },
-    --     config = function()
-    --         local rust_tools = require("rust-tools")
-    --         rust_tools.setup({
-    --             server = {
-    --                 on_attach = function(_, bufnr)
-    --                     vim.keymap.set("n", "<leader>vrr", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
-    --                 end,
-    --             },
-    --         })
-    --     end,
-    --     dependencies = {
-    --         { "neovim/nvim-lspconfig" },
-    --     },
-    -- },
     {
         'mrcjkb/rustaceanvim',
-        version = '^5',   -- Recommended
-        lazy = false,     -- This plugin is already lazy
+        version = '^5', -- Recommended
+        lazy = false,   -- This plugin is already lazy
         ft = { "rust" },
     },
     {
