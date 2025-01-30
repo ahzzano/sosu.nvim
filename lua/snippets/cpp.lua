@@ -120,12 +120,13 @@ ls.add_snippets("cpp", {
     })),
 
     s('nxtin', fmt([[
-    int {};
-    std::cin << {};
+    {} {};
+    std::cin >> {};
     {}
     ]], {
-        i(1, "k"),
-        rep(1),
+        i(1, "int"),
+        i(2, "k"),
+        rep(2),
         i(0)
     })),
 
