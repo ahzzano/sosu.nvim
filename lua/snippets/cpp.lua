@@ -99,6 +99,8 @@ ls.add_snippets("cpp", {
         i(0),
     })),
 
+    s('vv', fmt("std::vector<{}> {};{}", { i(1, "int"), i(2, "vec"), i(0) })),
+
     s('lambda', fmt([[
     [{}]({}){{
         {}
