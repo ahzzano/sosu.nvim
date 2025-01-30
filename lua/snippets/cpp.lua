@@ -53,8 +53,9 @@ ls.add_snippets("cpp", {
         fmt([[
         int {} = 0;
         std::cin >> {};
+        {}
         ]], {
-            i(1, "N"), rep(1)
+            i(1, "N"), rep(1), i(0)
         })
     ),
 
@@ -117,11 +118,10 @@ ls.add_snippets("cpp", {
     })),
 
     s('cpst', fmt([[
-    #include <iostream>
-    #include <vector>
+    #include <bits/stdc++>
 
-    #define ll long long int
-    #define ull unsigned long long int
+    typedef long long int ll;
+    typedef unsigned long loing int ull;
 
     typedef std::vector<int> vec_i;
     typedef std::pair<int, int> ipair;
