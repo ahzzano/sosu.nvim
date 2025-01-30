@@ -4,6 +4,7 @@ local t = ls.text_node
 local i = ls.insert_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
+local f = ls.function_node
 local c = ls.choice_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
@@ -41,6 +42,10 @@ local retype = function()
     end
 
     return ls.sn(nil, { t(ret .. " "), i(1), t('=') })
+end
+
+local nxtinf = function(args, parent, user_args)
+    return args[1][1]:gsub(",", ">>")
 end
 
 ls.add_snippets("cpp", {
@@ -126,12 +131,14 @@ ls.add_snippets("cpp", {
     ]], {
         i(1, "int"),
         i(2, "k"),
-        rep(2),
+        -- rep(2),
+        f(nxtinf, { 2 }),
         i(0)
     })),
 
     s('cpst', fmt([[
-    #include <bits/stdc++.h>
+    #include <iostream>
+    #include <vector>
 
     typedef long long int ll;
     typedef unsigned long long int ull;
