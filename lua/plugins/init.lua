@@ -28,7 +28,7 @@ local plugins = {
         "leoluz/nvim-dap-go",
         ft = "go",
         config = function()
-            dap_go = require('dap-go').setup()
+            local dap_go = require('dap-go').setup()
             vim.keymap.set('n', '<leader>dgt', function()
                 require('dap-go').debug_test()
             end)
@@ -220,6 +220,14 @@ local plugins = {
         "sainnhe/gruvbox-material",
         priority = 1000,
         opts = {},
+
+    },
+    {
+        "sainnhe/sonokai",
+        priority = 1000,
+        config = function()
+            vim.g.sonokai_style = "shusia"
+        end
 
     },
     {
