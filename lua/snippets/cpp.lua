@@ -119,11 +119,21 @@ ls.add_snippets("cpp", {
         })
     })),
 
+    s('nxtin', fmt([[
+    int {};
+    std::cin << {};
+    {}
+    ]], {
+        i(1, "k"),
+        rep(1),
+        i(0)
+    })),
+
     s('cpst', fmt([[
-    #include <bits/stdc++>
+    #include <bits/stdc++.h>
 
     typedef long long int ll;
-    typedef unsigned long loing int ull;
+    typedef unsigned long long int ull;
 
     typedef std::vector<int> vec_i;
     typedef std::pair<int, int> ipair;
