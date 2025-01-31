@@ -45,6 +45,7 @@ local plugins = {
     "saadparwaiz1/cmp_luasnip",
     "sainnhe/edge",
     "hrsh7th/cmp-cmdline",
+    { "folke/neodev.nvim", opts = {} },
     {
         "j-hui/fidget.nvim",
         opts = {
