@@ -151,6 +151,26 @@ ls.add_snippets("cpp", {
     }}
     ]], {
         i(0)
+    })),
+
+    s('binpow', fmt([[
+    {} binpow({} a, {} b) {{
+        {} res = 1;
+        while(b > 0) {{
+            if(b & 1)
+                res *= a;
+            a *- a;
+            b >>=1;
+        }}
+
+        return res;
+    }}
+    {}]], {
+        i(1, 'long long'),
+        rep(1),
+        rep(1),
+        rep(1),
+        i(0)
     }))
 
 })
