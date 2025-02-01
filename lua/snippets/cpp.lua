@@ -54,15 +54,11 @@ ls.add_snippets("cpp", {
         t({ "std::ios_base::sync_with_stdio(false);", "std::cin.tie(NULL);" }),
     }),
 
-    s('ncases',
-        fmt([[
-        int {} = 0;
-        std::cin >> {};
+    s('if', fmt([[
+    if({}) {{
         {}
-        ]], {
-            i(1, "N"), rep(1), i(0)
-        })
-    ),
+    }}
+    ]], { i(1), i(0) })),
 
     s('allv',
         fmt(
@@ -79,29 +75,44 @@ ls.add_snippets("cpp", {
     }),
 
     s('foru', fmt([[
-    for(int {} = 0; {} < {}; {}++) {{
+    for({} {} = {}; {} < {}; {}++) {{
         {}
     }}
 
     ]], {
-        i(1, "i"),
-        rep(1),
-        i(2),
-        rep(1),
+        i(1, "int"),
+        i(2, "i"),
+        i(3, "0"),
+        rep(2),
+        i(4),
+        rep(2),
         i(0)
     })),
 
     s('ford', fmt([[
-    for(int {}={}, {} >= 0; {}--) {{
+    for({} {}={}; {} >= {}; {}--) {{
         {}
     }}
 
     ]], {
-        i(1, "i"),
-        i(2),
-        rep(1),
-        rep(1),
+        i(1, "int"),
+        i(2, "i"),
+        i(3),
+        rep(2),
+        i(4),
+        rep(2),
         i(0),
+    })),
+
+    s('fore', fmt([[
+    for({} {} : {}) {{
+        {}
+    }}
+    ]], {
+        i(1, "auto"),
+        i(2, "&var"),
+        i(3, "vec"),
+        i(0)
     })),
 
     s('vv', fmt("std::vector<{}> ", { i(1, "int") })),
@@ -116,15 +127,17 @@ ls.add_snippets("cpp", {
         i(0),
     })),
 
-    s('print', fmt([[std::cout << {} << {};]], {
-        i(1),
-        c(2, {
-            t("\" \""),
-            t("\"\\n\""),
-        })
+    s('print', fmt([[std::cout << {} << " ";
+    {}]], {
+        i(1), i(0)
     })),
 
-    s('nxtin', fmt([[
+    s('println', fmt([[std::cout << {} << "\n";
+    {}]], {
+        i(1), i(0)
+    })),
+
+    s('next', fmt([[
     {} {};
     std::cin >> {};
     {}

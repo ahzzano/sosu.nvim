@@ -42,6 +42,14 @@ function ssuper_tab(fallback)
     end
 end
 
+function csuper_tab(fallback)
+    if luasnip.choice_active() then
+        luasnip.change_choice(1)
+    else
+        fallback()
+    end
+end
+
 cmp.setup({
     preselect = 'item',
     completion = {
@@ -69,6 +77,7 @@ cmp.setup({
         ['<Tab>'] = cmp.mapping(super_tab, { 'i', 's' }),
         -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         ['<S-Tab>'] = cmp.mapping(ssuper_tab, { 'i', 's' }),
+        ['<C-Tab>'] = cmp.mapping(csuper_tab, { 'i', 's' }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
