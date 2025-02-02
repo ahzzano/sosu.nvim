@@ -43,7 +43,6 @@ local plugins = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
-    "sainnhe/edge",
     "hrsh7th/cmp-cmdline",
     {
         "folke/lazydev.nvim",
