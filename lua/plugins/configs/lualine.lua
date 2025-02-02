@@ -19,7 +19,7 @@ local opts = {
         },
         section_separators = {
             left = '',
-            right = ''
+            right = ''
         },
         component_separators = { left = '|', right = '' },
     },
@@ -34,7 +34,12 @@ local opts = {
         lualine_b = {
             'filename'
         },
-        lualine_c = { 'branch' },
+        lualine_c = {
+            {
+                'branch',
+                icon = '',
+            }
+        },
         lualine_x = { 'diagnostics' },
         lualine_y = { 'filetype' },
         lualine_z = { 'location' }

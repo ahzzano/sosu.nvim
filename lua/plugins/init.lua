@@ -242,6 +242,12 @@ local plugins = {
 
     },
     {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
         "nvim-treesitter/nvim-treesitter-context",
         opts = {},
         dependencies = {
