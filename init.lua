@@ -1,3 +1,4 @@
+require("sosu.tasks")
 require('sosu.keymappings')
 require('sosu.config')
 
