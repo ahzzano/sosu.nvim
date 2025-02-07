@@ -58,18 +58,23 @@ vim.diagnostic.config({
 local function setup_keybinds(event)
     local opts = { buffer = event.buf }
 
-    fzf = require('fzf-lua')
+    -- fzf = require('fzf-lua')
+    --
+    -- vim.keymap.set('n', 'gd', function() fzf.lsp_definitions() end,
+    --     { buffer = event.buf, desc = "[G]o to [D]efinitions" })
+    -- vim.keymap.set('n', '<leader>fdd', fzf.diagnostics_document,
+    --     { buffer = event.buf, desc = "[F]ind [D]iagnostcs in [D]ocument" })
+    -- vim.keymap.set('n', '<leader>fdw', fzf.diagnostics_workspace,
+    --     { buffer = event.buf, desc = "[F]ind [D]iagnostics in [W]orkspace" })
+    -- vim.keymap.set('n', 'gr', function() fzf.lsp_references() end,
+    --     { buffer = event.buf, desc = "[G]o to [R]eference" })
+    -- vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end,
+    --     { buffer = event.buf, desc = "[G]o to [I]mplementation" })
+    local ts = require('telescope.builtin')
 
-    vim.keymap.set('n', 'gd', function() fzf.lsp_definitions() end,
-        { buffer = event.buf, desc = "[G]o to [D]efinitions" })
-    vim.keymap.set('n', '<leader>fdd', fzf.diagnostics_document,
-        { buffer = event.buf, desc = "[F]ind [D]iagnostcs in [D]ocument" })
-    vim.keymap.set('n', '<leader>fdw', fzf.diagnostics_workspace,
-        { buffer = event.buf, desc = "[F]ind [D]iagnostics in [W]orkspace" })
-    vim.keymap.set('n', 'gr', function() fzf.lsp_references() end,
-        { buffer = event.buf, desc = "[G]o to [R]eference" })
-    vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end,
-        { buffer = event.buf, desc = "[G]o to [I]mplementation" })
+
+    vim.keymap.set('n', 'gd', ts.lsp_definitions)
+    vim.keymap.set('n', 'gr', ts.lsp_references)
 
     vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
