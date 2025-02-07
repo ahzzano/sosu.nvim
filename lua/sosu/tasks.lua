@@ -7,7 +7,7 @@ tests = {
     {
         fname = 'graph.cpp',
         input = '2',
-        output = 'YES\n'
+        output = { 'YES', 'PLS' }
     }
 }
 
@@ -27,7 +27,7 @@ local function create_test(fname, input, output)
     local testcase = {
         fname = fname,
         input = table.concat(input, "\n"),
-        output = table.concat(output, "\n"),
+        output = output
     }
 
     table.insert(tests, testcase)
@@ -122,7 +122,7 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
     })
 end, {})
 
-vim.api.nvim_create_user_command("ContestRun", function()
+vim.api.nvim_create_user_command("ContestRun", function(opts)
     local to_run = {}
 
     local fname = vim.api.nvim_buf_get_name(0)
@@ -148,27 +148,39 @@ vim.api.nvim_create_user_command("ContestRun", function()
             timeout = timeouts[lfname]
         end
 
-        vim.system({ './a.out' }, { stdin = value.input, text = true, timeout = lfname }, function(out)
+        vim.system({ './a.out' }, { stdin = value.input, text = true, timeout = timeout }, function(out)
             vim.schedule(function()
                 if out.signal == 15 then
                     vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "TIMED OUT" })
                     return
                 end
                 if out.stdout ~= nil then
-                    if value.output == out.stdout then
+                    local outputs = {}
+                    for s in string.gmatch(out.stdout, '[^\n]+') do
+                        table.insert(outputs, s)
+                    end
+                    print(vim.inspect(outputs))
+
+                    local correct = true
+
+                    for i = 1, #outputs do
+                        if outputs[i] ~= value.output[i] then
+                            vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
+                                { "WRONG - " ..
+                                'Expected: ' ..
+                                value.output[i] ..
+                                " Found: " .. outputs[i] })
+                            correct = false
+                        end
+                    end
+
+                    if correct then
                         vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "CORRECT" })
-                    else
-                        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
-                            { "WRONG - " ..
-                            'Expected: ' ..
-                            string.gsub(value.output, "\n", ", ") .. " Found: " .. string.gsub(out.stdout, "\n", ", ") })
                     end
                 else
                     vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
                         { "WRONG - " .. "No Input Found - " .. 'Expected: ' .. value.output })
                 end
-
-                vim.bo[output_buffer].modifiable = false
             end)
         end)
     end
