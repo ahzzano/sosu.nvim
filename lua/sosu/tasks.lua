@@ -144,6 +144,7 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
         local str = string.format("Running #%i", index)
         vim.api.nvim_buf_set_lines(output_buffer, index - 1, index - 1, true, { str })
         local timeout = 1000
+
         if timeouts[lfname] then
             timeout = timeouts[lfname]
         end
@@ -155,6 +156,10 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
             if is_windows then
                 executable = { 'a.exe' }
             end
+        end
+
+        if vim.bo[0] == 'python' then
+            executable = { 'python3', lfname }
         end
 
         vim.system(executable, { stdin = value.input, text = true, timeout = timeout }, function(out)
