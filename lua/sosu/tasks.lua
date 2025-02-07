@@ -11,6 +11,10 @@ tests = {
     }
 }
 
+timeouts = {
+
+}
+
 -- Create a test
 --- @type string[]
 --- @param fname string Filename
@@ -65,6 +69,15 @@ vim.api.nvim_create_user_command("ContestCompile", function(opts)
         print("Not a C++ File")
     end
 end, {})
+
+vim.api.nvim_create_user_command('ContestSetTimeout', function(opts)
+    local fname = vim.api.nvim_buf_get_name(0)
+    local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
+
+    local args = opts.fargs
+    local to = tonumber(args[1])
+    timeouts[lfname] = to
+end, { nargs = 1 })
 
 vim.api.nvim_create_user_command("ContestAddTest", function()
     -- Get the local filename
@@ -129,22 +142,33 @@ vim.api.nvim_create_user_command("ContestRun", function()
 
     for index, value in ipairs(to_run) do
         local str = string.format("Running #%i", index)
-        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { str })
+        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index - 1, true, { str })
+        local timeout = 1000
+        if timeouts[lfname] then
+            timeout = timeouts[lfname]
+        end
 
-        vim.system({ './a.out' }, { stdin = value.input, text = true }, function(out)
+        vim.system({ './a.out' }, { stdin = value.input, text = true, timeout = lfname }, function(out)
             vim.schedule(function()
+                if out.signal == 15 then
+                    vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "TIMED OUT" })
+                    return
+                end
                 if out.stdout ~= nil then
                     if value.output == out.stdout then
                         vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "CORRECT" })
                     else
                         vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
                             { "WRONG - " ..
-                            'Expected: ' .. value.output .. " Found: " .. string.gsub(out.stdout, "\n", ", ") })
+                            'Expected: ' ..
+                            string.gsub(value.output, "\n", ", ") .. " Found: " .. string.gsub(out.stdout, "\n", ", ") })
                     end
                 else
                     vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
                         { "WRONG - " .. "No Input Found - " .. 'Expected: ' .. value.output })
                 end
+
+                vim.bo[output_buffer].modifiable = false
             end)
         end)
     end
