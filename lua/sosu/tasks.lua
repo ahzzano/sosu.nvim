@@ -164,13 +164,16 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
                     local correct = true
 
                     for i = 1, #outputs do
-                        if outputs[i] ~= value.output[i] then
+                        local a = string.gsub(value.output[i], "\n", "")
+                        local b = string.gsub(outputs[i], "\n", "")
+                        if a ~= b then
                             vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
                                 { "WRONG - " ..
                                 'Expected: ' ..
-                                value.output[i] ..
-                                " Found: " .. outputs[i] })
+                                string.gsub(value.output[i], "\n", "") ..
+                                " Found: " .. string.gsub(outputs[i], "\n", "") })
                             correct = false
+                            break
                         end
                     end
 
