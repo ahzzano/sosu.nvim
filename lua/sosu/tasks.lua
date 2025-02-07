@@ -148,7 +148,16 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
             timeout = timeouts[lfname]
         end
 
-        vim.system({ './a.out' }, { stdin = value.input, text = true, timeout = timeout }, function(out)
+        local executable = { './a.out' }
+
+        if vim.fn.exists('g:os') then
+            local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+            if is_windows then
+                executable = { 'a.exe' }
+            end
+        end
+
+        vim.system(executable, { stdin = value.input, text = true, timeout = timeout }, function(out)
             vim.schedule(function()
                 if out.signal == 15 then
                     vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "TIMED OUT" })
@@ -159,7 +168,6 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
                     for s in string.gmatch(out.stdout, '[^\n]+') do
                         table.insert(outputs, s)
                     end
-                    print(vim.inspect(outputs))
 
                     local correct = true
 
