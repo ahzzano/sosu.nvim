@@ -116,8 +116,8 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
 
             create_test(lfname, inputs, outputs)
 
-            vim.print(tests)
             vim.api.nvim_clear_autocmds({ group = contest_group })
+            print('Successfully added your test')
         end,
     })
 end, {})
@@ -151,15 +151,20 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
 
         local executable = { './a.out' }
 
-        if vim.fn.exists('g:os') then
-            local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
-            if is_windows then
-                executable = { 'a.exe' }
+        -- check filetypes
+        if ft == 'cpp' then
+            executable = { './a.out' }
+            if vim.fn.exists('g:os') then
+                local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
+                if is_windows then
+                    executable = { 'a.exe' }
+                end
             end
-        end
-
-        if vim.bo[0] == 'python' then
-            executable = { 'python3', lfname }
+        elseif ft == 'python' then
+            executable = { 'python', lfname }
+        else
+            vim.print('Invalid FT. Not running')
+            return
         end
 
         vim.system(executable, { stdin = value.input, text = true, timeout = timeout }, function(out)

@@ -13,7 +13,7 @@ ls.add_snippets("python", {
     s('fastinp', fmt([[
     import sys
 
-    input = sys.stdin.read()
+    input = sys.stdin.read
     {}
     ]], { i(0) }))
 
