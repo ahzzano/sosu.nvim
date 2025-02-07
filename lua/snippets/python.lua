@@ -10,5 +10,9 @@ local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("python", {
+    s('fastinp', fmt([[
+    import sys
 
+    input = sys.stdin.read
+    ]]))
 })

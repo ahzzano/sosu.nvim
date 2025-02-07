@@ -5,6 +5,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 -- add the snippets
 require("snippets.cpp")
+require("snippets.python")
 require("snippets.go")
 
 local kind_icons = require('sosu.core').lspicons
