@@ -6,8 +6,13 @@
 tests = {
     {
         fname = 'graph.cpp',
-        input = '2',
+        input = { '2' },
         output = { 'YES', 'PLS' }
+    },
+    {
+        fname = 'graph.cpp',
+        input = { '3' },
+        output = { 'NO', 'PLS' }
     }
 }
 
@@ -21,16 +26,39 @@ timeouts = {
 --- @param input stirng[]? Inputs
 --- @param output string[] Expected Outputs
 local function create_test(fname, input, output)
-    for key, value in pairs(output) do
-        output[key] = value .. "\n"
-    end
     local testcase = {
         fname = fname,
-        input = table.concat(input, "\n"),
+        input = input,
         output = output
     }
 
     table.insert(tests, testcase)
+end
+
+--- @param lfname string
+local function compile_cpp(lfname)
+    vim.system({ 'g++', lfname, '-Wall', '-O3', '-std=c++20' }, { text = true }, function(out)
+        vim.schedule(function()
+            if out.stderr == "" then
+                print "Compiled Successfully!"
+                return
+            end
+            local buf = vim.api.nvim_create_buf(true, true)
+            if out.stderr ~= nil then
+                local lines = {}
+                for line in string.gmatch(out.stderr, "( [^\n]*)\n") do
+                    table.insert(lines, line)
+                end
+                vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
+            end
+            vim.bo[buf].modifiable = false
+
+            vim.api.nvim_open_win(buf, false, {
+                split = 'right',
+                win = 0
+            })
+        end)
+    end)
 end
 
 
@@ -39,32 +67,10 @@ local contest_group = vim.api.nvim_create_augroup('ContestGroup', { clear = true
 vim.api.nvim_create_user_command("ContestCompile", function(opts)
     local fname = vim.api.nvim_buf_get_name(0)
     local ft = vim.bo[0].ft
+    local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
 
     if ft == "cpp" then
-        local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
-
-        vim.system({ 'g++', lfname, '-Wall', '-O3', '-std=c++20' }, { text = true }, function(out)
-            vim.schedule(function()
-                if out.stderr == "" then
-                    print "Compiled Successfully!"
-                    return
-                end
-                local buf = vim.api.nvim_create_buf(true, true)
-                if out.stderr ~= nil then
-                    local lines = {}
-                    for line in string.gmatch(out.stderr, "( [^\n]*)\n") do
-                        table.insert(lines, line)
-                    end
-                    vim.api.nvim_buf_set_lines(buf, 0, -1, true, lines)
-                end
-                vim.bo[buf].modifiable = false
-
-                vim.api.nvim_open_win(buf, false, {
-                    split = 'right',
-                    win = 0
-                })
-            end)
-        end)
+        compile_cpp(lfname)
     else
         print("Not a C++ File")
     end
@@ -97,28 +103,38 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
         win = win_in
     })
 
+    local function cb(ev)
+        if ev.buf == inbuf or ev.buf == outbuf then
+            vim.api.nvim_win_close(win_in, true)
+            vim.api.nvim_win_close(win_out, true)
 
-    vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-        group = contest_group,
-        callback = function(ev)
             local inputs = vim.api.nvim_buf_get_lines(inbuf, 0, -1, false)
             local outputs = vim.api.nvim_buf_get_lines(outbuf, 0, -1, false)
 
-            if ev.buf == inbuf then
-                vim.api.nvim_win_close(win_in, true)
-                vim.api.nvim_win_close(win_out, true)
-            end
-
-            if ev.buf == outbuf then
-                vim.api.nvim_win_close(win_in, true)
-                vim.api.nvim_win_close(win_out, true)
-            end
-
             create_test(lfname, inputs, outputs)
+
 
             vim.api.nvim_clear_autocmds({ group = contest_group })
             print('Successfully added your test')
-        end,
+        end
+    end
+
+    -- vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+    --     group = contest_group,
+    --     buffer = inbuf,
+    --     callback = function(ev)
+    --     end,
+    -- })
+    vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+        group = contest_group,
+        buffer = inbuf,
+        callback = cb
+    })
+
+    vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+        group = contest_group,
+        buffer = outbuf,
+        callback = cb
     })
 end, {})
 
@@ -207,6 +223,73 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
     end
 end, {})
 
-vim.api.nvim_create_user_command("ContestRemoveTest", function()
+local function display_testcase(buf, testcase)
+    vim.bo[buf].modifiable = true
+    local disp = {
+        '==MAPPINGS==',
+        '<l> - Next Testcase',
+        '<h> - Previous Testcase',
+        '<D> - Delete Testcase',
+        '<q> - Leave ',
+        '',
+        '==INPUTS==',
+        unpack(testcase.input),
+        '',
+        '==OUTPUTS==',
+        unpack(testcase.output)
+    }
+    vim.api.nvim_buf_set_lines(buf, 0, -1, true, disp)
+    vim.bo[buf].modifiable = false
+end
 
+vim.api.nvim_create_user_command("ContestRemoveTest", function()
+    local to_run = {}
+
+    local fname = vim.api.nvim_buf_get_name(0)
+    local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
+
+    for index, value in ipairs(tests) do
+        if value.fname == lfname then
+            table.insert(to_run, { ind = index, case = value })
+        end
+    end
+
+    local test_case_display = vim.api.nvim_create_buf(true, true)
+
+    local ind = 1
+    display_testcase(test_case_display, to_run[ind].case)
+
+    local win_in = vim.api.nvim_open_win(test_case_display, false, {
+        split = 'right',
+        win = 0
+    })
+
+    vim.keymap.set('n', 'h', function()
+        if ind - 1 <= 0 then
+            ind = #to_run
+        else
+            ind = ind - 1
+        end
+        display_testcase(test_case_display, to_run[ind].case)
+    end, { buffer = test_case_display })
+
+    vim.keymap.set('n', 'l', function()
+        if ind + 1 <= #to_run then
+            ind = ind + 1
+        else
+            ind = 1
+        end
+        display_testcase(test_case_display, to_run[ind].case)
+    end, { buffer = test_case_display })
+
+    vim.keymap.set('n', 'D', function()
+        vim.api.nvim_win_close(win_in, true)
+        local dd = to_run[ind].ind
+        table.remove(tests, dd)
+        vim.print('Deleted that test case')
+    end, { buffer = test_case_display })
+
+    vim.keymap.set('n', 'q', function()
+        vim.api.nvim_win_close(win_in, true)
+    end, { buffer = test_case_display })
 end, {})
