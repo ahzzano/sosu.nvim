@@ -6,12 +6,12 @@
 tests = {
     {
         fname = 'graph.cpp',
-        input = { '2' },
+        input = { '2', '3' },
         output = { 'YES', 'PLS' }
     },
     {
         fname = 'graph.cpp',
-        input = { '3' },
+        input = { '2', '3' },
         output = { 'NO', 'PLS' }
     }
 }
@@ -26,6 +26,11 @@ timeouts = {
 --- @param input stirng[]? Inputs
 --- @param output string[] Expected Outputs
 local function create_test(fname, input, output)
+    for index, value in ipairs(output) do
+        if output[index] == '' then
+            table.remove(output, index)
+        end
+    end
     local testcase = {
         fname = fname,
         input = input,
@@ -157,7 +162,9 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
     })
 
     for index, value in ipairs(to_run) do
-        local str = string.format("Running #%i", index)
+        local test_string = "[Test #" .. index .. "] "
+
+        local str = string.format("%s RUNNING", test_string)
         vim.api.nvim_buf_set_lines(output_buffer, index - 1, index - 1, true, { str })
         local timeout = 1000
 
@@ -186,7 +193,8 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
         vim.system(executable, { stdin = value.input, text = true, timeout = timeout }, function(out)
             vim.schedule(function()
                 if out.signal == 15 then
-                    vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "TIMED OUT" })
+                    vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
+                        { test_string .. "TIMED OUT" })
                     return
                 end
                 if out.stdout ~= nil then
@@ -202,7 +210,7 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
                         local b = string.gsub(outputs[i], "\n", "")
                         if a ~= b then
                             vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
-                                { "WRONG - " ..
+                                { test_string .. "WRONG - " ..
                                 'Expected: ' ..
                                 string.gsub(value.output[i], "\n", "") ..
                                 " Found: " .. string.gsub(outputs[i], "\n", "") })
@@ -212,11 +220,11 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
                     end
 
                     if correct then
-                        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { "CORRECT" })
+                        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true, { test_string .. "CORRECT" })
                     end
                 else
                     vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
-                        { "WRONG - " .. "No Input Found - " .. 'Expected: ' .. value.output })
+                        { test_string .. "WRONG - " .. "No Input Found - " .. 'Expected: ' .. value.output })
                 end
             end)
         end)
@@ -225,24 +233,35 @@ end, {})
 
 local function display_testcase(buf, testcase)
     vim.bo[buf].modifiable = true
-    local disp = {
+
+    local map = {
         '==MAPPINGS==',
         '<l> - Next Testcase',
         '<h> - Previous Testcase',
         '<D> - Delete Testcase',
         '<q> - Leave ',
         '',
-        '==INPUTS==',
-        unpack(testcase.input),
-        '',
-        '==OUTPUTS==',
-        unpack(testcase.output)
     }
-    vim.api.nvim_buf_set_lines(buf, 0, -1, true, disp)
+    local inputs = { '======INPUTS======', unpack(testcase.input) }
+    table.insert(inputs, '===================')
+    table.insert(inputs, '')
+    local outputs = { '======OUTPUTS======', unpack(testcase.output) }
+    table.insert(outputs, '===================')
+    table.insert(outputs, '')
+
+    for index, value in ipairs(inputs) do
+        table.insert(map, value)
+    end
+
+    for index, value in ipairs(outputs) do
+        table.insert(map, value)
+    end
+
+    vim.api.nvim_buf_set_lines(buf, 0, -1, true, map)
     vim.bo[buf].modifiable = false
 end
 
-vim.api.nvim_create_user_command("ContestRemoveTest", function()
+vim.api.nvim_create_user_command("ContestView", function()
     local to_run = {}
 
     local fname = vim.api.nvim_buf_get_name(0)
