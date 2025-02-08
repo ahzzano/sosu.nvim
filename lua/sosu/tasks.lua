@@ -209,9 +209,10 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
                         local a = string.gsub(value.output[i], "\n", "")
                         local b = string.gsub(outputs[i], "\n", "")
                         if a ~= b then
+                            local line_string = "Line: " .. i
                             vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
                                 { test_string .. "WRONG - " ..
-                                'Expected: ' ..
+                                line_string .. ' Expected: ' ..
                                 string.gsub(value.output[i], "\n", "") ..
                                 " Found: " .. string.gsub(outputs[i], "\n", "") })
                             correct = false
