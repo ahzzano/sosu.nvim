@@ -51,7 +51,7 @@ end
 ls.add_snippets("cpp", {
     -- competitive programming hacks
     s('syncoff', {
-        t({ "std::ios_base::sync_with_stdio(false);", "std::cin.tie(NULL);" }),
+        t({ "std::ios_base::sync_with_stdio(false);", "std::cin.tie(NULL);", "" }),
     }),
 
     s('if', fmt([[
