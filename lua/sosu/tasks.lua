@@ -124,12 +124,21 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
         end
     end
 
-    -- vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-    --     group = contest_group,
-    --     buffer = inbuf,
-    --     callback = function(ev)
-    --     end,
-    -- })
+    local function close_t()
+        vim.api.nvim_win_close(win_in, true)
+
+        local inputs = vim.api.nvim_buf_get_lines(inbuf, 0, -1, false)
+        local outputs = vim.api.nvim_buf_get_lines(outbuf, 0, -1, false)
+
+        create_test(lfname, inputs, outputs)
+
+        vim.api.nvim_clear_autocmds({ group = contest_group })
+        print('Successfully added your test')
+    end
+
+    vim.keymap.set('n', 'q', close_t, { buffer = inbuf })
+    vim.keymap.set('n', 'q', close_t, { buffer = outbuf })
+
     vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
         group = contest_group,
         buffer = inbuf,
@@ -176,6 +185,7 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
 
         -- check filetypes
         if ft == 'cpp' then
+            compile_cpp(lfname)
             executable = { './a.out' }
             if vim.fn.exists('g:os') then
                 local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
@@ -205,7 +215,16 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
 
                     local correct = true
 
+                    if #outputs ~= #value.output then
+                        vim.api.nvim_buf_set_lines(output_buffer, index - 1, index, true,
+                            { test_string .. "WRONG - " .. "Invalid number of inputs found" })
+                        correct = false
+                    end
+
                     for i = 1, #outputs do
+                        if not correct then
+                            break
+                        end
                         local a = string.gsub(value.output[i], "\n", "")
                         local b = string.gsub(outputs[i], "\n", "")
                         if a ~= b then
