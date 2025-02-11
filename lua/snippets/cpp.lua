@@ -137,7 +137,7 @@ ls.add_snippets("cpp", {
         i(1), i(0)
     })),
 
-    s('next', fmt([[
+    s('nextv', fmt([[
     {} {};
     std::cin >> {};
     {}
