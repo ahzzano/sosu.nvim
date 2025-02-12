@@ -31,13 +31,13 @@ local plugins = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-fzf-native.nvim'
         },
-        config = function ()
+        config = function()
             require('plugins.configs.telescope')
         end
     },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' 
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
     },
     {
         "leoluz/nvim-dap-go",
@@ -124,9 +124,16 @@ local plugins = {
             require('mini.ai').setup()
             require('mini.files').setup()
             require('mini.surround').setup()
-            require('mini.pairs').setup()
+            -- require('mini.pairs').setup()
             vim.keymap.set("n", "<leader>pv", MiniFiles.open, { desc = "Open parent directory" })
         end
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
     },
     {
         'numToStr/Comment.nvim',
@@ -182,6 +189,7 @@ local plugins = {
         event = "InsertEnter",
         dependencies = {
             { "L3MON4D3/LuaSnip" },
+            { 'windwp/nvim-autopairs' }
         },
     },
     {
