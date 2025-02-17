@@ -165,6 +165,11 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
         end
     end
 
+    if #to_run == 0 then
+        print("No test cases available")
+        return
+    end
+
     local output_buffer = vim.api.nvim_create_buf(true, true)
     local win_buffer = vim.api.nvim_open_win(output_buffer, true, {
         split = 'right'
@@ -291,6 +296,11 @@ vim.api.nvim_create_user_command("ContestView", function()
         if value.fname == lfname then
             table.insert(to_run, { ind = index, case = value })
         end
+    end
+
+    if #to_run == 0 then
+        print("No test cases available")
+        return
     end
 
     local test_case_display = vim.api.nvim_create_buf(true, true)
