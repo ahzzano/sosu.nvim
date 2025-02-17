@@ -120,7 +120,6 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
 
             create_test(lfname, inputs, outputs)
 
-
             vim.api.nvim_clear_autocmds({ group = contest_group })
             print('Successfully added your test')
         end
@@ -176,6 +175,10 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
     local win_buffer = vim.api.nvim_open_win(output_buffer, true, {
         split = 'right'
     })
+
+    vim.keymap.set('n', 'q', function()
+        vim.api.nvim_win_close(win_buffer, true)
+    end)
 
     for index, value in ipairs(to_run) do
         local test_string = "[Test #" .. index .. "] "
