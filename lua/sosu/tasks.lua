@@ -173,7 +173,6 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
     end
 
     local output_buffer = vim.api.nvim_create_buf(true, true)
-    vim.api.nvim_buf_set_name(output_buffer, "Judge Results")
     local win_buffer = vim.api.nvim_open_win(output_buffer, true, {
         split = 'right'
     })
