@@ -77,24 +77,6 @@ local plugins = {
         }
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            exclude = {
-                filetypes = {
-                    "dashboard"
-                }
-            }
-        }
-    },
-    -- {
-    --     "ibhagwan/fzf-lua",
-    --     dependencies = { "nvim-tree/nvim-web-devicons" },
-    --     config = function()
-    --         require 'plugins.configs.fuzzyfinder'
-    --     end
-    -- },
-    {
         "lewis6991/gitsigns.nvim",
         config = true,
         opts = {},
@@ -122,11 +104,21 @@ local plugins = {
         version = '*',
         config = function()
             require('mini.ai').setup()
-            require('mini.files').setup()
             require('mini.surround').setup()
-            -- require('mini.pairs').setup()
-            vim.keymap.set("n", "<leader>pv", MiniFiles.open, { desc = "Open parent directory" })
         end
+    },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            explorer = { enabled = true },
+            notifier = { enabled = true },
+            indent = { enabled = true }
+        },
+        keys = {
+            { "<leader>pv", function() Snacks.explorer() end }
+        }
     },
     {
         'windwp/nvim-autopairs',
@@ -268,15 +260,6 @@ local plugins = {
         lazy = false,
         priority = 1000,
         opts = {},
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-        opts = {},
-        dependencies = {
-            { "nvim-treesitter/nvim-treesitter" },
-        },
-        lazy = true,
-        event = "InsertEnter",
     },
     {
         "NeogitOrg/neogit",
