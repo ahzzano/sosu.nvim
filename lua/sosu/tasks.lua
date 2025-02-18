@@ -45,7 +45,7 @@ local function compile_cpp(lfname)
     vim.system({ 'g++', lfname, '-Wall', '-O3', '-std=c++20' }, { text = true }, function(out)
         vim.schedule(function()
             if out.stderr == "" then
-                print "Compiled Successfully!"
+                vim.notify("Compiled Successfully!")
                 return
             end
             local buf = vim.api.nvim_create_buf(true, true)
@@ -97,6 +97,24 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
 
     local inbuf = vim.api.nvim_create_buf(true, true)
     local outbuf = vim.api.nvim_create_buf(true, true)
+
+    local function close_t()
+        local inputs = vim.api.nvim_buf_get_lines(inbuf, 0, -1, false)
+        local outputs = vim.api.nvim_buf_get_lines(outbuf, 0, -1, false)
+
+        create_test(lfname, inputs, outputs)
+
+        vim.api.nvim_clear_autocmds({ group = contest_group })
+        -- print('Successfully added your test')
+        vim.notify("Successfully added your test")
+
+        vim.api.nvim_buf_delete(inbuf, {})
+        vim.api.nvim_buf_delete(outbuf, {})
+    end
+
+    vim.keymap.set('n', 'q', close_t, { buffer = inbuf })
+    vim.keymap.set('n', 'q', close_t, { buffer = outbuf })
+
     vim.api.nvim_buf_set_name(inbuf, "Inputs")
     vim.api.nvim_buf_set_name(outbuf, "Expected Outputs")
 
@@ -125,20 +143,6 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
         end
     end
 
-    local function close_t()
-        vim.api.nvim_win_close(win_in, true)
-
-        local inputs = vim.api.nvim_buf_get_lines(inbuf, 0, -1, false)
-        local outputs = vim.api.nvim_buf_get_lines(outbuf, 0, -1, false)
-
-        create_test(lfname, inputs, outputs)
-
-        vim.api.nvim_clear_autocmds({ group = contest_group })
-        print('Successfully added your test')
-    end
-
-    vim.keymap.set('n', 'q', close_t, { buffer = inbuf })
-    vim.keymap.set('n', 'q', close_t, { buffer = outbuf })
 
     vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
         group = contest_group,
@@ -178,7 +182,7 @@ vim.api.nvim_create_user_command("ContestRun", function(opts)
 
     vim.keymap.set('n', 'q', function()
         vim.api.nvim_win_close(win_buffer, true)
-    end)
+    end, { buffer = output_buffer })
 
     for index, value in ipairs(to_run) do
         local test_string = "[Test #" .. index .. "] "
