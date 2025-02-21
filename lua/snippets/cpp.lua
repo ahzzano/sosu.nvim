@@ -156,8 +156,7 @@ ls.add_snippets("cpp", {
     typedef long long int ll;
     typedef unsigned long long int ull;
 
-    typedef std::vector<ll> vec_i;
-    typedef std::pair<ll, ll> ipair;
+    using namespace std;
 
     int main() {{
         {}
