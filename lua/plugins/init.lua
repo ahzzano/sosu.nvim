@@ -114,7 +114,8 @@ local plugins = {
         opts = {
             explorer = { enabled = true },
             notifier = { enabled = true },
-            indent = { enabled = true }
+            indent = { enabled = true },
+            debug = { enabled = true }
         },
         keys = {
             { "<leader>pv", function() Snacks.explorer() end }
