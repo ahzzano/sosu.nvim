@@ -1,7 +1,7 @@
 -- Neovide Specific
 
 if vim.g.neovide then
-    vim.o.guifont = "Hack Nerd Font Mono:h10"
+    vim.o.guifont = "0xProto Nerd Font:h12"
     local padding = 10
     vim.g.neovide_padding_top = padding
     vim.g.neovide_padding_bottom = padding
