@@ -115,7 +115,19 @@ local plugins = {
             explorer = { enabled = true },
             notifier = { enabled = true },
             indent = { enabled = true },
-            debug = { enabled = true }
+            debug = { enabled = true },
+            picker = {
+                sources = {
+                    explorer = {
+                        layout = {
+                            layout = {
+                                position = "right",
+                                preview = false
+                            }
+                        }
+                    }
+                }
+            }
         },
         keys = {
             { "<leader>pv", function() Snacks.explorer() end }
