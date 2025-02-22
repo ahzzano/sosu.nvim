@@ -54,11 +54,11 @@ require('telescope').setup {
             prompt_title = "Search Key"
         },
         lsp_definitions = {
-            theme = "ivy"
+            theme = "ivy",
             results_title = "Definitions",
         },
         lsp_references = {
-            theme = "ivy"
+            theme = "ivy",
             results_title = "Results",
         }
     },
