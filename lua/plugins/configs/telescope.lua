@@ -41,7 +41,7 @@ require('telescope').setup {
         find_files = {
             previewer = false,
             results_title = 'Find Files',
-            prompt_title = "Search Key"
+            prompt_title = "Search Key",
         },
         buffers = {
             previewer = false,
@@ -53,6 +53,14 @@ require('telescope').setup {
             results_title = "Git Files",
             prompt_title = "Search Key"
         },
+        lsp_definitions = {
+            theme = "ivy"
+            results_title = "Definitions",
+        },
+        lsp_references = {
+            theme = "ivy"
+            results_title = "Results",
+        }
     },
     extensions = {
         fzf = {

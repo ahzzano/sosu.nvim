@@ -105,6 +105,12 @@ local plugins = {
         config = function()
             require('mini.ai').setup()
             require('mini.surround').setup()
+            local files = require('mini.files')
+            files.setup()
+
+            vim.keymap.set('n', 'pv', function()
+                files.open()
+            end)
         end
     },
     {
@@ -112,26 +118,10 @@ local plugins = {
         priority = 1000,
         lazy = false,
         opts = {
-            explorer = { enabled = true },
             notifier = { enabled = true },
             indent = { enabled = true },
             debug = { enabled = true },
-            picker = {
-                sources = {
-                    explorer = {
-                        layout = {
-                            layout = {
-                                position = "right",
-                                preview = false
-                            }
-                        }
-                    }
-                }
-            }
         },
-        keys = {
-            { "<leader>pv", function() Snacks.explorer() end }
-        }
     },
     {
         'windwp/nvim-autopairs',
