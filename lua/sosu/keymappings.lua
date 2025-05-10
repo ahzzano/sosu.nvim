@@ -13,6 +13,10 @@ vim.keymap.set('n', '<F1>', '', opts)
 vim.keymap.set('i', '<F1>', '', opts)
 
 -- General
+-- Buffers
+vim.keymap.set('n', '<leader>bh', ':bprev<CR>')
+vim.keymap.set('n', '<leader>bl', ':bnext<CR>')
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>')
 
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, opts)
 

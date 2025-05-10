@@ -2,35 +2,7 @@ if vim.bo.filetype == "lua" then
     require("neodev").setup()
 end
 
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 require('mason').setup({})
-require("mason-lspconfig").setup_handlers {
-    ['rust_analyzer'] = function() end
-}
-require('mason-lspconfig').setup({
-    ensure_installed = {
-        -- the fun stuff
-        'clangd',
-        'gopls',
-        'lua_ls',
-        'pyright',
-        'omnisharp',
-
-        -- Good Webdev Items
-        'ts_ls',
-        'biome',
-        'eslint',
-        'volar',
-    },
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({
-                capabilities = lsp_capabilities
-            })
-        end,
-    },
-})
 
 local signs = {
     Error = "✘",
@@ -82,7 +54,7 @@ local function setup_keybinds(event)
         { buffer = event.buf, desc = "[R]ename [S]ymbol" })
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.code_action() end,
         { buffer = event.buf, desc = "Show Code Actions" })
-    vim.keymap.set('n', '<leader>vrf', function() vim.lsp.buf.format({ async = true }) end,
+    vim.keymap.set('n', '<leader>vcc', function() vim.lsp.buf.format({ async = true }) end,
         { buffer = event.buf, desc = "Format Document" })
     vim.keymap.set('n', '<leader>vih', function()
         if vim.lsp.inlay_hint then
@@ -140,3 +112,5 @@ require("lspconfig").clangd.setup({
     inlay_hints = true,
 
 })
+
+require("lspconfig").svelte.setup({})
