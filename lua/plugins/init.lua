@@ -179,17 +179,40 @@ local plugins = {
             vim.keymap.set('n', 'pv', function()
                 files.open()
             end)
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "MiniFilesActionRename",
+                callback = function(event)
+                    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+                end,
+            })
         end
     },
     {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
+        -- config = function()
+        --     vim.api.nvim_create_autocmd("User", {
+        --         pattern = "MiniFilesActionRename",
+        --         callback = function(event)
+        --             Snacks.rename.on_rename_file(event.data.from, event.data.to)
+        --         end,
+        --     })
+        -- end,
         opts = {
             notifier = { enabled = true },
             indent = { enabled = true },
             debug = { enabled = true },
+            dashboard = { enabled = true },
+            terminal = {},
+            zen = {}
         },
+        keys = {
+            { "<C-t>",      function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
+            { '<leader>gb', function() Snacks.gitbrowse() end },
+            { '<leader>gl', function() Snacks.picker.git_log() end },
+            { "<leader>/",  function() Snacks.zen() end }
+        }
     },
     {
         'windwp/nvim-autopairs',
@@ -337,6 +360,15 @@ local plugins = {
         event = "VeryLazy",
         lazy = true,
     },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    }
 }
 
 return plugins
