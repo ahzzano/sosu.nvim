@@ -3,6 +3,14 @@ if vim.bo.filetype == "lua" then
 end
 
 require('mason').setup({})
+require("mason-lspconfig").setup({
+    automatic_enable = {
+        'lua_ls'
+    },
+    ensure_installed = {
+        'biome', 'clangd', 'ts_ls'
+    }
+})
 
 local signs = {
     Error = "✘",
@@ -114,3 +122,6 @@ require("lspconfig").clangd.setup({
 })
 
 require("lspconfig").svelte.setup({})
+require("lspconfig").biome.setup({})
+require("lspconfig").ts_ls.setup({})
+require("lspconfig").tailwindcss.setup({})

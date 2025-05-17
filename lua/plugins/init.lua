@@ -41,9 +41,6 @@ local plugins = {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
         }
     },
     {
@@ -170,9 +167,14 @@ local plugins = {
     {
         'echasnovski/mini.nvim',
         version = '*',
+        dependencies = {
+            "folke/snacks.nvim",
+
+        },
         config = function()
             require('mini.ai').setup()
             require('mini.surround').setup()
+            require('mini.sessions').setup()
             local files = require('mini.files')
             files.setup()
 
@@ -191,27 +193,23 @@ local plugins = {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
-        -- config = function()
-        --     vim.api.nvim_create_autocmd("User", {
-        --         pattern = "MiniFilesActionRename",
-        --         callback = function(event)
-        --             Snacks.rename.on_rename_file(event.data.from, event.data.to)
-        --         end,
-        --     })
-        -- end,
         opts = {
             notifier = { enabled = true },
             indent = { enabled = true },
             debug = { enabled = true },
-            dashboard = { enabled = true },
-            terminal = {},
-            zen = {}
+            dashboard = {
+                enabled = true,
+                sections = {
+                    { section = "header" },
+                    { section = "keys",   gap = 1, padding = 1 },
+                    { section = "startup" },
+                }
+            },
         },
         keys = {
             { "<C-t>",      function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
             { '<leader>gb', function() Snacks.gitbrowse() end },
             { '<leader>gl', function() Snacks.picker.git_log() end },
-            { "<leader>/",  function() Snacks.zen() end }
         }
     },
     {
@@ -232,7 +230,8 @@ local plugins = {
         lazy = true,
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            "williamboman/mason.nvim",
+            "mason-org/mason.nvim",
+            "mason-org/mason-lspconfig.nvim",
         },
         opts = {
         },
@@ -243,7 +242,7 @@ local plugins = {
         end,
     },
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         opts = {
             ui = {
                 border = "single",
@@ -272,7 +271,7 @@ local plugins = {
         },
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         lazy = true,
     },
     {
@@ -296,7 +295,10 @@ local plugins = {
     },
     {
         "windwp/nvim-ts-autotag",
-        lazy = true,
+        lazy = false,
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -363,10 +365,6 @@ local plugins = {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
         opts = {},
     }
 }
