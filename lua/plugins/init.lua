@@ -58,9 +58,13 @@ local plugins = {
             workspaces = {
                 {
                     name = "personal",
-                    path = "~/Notes/personal-knowledge-vault",
+                    path = "~/Notes/personal-knowledge-vault/",
                 },
             },
+            templates = {
+                folder = "Templates",
+                id_format = "%Y%m%d%h%m"
+            }
 
             -- see below for full list of options 👇
         },
@@ -330,6 +334,13 @@ local plugins = {
         opts = {
             transparent_background = true
         },
+    },
+    {
+        "navarasu/onedark.nvim",
+        priority = 1000, -- make sure to load this before all the other start plugins
+        opts = {
+            transparent = true
+        }
     },
     {
         "sainnhe/gruvbox-material",
