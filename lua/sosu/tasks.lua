@@ -3,7 +3,7 @@
 -- Test No.
 -- Input
 -- Expected Output
-tests = {
+local tests = {
     {
         fname = 'graph.cpp',
         input = { '2', '3' },
@@ -16,7 +16,7 @@ tests = {
     }
 }
 
-timeouts = {
+local timeouts = {
 
 }
 
@@ -157,14 +157,14 @@ vim.api.nvim_create_user_command("ContestAddTest", function()
     })
 end, {})
 
-vim.api.nvim_create_user_command("ContestRun", function(opts)
+vim.api.nvim_create_user_command("ContestRun", function()
     local to_run = {}
 
     local fname = vim.api.nvim_buf_get_name(0)
     local ft = vim.bo[0].ft
     local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
 
-    for index, value in ipairs(tests) do
+    for _, value in ipairs(tests) do
         if value.fname == lfname then
             table.insert(to_run, value)
         end
