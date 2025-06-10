@@ -12,6 +12,7 @@ vim.lsp.enable({
     'lua_ls',
     'gopls',
     'clangd',
+    'biome'
 })
 
 vim.diagnostic.config({
