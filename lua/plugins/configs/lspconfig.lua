@@ -2,37 +2,24 @@ if vim.bo.filetype == "lua" then
     require("neodev").setup()
 end
 
+vim.lsp.enable({
+    'svelte',
+    'ts-ls',
+    'angularls',
+    'tailwindcss',
+    'lua_ls'
+})
+
 require('mason').setup({})
 require("mason-lspconfig").setup({
     automatic_enable = {
         'lua_ls'
     },
     ensure_installed = {
-        'biome', 'clangd', 'ts_ls'
+        'biome', 'ts_ls', 'tailwindcss'
     }
 })
 
-local signs = {
-    Error = "✘",
-    Warn = "▲",
-    Hint = "󰄛",
-    Info = "»",
-}
-
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = "",
-        virt_text_pos = "eol",
-    },
-    inlay_hints = {
-        enable = true
-    }
-})
 
 local function setup_keybinds(event)
     local opts = { buffer = event.buf }
@@ -42,8 +29,8 @@ local function setup_keybinds(event)
     vim.keymap.set('n', 'gd', ts.lsp_definitions)
     vim.keymap.set('n', 'gr', ts.lsp_references)
 
-    vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+    vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 
     vim.keymap.set('n', 'td', function()
         vim.diagnostic.config({
@@ -92,36 +79,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         setup_autofmt()
     end
 })
-
--- Godot things
-require('lspconfig').gdscript.setup({
-    cmd = { 'ncat', 'localhost', '6005' }, -- the important trick for Windows!
-    filetypes = { 'gd', 'gdscript', 'gdscript3' }
-})
-
-require('lspconfig').gdscript.setup({
-    cmd = { 'godot-wsl-lsp', '--useMirroredNetworking' }
-})
-
-require('lspconfig').lua_ls.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            },
-            hint = {
-                enable = true,
-            },
-        }
-    }
-})
-
-require("lspconfig").clangd.setup({
-    inlay_hints = true,
-
-})
-
-require("lspconfig").svelte.setup({})
-require("lspconfig").biome.setup({})
-require("lspconfig").ts_ls.setup({})
-require("lspconfig").tailwindcss.setup({})

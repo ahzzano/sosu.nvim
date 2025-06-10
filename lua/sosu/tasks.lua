@@ -23,10 +23,10 @@ timeouts = {
 -- Create a test
 --- @type string[]
 --- @param fname string Filename
---- @param input stirng[]? Inputs
+--- @param input string[]? Inputs
 --- @param output string[] Expected Outputs
 local function create_test(fname, input, output)
-    for index, value in ipairs(output) do
+    for index, _ in ipairs(output) do
         if output[index] == '' then
             table.remove(output, index)
         end
@@ -69,7 +69,7 @@ end
 
 local contest_group = vim.api.nvim_create_augroup('ContestGroup', { clear = true })
 
-vim.api.nvim_create_user_command("ContestCompile", function(opts)
+vim.api.nvim_create_user_command("ContestCompile", function()
     local fname = vim.api.nvim_buf_get_name(0)
     local ft = vim.bo[0].ft
     local lfname = string.gsub(fname, vim.fn.getcwd() .. "/", '')
@@ -283,11 +283,11 @@ local function display_testcase(buf, testcase)
     table.insert(outputs, '===================')
     table.insert(outputs, '')
 
-    for index, value in ipairs(inputs) do
+    for _, value in ipairs(inputs) do
         table.insert(map, value)
     end
 
-    for index, value in ipairs(outputs) do
+    for _, value in ipairs(outputs) do
         table.insert(map, value)
     end
 

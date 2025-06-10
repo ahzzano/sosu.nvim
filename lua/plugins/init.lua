@@ -112,7 +112,7 @@ local plugins = {
         "leoluz/nvim-dap-go",
         ft = "go",
         config = function()
-            local dap_go = require('dap-go').setup()
+            require('dap-go').setup()
             vim.keymap.set('n', '<leader>dgt', function()
                 require('dap-go').debug_test()
             end)

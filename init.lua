@@ -1,6 +1,7 @@
 require("sosu.tasks")
 require('sosu.keymappings')
 require('sosu.config')
+require('sosu.lsp')
 
 require('lazy.lazy')
 
