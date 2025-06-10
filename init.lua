@@ -1,3 +1,6 @@
+require('plugins')
+require('plugins.setup')()
+
 require("sosu.tasks")
 require('sosu.keymappings')
 require('sosu.config')
@@ -6,9 +9,6 @@ require('sosu.lsp')
 require('lazy.lazy')
 
 require('sosu.colors')
-
-require('plugins')
-require('plugins.setup')()
 
 local pf = vim.fn.getcwd() .. '/project.godot'
 local godot_pf = io.open(pf)
