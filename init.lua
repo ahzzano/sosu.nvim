@@ -20,3 +20,5 @@ if godot_pf ~= nil then
 end
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx", })
+
+require('shortcuts.angular')
