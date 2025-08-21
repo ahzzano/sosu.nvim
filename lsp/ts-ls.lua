@@ -1,5 +1,3 @@
-local mason_registry = require('mason-registry')
-
 return {
     cmd = { "typescript-language-server", "--stdio" },
     filetypes = {

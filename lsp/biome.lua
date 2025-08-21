@@ -3,5 +3,5 @@ return {
     filetypes = { "astro", "css", "graphql", "javascript", "javascriptreact", "json", "jsonc", "svelte", "typescript", "typescript.tsx", "typescriptreact", "vue", "html" },
     root_markers = {
         'package.json'
-    }
+    },
 }

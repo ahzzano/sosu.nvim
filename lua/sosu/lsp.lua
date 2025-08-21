@@ -12,7 +12,7 @@ vim.lsp.enable({
     'lua_ls',
     'gopls',
     'clangd',
-    'biome',
+    -- 'biome',
     'vue_ls'
 })
 
