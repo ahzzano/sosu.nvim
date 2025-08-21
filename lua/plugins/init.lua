@@ -363,19 +363,6 @@ local plugins = {
         opts = {},
     },
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        config = function()
-            require("plugins.configs.neogit")
-        end,
-        event = "VeryLazy",
-        lazy = true,
-    },
-    {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
         opts = {},
