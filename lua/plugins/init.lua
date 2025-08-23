@@ -220,8 +220,6 @@ local plugins = {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         config = true
-        -- use opts = {} for passing setup options
-        -- this is equivalent to setup({}) function
     },
     {
         'numToStr/Comment.nvim',
@@ -251,15 +249,6 @@ local plugins = {
             ui = {
                 border = "single",
             },
-            ensure_installed = {
-                'clangd',
-                'gopls',
-                'rust_analyzer',
-                'zls',
-                'lua_ls',
-                'pyright',
-                'debugpy'
-            }
         },
         build = function()
             pcall(vim.api.nvim_command, "MasonUpdate")
@@ -366,6 +355,12 @@ local plugins = {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
         opts = {},
+    },
+    {
+        'chomosuke/typst-preview.nvim',
+        lazy = false, -- or ft = 'typst'
+        version = '1.*',
+        opts = {},    -- lazy.nvim will implicitly calls `setup {}`
     }
 }
 

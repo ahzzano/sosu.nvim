@@ -13,7 +13,9 @@ vim.lsp.enable({
     'gopls',
     'clangd',
     -- 'biome',
-    'vue_ls'
+    'vue_ls',
+    'clangd',
+    'tinymist'
 })
 
 vim.diagnostic.config({
