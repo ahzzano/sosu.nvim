@@ -23,9 +23,8 @@ local plugins = {
     -- Main
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
-    -- "hrsh7th/cmp-nvim-lsp",
-    -- "saadparwaiz1/cmp_luasnip",
-    -- "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+    "saadparwaiz1/cmp_luasnip",
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -102,11 +101,6 @@ local plugins = {
                 }
             },
         },
-        keys = {
-            -- { "<C-t>",      function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
-            { '<leader>gb', function() Snacks.gitbrowse() end },
-            { '<leader>gl', function() Snacks.picker.git_log() end },
-        }
     },
     {
         'windwp/nvim-autopairs',
@@ -117,10 +111,6 @@ local plugins = {
         "neovim/nvim-lspconfig",
         lazy = true,
         event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            "mason-org/mason.nvim",
-            "mason-org/mason-lspconfig.nvim",
-        },
         opts = {
         },
 
@@ -128,6 +118,19 @@ local plugins = {
             require("plugins.configs.lspconfig")
             require("plugins.configs.cmp")
         end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        lazy = false,
+        event = "InsertEnter",
+        dependencies = {
+            { "L3MON4D3/LuaSnip" },
+            { 'windwp/nvim-autopairs' }
+        },
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        lazy = true,
     },
     {
         "mason-org/mason.nvim",
@@ -139,19 +142,6 @@ local plugins = {
         build = function()
             pcall(vim.api.nvim_command, "MasonUpdate")
         end,
-    },
-    {
-        "hrsh7th/nvim-cmp",
-        lazy = true,
-        event = "InsertEnter",
-        dependencies = {
-            { "L3MON4D3/LuaSnip" },
-            { 'windwp/nvim-autopairs' }
-        },
-    },
-    {
-        "mason-org/mason-lspconfig.nvim",
-        lazy = true,
     },
     {
         "L3MON4D3/LuaSnip",
@@ -197,6 +187,8 @@ local plugins = {
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
+        lazy = true,
+        ft = { 'markdown' },
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
         opts = {},
     },

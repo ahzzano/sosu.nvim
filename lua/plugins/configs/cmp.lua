@@ -52,6 +52,9 @@ function csuper_tab(fallback)
 end
 
 cmp.setup({
+    view = {
+        entries = 'native_menu'
+    },
     preselect = 'item',
     completion = {
         completeopt = 'menu,menuone,noinsert'

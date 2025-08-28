@@ -49,7 +49,7 @@ vim.opt.foldmethod = vim.opt.foldmethod
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.laststatus = 0
+vim.opt.laststatus = 3
 vim.opt.showtabline = 0
 
 vim.opt.hlsearch = false
