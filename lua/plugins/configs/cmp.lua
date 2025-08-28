@@ -11,7 +11,7 @@ require("snippets.go")
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
     -- vim_item.kind = " " .. kind_icons[vim_item.kind] .. " " or ""
-    vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
+    vim_item.kind = string.format(' %s ', kind_icons[vim_item.kind])
     return vim_item
 end
 
@@ -90,14 +90,14 @@ cmp.setup({
     }
 })
 
-cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
-    })
-})
+-- cmp.setup.cmdline(':', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({
+--         { name = 'path' }
+--     }, {
+--         { name = 'cmdline' }
+--     })
+-- })
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 

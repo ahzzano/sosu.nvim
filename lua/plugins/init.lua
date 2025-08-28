@@ -5,56 +5,6 @@ local plugins = {
         opts = {
         }
     },
-    -- {
-    --     "epwalsh/obsidian.nvim",
-    --     version = "*", -- recommended, use latest release instead of latest commit
-    --     lazy = true,
-    --     ft = "markdown",
-    --     dependencies = {
-    --         -- Required.
-    --         "nvim-lua/plenary.nvim",
-    --
-    --         -- see below for full list of optional dependencies 👇
-    --     },
-    --     opts = {
-    --         workspaces = {
-    --             {
-    --                 name = "personal",
-    --                 path = "~/Notes/personal-knowledge-vault/",
-    --             },
-    --         },
-    --         templates = {
-    --             folder = "Templates",
-    --             id_format = "%Y%m%d%h%m"
-    --         }
-    --
-    --         -- see below for full list of options 👇
-    --     },
-    -- },
-    -- {
-    --     'mfussenegger/nvim-dap',
-    --     config = function()
-    --         require('plugins.configs.dap')
-    --     end
-    -- },
-    -- "jay-babu/mason-nvim-dap.nvim",
-    -- {
-    --     'mfussenegger/nvim-dap-python',
-    --     config = function()
-    --         require('dap-python').setup('python')
-    --     end,
-    --
-    -- },
-    -- {
-    --     'theHamsta/nvim-dap-virtual-text',
-    --     config = function()
-    --         require('nvim-dap-virtual-text').setup {
-    --             virt_text_Pos = 'inline',
-    --             highlight_changed_variables = false,
-    --             all_frames = true
-    --         }
-    --     end
-    -- },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
@@ -70,26 +20,12 @@ local plugins = {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
     },
-    -- {
-    --     "leoluz/nvim-dap-go",
-    --     ft = "go",
-    --     config = function()
-    --         require('dap-go').setup()
-    --         vim.keymap.set('n', '<leader>dgt', function()
-    --             require('dap-go').debug_test()
-    --         end)
-    --         vim.keymap.set('n', '<leader>dgl', function()
-    --             require('dap-go').debug_last()
-    --         end)
-    --     end
-    --
-    -- },
     -- Main
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-nvim-lsp",
+    -- "saadparwaiz1/cmp_luasnip",
+    -- "hrsh7th/cmp-cmdline",
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -101,12 +37,6 @@ local plugins = {
             },
         },
     },
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     opts = {
-    --
-    --     }
-    -- },
     {
         "lewis6991/gitsigns.nvim",
         config = true,
@@ -184,12 +114,6 @@ local plugins = {
         config = true
     },
     {
-        'numToStr/Comment.nvim',
-        opts = {
-            -- add any options here
-        }
-    },
-    {
         "neovim/nvim-lspconfig",
         lazy = true,
         event = { "BufReadPre", "BufNewFile" },
@@ -256,13 +180,6 @@ local plugins = {
         end
     },
     {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("plugins.configs.lualine")
-        end,
-        lazy = false,
-    },
-    {
         'mrcjkb/rustaceanvim',
         version = '^5', -- Recommended
         lazy = false,   -- This plugin is already lazy
@@ -277,19 +194,6 @@ local plugins = {
             crates.setup(opts)
             crates.show()
         end,
-    },
-    {
-        "navarasu/onedark.nvim",
-        priority = 1000, -- make sure to load this before all the other start plugins
-        opts = {
-            transparent = true
-        }
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',

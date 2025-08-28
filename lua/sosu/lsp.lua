@@ -15,7 +15,8 @@ vim.lsp.enable({
     -- 'biome',
     'vue_ls',
     'clangd',
-    'tinymist'
+    'tinymist',
+    -- 'rust-analyzer'
 })
 
 vim.diagnostic.config({
