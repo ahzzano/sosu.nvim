@@ -1,10 +1,4 @@
 local plugins = {
-    -- {
-    --     "folke/todo-comments.nvim",
-    --     dependencies = { "nvim-lua/plenary.nvim" },
-    --     opts = {
-    --     }
-    -- },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
