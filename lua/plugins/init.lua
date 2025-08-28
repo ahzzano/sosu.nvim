@@ -1,74 +1,36 @@
 local plugins = {
-    -- dap stuff
-    -- {
-    --     "folke/trouble.nvim",
-    --     cmd = "Trouble",
-    --     opts = {},
-    --     keys = {
-    --         {
-    --             "<leader>xx",
-    --             "<cmd>Trouble diagnostics toggle<cr>",
-    --             desc = "Diagnostics (Trouble)",
-    --         },
-    --         {
-    --             "<leader>xX",
-    --             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-    --             desc = "Buffer Diagnostics (Trouble)",
-    --         },
-    --         {
-    --             "<leader>cs",
-    --             "<cmd>Trouble symbols toggle focus=false<cr>",
-    --             desc = "Symbols (Trouble)",
-    --         },
-    --         {
-    --             "<leader>cl",
-    --             "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-    --             desc = "LSP Definitions / references / ... (Trouble)",
-    --         },
-    --         {
-    --             "<leader>xL",
-    --             "<cmd>Trouble loclist toggle<cr>",
-    --             desc = "Location List (Trouble)",
-    --         },
-    --         {
-    --             "<leader>xQ",
-    --             "<cmd>Trouble qflist toggle<cr>",
-    --             desc = "Quickfix List (Trouble)",
-    --         },
-    --     },
-    -- },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
         }
     },
-    {
-        "epwalsh/obsidian.nvim",
-        version = "*", -- recommended, use latest release instead of latest commit
-        lazy = true,
-        ft = "markdown",
-        dependencies = {
-            -- Required.
-            "nvim-lua/plenary.nvim",
-
-            -- see below for full list of optional dependencies 👇
-        },
-        opts = {
-            workspaces = {
-                {
-                    name = "personal",
-                    path = "~/Notes/personal-knowledge-vault/",
-                },
-            },
-            templates = {
-                folder = "Templates",
-                id_format = "%Y%m%d%h%m"
-            }
-
-            -- see below for full list of options 👇
-        },
-    },
+    -- {
+    --     "epwalsh/obsidian.nvim",
+    --     version = "*", -- recommended, use latest release instead of latest commit
+    --     lazy = true,
+    --     ft = "markdown",
+    --     dependencies = {
+    --         -- Required.
+    --         "nvim-lua/plenary.nvim",
+    --
+    --         -- see below for full list of optional dependencies 👇
+    --     },
+    --     opts = {
+    --         workspaces = {
+    --             {
+    --                 name = "personal",
+    --                 path = "~/Notes/personal-knowledge-vault/",
+    --             },
+    --         },
+    --         templates = {
+    --             folder = "Templates",
+    --             id_format = "%Y%m%d%h%m"
+    --         }
+    --
+    --         -- see below for full list of options 👇
+    --     },
+    -- },
     -- {
     --     'mfussenegger/nvim-dap',
     --     config = function()
