@@ -1,42 +1,42 @@
 local plugins = {
     -- dap stuff
-    {
-        "folke/trouble.nvim",
-        cmd = "Trouble",
-        opts = {},
-        keys = {
-            {
-                "<leader>xx",
-                "<cmd>Trouble diagnostics toggle<cr>",
-                desc = "Diagnostics (Trouble)",
-            },
-            {
-                "<leader>xX",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                desc = "Buffer Diagnostics (Trouble)",
-            },
-            {
-                "<leader>cs",
-                "<cmd>Trouble symbols toggle focus=false<cr>",
-                desc = "Symbols (Trouble)",
-            },
-            {
-                "<leader>cl",
-                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-                desc = "LSP Definitions / references / ... (Trouble)",
-            },
-            {
-                "<leader>xL",
-                "<cmd>Trouble loclist toggle<cr>",
-                desc = "Location List (Trouble)",
-            },
-            {
-                "<leader>xQ",
-                "<cmd>Trouble qflist toggle<cr>",
-                desc = "Quickfix List (Trouble)",
-            },
-        },
-    },
+    -- {
+    --     "folke/trouble.nvim",
+    --     cmd = "Trouble",
+    --     opts = {},
+    --     keys = {
+    --         {
+    --             "<leader>xx",
+    --             "<cmd>Trouble diagnostics toggle<cr>",
+    --             desc = "Diagnostics (Trouble)",
+    --         },
+    --         {
+    --             "<leader>xX",
+    --             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+    --             desc = "Buffer Diagnostics (Trouble)",
+    --         },
+    --         {
+    --             "<leader>cs",
+    --             "<cmd>Trouble symbols toggle focus=false<cr>",
+    --             desc = "Symbols (Trouble)",
+    --         },
+    --         {
+    --             "<leader>cl",
+    --             "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+    --             desc = "LSP Definitions / references / ... (Trouble)",
+    --         },
+    --         {
+    --             "<leader>xL",
+    --             "<cmd>Trouble loclist toggle<cr>",
+    --             desc = "Location List (Trouble)",
+    --         },
+    --         {
+    --             "<leader>xQ",
+    --             "<cmd>Trouble qflist toggle<cr>",
+    --             desc = "Quickfix List (Trouble)",
+    --         },
+    --     },
+    -- },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -69,30 +69,30 @@ local plugins = {
             -- see below for full list of options 👇
         },
     },
-    {
-        'mfussenegger/nvim-dap',
-        config = function()
-            require('plugins.configs.dap')
-        end
-    },
-    "jay-babu/mason-nvim-dap.nvim",
-    {
-        'mfussenegger/nvim-dap-python',
-        config = function()
-            require('dap-python').setup('python')
-        end,
-
-    },
-    {
-        'theHamsta/nvim-dap-virtual-text',
-        config = function()
-            require('nvim-dap-virtual-text').setup {
-                virt_text_Pos = 'inline',
-                highlight_changed_variables = false,
-                all_frames = true
-            }
-        end
-    },
+    -- {
+    --     'mfussenegger/nvim-dap',
+    --     config = function()
+    --         require('plugins.configs.dap')
+    --     end
+    -- },
+    -- "jay-babu/mason-nvim-dap.nvim",
+    -- {
+    --     'mfussenegger/nvim-dap-python',
+    --     config = function()
+    --         require('dap-python').setup('python')
+    --     end,
+    --
+    -- },
+    -- {
+    --     'theHamsta/nvim-dap-virtual-text',
+    --     config = function()
+    --         require('nvim-dap-virtual-text').setup {
+    --             virt_text_Pos = 'inline',
+    --             highlight_changed_variables = false,
+    --             all_frames = true
+    --         }
+    --     end
+    -- },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
@@ -108,20 +108,20 @@ local plugins = {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
     },
-    {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        config = function()
-            require('dap-go').setup()
-            vim.keymap.set('n', '<leader>dgt', function()
-                require('dap-go').debug_test()
-            end)
-            vim.keymap.set('n', '<leader>dgl', function()
-                require('dap-go').debug_last()
-            end)
-        end
-
-    },
+    -- {
+    --     "leoluz/nvim-dap-go",
+    --     ft = "go",
+    --     config = function()
+    --         require('dap-go').setup()
+    --         vim.keymap.set('n', '<leader>dgt', function()
+    --             require('dap-go').debug_test()
+    --         end)
+    --         vim.keymap.set('n', '<leader>dgl', function()
+    --             require('dap-go').debug_last()
+    --         end)
+    --     end
+    --
+    -- },
     -- Main
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
@@ -139,12 +139,12 @@ local plugins = {
             },
         },
     },
-    {
-        "j-hui/fidget.nvim",
-        opts = {
-
-        }
-    },
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     opts = {
+    --
+    --     }
+    -- },
     {
         "lewis6991/gitsigns.nvim",
         config = true,
@@ -211,7 +211,7 @@ local plugins = {
             },
         },
         keys = {
-            { "<C-t>",      function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
+            -- { "<C-t>",      function() Snacks.terminal.toggle() end, desc = "Toggle Terminal" },
             { '<leader>gb', function() Snacks.gitbrowse() end },
             { '<leader>gl', function() Snacks.picker.git_log() end },
         }
@@ -317,33 +317,11 @@ local plugins = {
         end,
     },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        opts = {
-            transparent_background = true
-        },
-    },
-    {
         "navarasu/onedark.nvim",
         priority = 1000, -- make sure to load this before all the other start plugins
         opts = {
             transparent = true
         }
-    },
-    {
-        "sainnhe/gruvbox-material",
-        priority = 1000,
-        opts = {},
-
-    },
-    {
-        "sainnhe/sonokai",
-        priority = 1000,
-        config = function()
-            vim.g.sonokai_style = "shusia"
-        end
-
     },
     {
         "folke/tokyonight.nvim",
@@ -361,7 +339,8 @@ local plugins = {
         lazy = false, -- or ft = 'typst'
         version = '1.*',
         opts = {},    -- lazy.nvim will implicitly calls `setup {}`
-    }
+    },
+    "nyoom-engineering/oxocarbon.nvim"
 }
 
 return plugins

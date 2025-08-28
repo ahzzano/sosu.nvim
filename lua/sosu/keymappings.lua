@@ -49,3 +49,4 @@ vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- For OJ purposes
 vim.keymap.set('n', '<leader>oj', 'ggVG"+yzz', opts)
+vim.keymap.set('n', "<C-t>", ':split<CR>:term<CR>')
