@@ -1,10 +1,10 @@
 local plugins = {
-    {
-        "folke/todo-comments.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-        }
-    },
+    -- {
+    --     "folke/todo-comments.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim" },
+    --     opts = {
+    --     }
+    -- },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
@@ -169,12 +169,12 @@ local plugins = {
             require('nvim-ts-autotag').setup()
         end
     },
-    {
-        'mrcjkb/rustaceanvim',
-        version = '^5', -- Recommended
-        lazy = false,   -- This plugin is already lazy
-        ft = { "rust" },
-    },
+    -- {
+    --     'mrcjkb/rustaceanvim',
+    --     version = '^5', -- Recommended
+    --     lazy = false,   -- This plugin is already lazy
+    --     ft = { "rust" },
+    -- },
     {
         "saecki/crates.nvim",
         ft = { "rust", "toml" },
