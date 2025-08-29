@@ -7,7 +7,35 @@ local plugins = {
         -- dependencies = { "echasnovski/mini.icons" },
         config = function()
             local fzf = require('fzf-lua')
+            local ignore_fdirs = {
+                'node_modules',
+                'bin',
+                '.git',
+                'build',
+                'target',
+                'include'
+            }
+            fzf.setup({
+                files = {
+                    previewer = false,
+                    file_ignore_patterns = ignore_fdirs
+                },
+                git = {
+                    files = {
+                        previewer = false,
+                        file_ignore_patterns = ignore_fdirs
+                    }
+                },
+                lsp = {
+                    async = true
+
+                }
+            })
             vim.keymap.set('n', '<leader>ff', fzf.files)
+            vim.keymap.set('n', '<leader>fF', fzf.git_files)
+
+            vim.keymap.set('n', '<leader>fgb', fzf.git_branches)
+
             vim.keymap.set('n', '<leader>gd', fzf.lsp_definitions)
             vim.keymap.set('n', '<leader>gr', fzf.lsp_references)
         end,
@@ -82,15 +110,6 @@ local plugins = {
         opts = {
             notifier = { enabled = true },
             indent = { enabled = true },
-            debug = { enabled = true },
-            dashboard = {
-                enabled = true,
-                sections = {
-                    { section = "header" },
-                    { section = "keys",   gap = 1, padding = 1 },
-                    { section = "startup" },
-                }
-            },
         },
     },
     {

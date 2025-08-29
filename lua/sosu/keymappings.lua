@@ -51,4 +51,20 @@ vim.keymap.set('n', '<leader>oj', 'ggVG"+yzz', opts)
 vim.keymap.set('n', "<C-t>", ':botright 10new<CR>:term<CR>')
 
 -- SOME LSP STUFF
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, opts)
+vim.keymap.set('n', '<leader>lf', function()
+    vim.lsp.buf.format({ async = true })
+end, opts)
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', '<leader>k', vim.lsp.buf.code_action, opts)
+
+vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, opts)
+
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+
+vim.keymap.set('n', '<leader>th', function()
+    if vim.lsp.inlay_hint then
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    end
+end)
