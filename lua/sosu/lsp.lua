@@ -40,11 +40,7 @@ vim.diagnostic.config({
 
 local function setup_keybinds(event)
     local opts = { buffer = event.buf }
-    local ts = require('telescope.builtin')
-
-
-    vim.keymap.set('n', 'gd', ts.lsp_definitions)
-    vim.keymap.set('n', 'gr', ts.lsp_references)
+    local fzf = require('fzf-lua')
 
     vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
     vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)

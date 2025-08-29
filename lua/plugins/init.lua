@@ -1,18 +1,17 @@
 local plugins = {
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim'
-        },
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        -- or if using mini.icons/mini.nvim
+        -- dependencies = { "echasnovski/mini.icons" },
         config = function()
-            require('plugins.configs.telescope')
-        end
-    },
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+            local fzf = require('fzf-lua')
+            vim.keymap.set('n', '<leader>ff', fzf.files)
+            vim.keymap.set('n', '<leader>gd', fzf.lsp_definitions)
+            vim.keymap.set('n', '<leader>gr', fzf.lsp_references)
+        end,
+        opts = {}
     },
     -- Main
     "nvim-tree/nvim-web-devicons",
@@ -58,12 +57,10 @@ local plugins = {
         version = '*',
         dependencies = {
             "folke/snacks.nvim",
-
         },
         config = function()
             require('mini.ai').setup()
             require('mini.surround').setup()
-            require('mini.sessions').setup()
             local files = require('mini.files')
             files.setup()
 
@@ -123,10 +120,6 @@ local plugins = {
         },
     },
     {
-        "mason-org/mason-lspconfig.nvim",
-        lazy = true,
-    },
-    {
         "mason-org/mason.nvim",
         opts = {
             ui = {
@@ -163,12 +156,6 @@ local plugins = {
             require('nvim-ts-autotag').setup()
         end
     },
-    -- {
-    --     'mrcjkb/rustaceanvim',
-    --     version = '^5', -- Recommended
-    --     lazy = false,   -- This plugin is already lazy
-    --     ft = { "rust" },
-    -- },
     {
         "saecki/crates.nvim",
         ft = { "rust", "toml" },
