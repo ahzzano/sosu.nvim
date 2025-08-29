@@ -89,19 +89,28 @@ local plugins = {
         config = function()
             require('mini.ai').setup()
             require('mini.surround').setup()
-            local files = require('mini.files')
-            files.setup()
-
-            vim.keymap.set('n', 'pv', function()
-                files.open()
-            end)
-            vim.api.nvim_create_autocmd("User", {
-                pattern = "MiniFilesActionRename",
-                callback = function(event)
-                    Snacks.rename.on_rename_file(event.data.from, event.data.to)
-                end,
-            })
+            -- local files = require('mini.files')
+            -- files.setup()
+            --
+            -- vim.keymap.set('n', 'pv', function()
+            --     files.open()
+            -- end)
+            -- vim.api.nvim_create_autocmd("User", {
+            --     pattern = "MiniFilesActionRename",
+            --     callback = function(event)
+            --         Snacks.rename.on_rename_file(event.data.from, event.data.to)
+            --     end,
+            -- })
         end
+    },
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        lazy = false,
+        keys = {
+            { '<leader>pv', ':Oil<cr>' }
+        }
     },
     {
         "folke/snacks.nvim",
@@ -189,7 +198,7 @@ local plugins = {
         'MeanderingProgrammer/render-markdown.nvim',
         lazy = true,
         ft = { 'markdown' },
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         opts = {},
     },
     {

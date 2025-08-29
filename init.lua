@@ -1,5 +1,4 @@
 require('plugins')
-require('plugins.setup')()
 
 require("sosu.tasks")
 require('sosu.keymappings')
