@@ -43,6 +43,7 @@ local plugins = {
     },
     -- Main
     "nvim-tree/nvim-web-devicons",
+    "nyoom-engineering/oxocarbon.nvim",
     "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
@@ -89,28 +90,21 @@ local plugins = {
         config = function()
             require('mini.ai').setup()
             require('mini.surround').setup()
-            -- local files = require('mini.files')
-            -- files.setup()
-            --
-            -- vim.keymap.set('n', 'pv', function()
-            --     files.open()
-            -- end)
-            -- vim.api.nvim_create_autocmd("User", {
-            --     pattern = "MiniFilesActionRename",
-            --     callback = function(event)
-            --         Snacks.rename.on_rename_file(event.data.from, event.data.to)
-            --     end,
-            -- })
+            require('mini.indentscope').setup()
+            require('mini.pick').setup()
+            local files = require('mini.files')
+            files.setup()
+
+            vim.keymap.set('n', 'pv', function()
+                files.open()
+            end)
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "MiniFilesActionRename",
+                callback = function(event)
+                    Snacks.rename.on_rename_file(event.data.from, event.data.to)
+                end,
+            })
         end
-    },
-    {
-        'stevearc/oil.nvim',
-        opts = {},
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        lazy = false,
-        keys = {
-            { '<leader>pv', ':Oil<cr>' }
-        }
     },
     {
         "folke/snacks.nvim",
@@ -118,7 +112,6 @@ local plugins = {
         lazy = false,
         opts = {
             notifier = { enabled = true },
-            indent = { enabled = true },
         },
     },
     {
@@ -207,7 +200,14 @@ local plugins = {
         version = '1.*',
         opts = {},    -- lazy.nvim will implicitly calls `setup {}`
     },
-    "nyoom-engineering/oxocarbon.nvim"
+    -- {
+    --     dir = "~/Projects/nvim-plugins/contest.nvim",
+    --     name = "contest.nvim",
+    --     config = function()
+    --         local contest = require('contest')
+    --         contest.setup()
+    --     end
+    -- }
 }
 
 return plugins

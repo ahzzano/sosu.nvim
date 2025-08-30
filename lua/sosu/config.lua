@@ -56,3 +56,4 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.showmode = false
+vim.o.winborder = 'rounded'
