@@ -48,7 +48,19 @@ vim.keymap.set("n", "<leader>Y", "\"+y", opts)
 vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- For OJ purposes
 vim.keymap.set('n', '<leader>oj', 'ggVG"+yzz', opts)
-vim.keymap.set('n', "<C-t>", ':botright 10new<CR>:term<CR>')
+
+-- better terminal
+local current_term = nil
+vim.keymap.set('n', "<C-t>", function()
+    if current_term ~= nil then
+        vim.api.nvim_buf_delete(current_term, { force = true })
+        current_term = nil
+    else
+        vim.cmd('botright 16new')
+        vim.cmd('terminal')
+        current_term = vim.api.nvim_get_current_buf()
+    end
+end)
 
 -- SOME LSP STUFF
 vim.keymap.set('n', '<leader>lf', function()

@@ -55,5 +55,5 @@ vim.opt.showtabline = 0
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.o.winborder = 'rounded'

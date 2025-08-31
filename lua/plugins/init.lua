@@ -44,7 +44,7 @@ local plugins = {
     -- Main
     "nvim-tree/nvim-web-devicons",
     "nyoom-engineering/oxocarbon.nvim",
-    "nvim-lua/plenary.nvim",
+    -- "nvim-lua/plenary.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
     {
