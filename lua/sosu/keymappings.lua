@@ -3,12 +3,16 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- some timesavers
+vim.keymap.set('n', '<leader>m', ':update<CR> :make<CR>')
+
 -- Resize
 vim.keymap.set('n', '<C-up>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<C-down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-right>', ':vertical resize +2<CR>', opts)
 
+-- Disable help
 vim.keymap.set('n', '<F1>', '', opts)
 vim.keymap.set('i', '<F1>', '', opts)
 
@@ -20,6 +24,7 @@ vim.keymap.set('n', '<leader>bd', ':bdelete<CR>')
 
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, opts)
 
+-- Conv. move
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
