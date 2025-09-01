@@ -57,3 +57,9 @@ vim.opt.incsearch = true
 
 vim.opt.showmode = true
 vim.o.winborder = 'rounded'
+
+-- AUTOCOMPLETION
+-- vim.o.complete = ".,o" -- use buffer and omnifunc
+vim.o.completeopt = "fuzzy,menuone,noselect" -- add 'popup' for docs (sometimes)
+vim.o.pumheight = 7
+

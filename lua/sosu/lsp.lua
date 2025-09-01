@@ -47,9 +47,28 @@ local function setup_autofmt()
     })
 end
 
+local function setup_autocomplete(ev)
+    local chars = {}
+    for i = 32, 126 do
+        table.insert(chars, string.char(i))
+    end
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    if client == nil then
+        print('no client')
+        return
+    end
+
+    if client.server_capabilities then
+        client.server_capabilities.completionProvider.triggerCharacters = chars
+
+        vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {autotrigger= true})
+    end
+end
+
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --     group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
 --     callback = function(event)
---         setup_autofmt()
+--         setup_autocomplete(event)
 --     end
 -- })
