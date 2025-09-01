@@ -9,7 +9,7 @@ local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.add_snippets("python", {
+return {
     s('fastinp', fmt([[
     import sys
 
@@ -17,4 +17,4 @@ ls.add_snippets("python", {
     {}
     ]], { i(0) }))
 
-})
+}

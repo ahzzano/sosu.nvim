@@ -7,7 +7,7 @@ local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 
-ls.add_snippets("go", {
+return {
     s("iferr",
         fmt([[
             if {} != nil {{
@@ -18,4 +18,4 @@ ls.add_snippets("go", {
             i(0)
         })
     ),
-})
+} 
