@@ -2,12 +2,8 @@ local cmp = require 'cmp'
 
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
-
--- add the snippets
--- require("snippets.cpp")
--- require("snippets.python")
--- require("snippets.go")
 require('luasnip.loaders.from_lua').lazy_load({paths=vim.fn.stdpath('config')..'/snippets'})
+luasnip.setup()
 
 local kind_icons = require('sosu.core').lspicons
 local function format(_, vim_item)
@@ -86,6 +82,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), {'i', 'c'}),
     },
     snippet = {
         expand = function(args)
@@ -94,18 +91,10 @@ cmp.setup({
     }
 })
 
--- cmp.setup.cmdline(':', {
---     mapping = cmp.mapping.preset.cmdline(),
---     sources = cmp.config.sources({
---         { name = 'path' }
---     }, {
---         { name = 'cmdline' }
---     })
--- })
-
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.event:on(
     'confirm_done',
     cmp_autopairs.on_confirm_done()
 )
+
