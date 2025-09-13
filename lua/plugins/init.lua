@@ -36,7 +36,6 @@ local plugins = {
 
             vim.keymap.set('n', '<leader>fgb', fzf.git_branches)
 
-            vim.keymap.set('n', '<leader>gd', fzf.lsp_definitions)
             vim.keymap.set('n', '<leader>gr', fzf.lsp_references)
         end,
         opts = {}

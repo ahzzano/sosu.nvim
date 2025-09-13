@@ -77,6 +77,12 @@ vim.keymap.set('n', '<leader>k', vim.lsp.buf.code_action, opts)
 
 vim.keymap.set('n', '<leader>rs', vim.lsp.buf.rename, opts)
 
+-- jump to definition keymaps
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, opts)
+vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
+vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
+
 vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
 vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 
